@@ -1,3 +1,44 @@
+*{
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
 .notFound{
-    display: grid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notFound p{
+    transform: translateY(15vh);
+    color: #676974;
+}
+
+.notFoundText{
+    font-size: 40px;
+}
+
+.notFoundTextSmall{
+    font-size: 24px;
+}
+
+.droneImage{
+    width: 750px;
+    height: 750px;
+}
+
+.oval{
+    width: 103vw;
+    position: absolute;
+    height: 100vh;
+    background-color: #CDD5DD;
+    border-radius: 50%;
+    transform: translate(0, 45%);
+    z-index: -1;
+}
+.centerElement{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
