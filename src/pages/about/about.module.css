@@ -1,0 +1,22 @@
+*{
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+.mainDiv{
+    display: flex;
+    width: 1360px;
+    height: 1980px;
+    gap: 160px;
+    background-color: blue;
+    margin-top: 227px;
+    justify-content: center;
+}
+
+.firstInform{
+    width: 1014px;
+    height: 786px;
+    gap: 70px;
+    background-color: red;
+}

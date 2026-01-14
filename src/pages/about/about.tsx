@@ -1,11 +1,10 @@
 import { Header } from "../../app/Header/"
-import styles from "./not-found.module.css"
+import styles from "./about.module.css"
+import { Footer } from "../../app/Footer"
 
 export function About() {
 
     return (
-        <div className={styles.about}>
-            
-        </div>
+        <div className={styles.about}></div>
     )
 }
