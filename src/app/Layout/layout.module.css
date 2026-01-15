@@ -1,15 +1,24 @@
+@font-face {
+  font-family: 'walsheimPro';
+  src: url('../../assets/fonts/walsheimPro.ttf');
+}
+
 *{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    overflow: hidden;
+    font-family: "walsheimPro";
+    font-weight: 100;
+    color: #0C122A;
 }
+
 
 .parentElement{
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 30px 40px 0 40px;
     overflow: scroll;
 }

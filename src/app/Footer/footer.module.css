@@ -1,95 +1,54 @@
 .footer{
-    width: 1440px;
-    height: 851px;
+    width:100vw;
+    height: 100%;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color: #CDD5DD;
-    margin-top: 2325px;
+    padding-top: 87px;
+    gap: 58px;
+    position: relative;
+    overflow: hidden;
 }
 
 .footerInfo{
-    width: 799px;
-    height: 116px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 180px;
-    margin-top: 87px;
-    display: flex;
 }
 
-.infoBlockFirst{
-    width: 144px;
-    height: 116px;
-    gap: 48px;
+.infoBlock{
+    gap: 35px;
     display: flex;
     align-items: center;
     flex-direction: column;
+    z-index: 1;
 }
 
-.infoBlockFirst h1{
-    font-weight: 700;
-    font-size: 44px;
-    color: #0C122A;
-}
-
-.infoBlockFist p{
-    font-weight: 400;
-    font-size: 16px;
-    color: #0C122A;
-}
-
-.infoBlockSecond{
-    width: 157px;
-    height: 116px;
-    gap: 48px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.infoBlockSecond h1{
-    font-weight: 700;
-    font-size: 44px;
-    color: #0C122A;
-}
-
-.infoBlockSecond p{
-    font-weight: 400;
-    font-size: 16px;
-    color: #0C122A;
-}
-
-.infoBlockThird{
-    width: 138px;
-    height: 116px;
-    gap: 48px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.infoBlockThird h1{
-    font-weight: 700;
-    font-size: 44px;
-    color: #0C122A;
-}
-
-.infoBlockThird p{
-    font-weight: 400;
-    font-size: 16px;
-    color: #0C122A;
+.footerLogo{
+    width: 909px;
 }
 
 .footerLinks{
-    width: 483px;
-    height: 18px;
-    margin-top: 592.42px;
-    gap: 27px;
     display: flex;
-    justify-content: center;
+    gap: 27px;
+    margin-top: 81px;
 }
 
-.link{
-    text-decoration: none;
-    font-size: 16px;
+.footerLinks *{
+    color: black;
     font-weight: 500;
-    color: #0C122A;
+    text-decoration: none;
+}
+
+.oval{
+    width: 170vw;
+    position: absolute;
+    height: 100vh;
+    background-color: #CDD5DD;
+    border-radius: 50%;
+    transform: translate(0, -80%);
+    background-color: white;
+    z-index: 0;
 }

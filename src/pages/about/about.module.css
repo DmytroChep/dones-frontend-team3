@@ -1,22 +1,16 @@
-*{
-    overflow: hidden;
-    padding: 0;
-    margin: 0;
-}
-
-.mainDiv{
+.about{
     display: flex;
-    width: 1360px;
-    height: 1980px;
-    gap: 160px;
-    background-color: blue;
-    margin-top: 227px;
-    justify-content: center;
+    flex-direction: column;
+
+    align-items: center;
 }
 
-.firstInform{
-    width: 1014px;
-    height: 786px;
-    gap: 70px;
-    background-color: red;
+
+.firstBlock{
+    display: flex;
+    flex-direction: column;
+}
+
+.imageBLock1{
+    width: 1105px;
 }

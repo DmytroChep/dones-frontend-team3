@@ -1,3 +1,4 @@
+import { IMAGES } from "../../shared"
 import  styles from "./footer.module.css"
 import { Link } from "react-router-dom"
 
@@ -6,20 +7,22 @@ export function Footer() {
 
     return (
     <footer className={styles.footer}>
+        <div className={styles.oval}></div>
         <div className={styles.footerInfo}>
-            <div className={styles.infoBlockFirst}>
+            <div className={styles.infoBlock}>
                 <div><h1>1K+</h1></div>
                 <div><p>Успішних відправок</p></div>
             </div>
-            <div className={styles.infoBlockSecond}>
+            <div className={styles.infoBlock}>
                 <div><h1>1.5K+</h1></div>
                 <div><p>Задоволених клієнтів</p></div>
             </div>
-            <div className={styles.infoBlockThird}>
+            <div className={styles.infoBlock}>
                 <div><h1>24/7</h1></div>
                 <div><p>Підтримка клієнтів</p></div>
             </div>
         </div>
+        <img src={IMAGES.footerLogo} className={styles.footerLogo}/>
         <div className={styles.footerLinks}>
             <Link to = "/catalog/" className={styles.link}>КАТАЛОГ</Link>
             <Link to = "/about/" className={styles.link}>ПРО НАС</Link>

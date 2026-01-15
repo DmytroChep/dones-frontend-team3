@@ -11,7 +11,7 @@ export function Layout() {
             <Main>
                 <Outlet></Outlet>
             </Main>
-			<Footer/>
+			<Footer></Footer>
 		</div>
 	);
 }
