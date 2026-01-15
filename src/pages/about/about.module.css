@@ -1,16 +1,62 @@
 .about{
     display: flex;
     flex-direction: column;
-
     align-items: center;
+    padding-top: 57px;
+    gap: 160px;
 }
 
 
 .firstBlock{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 70px;
 }
 
-.imageBLock1{
-    width: 1105px;
+.imageBlock1{
+    width: 1014px;
+}
+
+.aboutUsText{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.adoutUsTextHeader{
+    font-size: 44px;
+    color: #CDD5DD;
+    font-weight: 900;
+    font-family: "walsheimProBold";
+}
+
+.adoutUsTextMain{
+    text-align: center;
+    width: 70%;
+    font-size: 16px;
+}
+
+
+
+.secondAndThirdBlock{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr; 
+    gap: 24px;
+}
+
+.imageBlock2{
+    width: 100%;
+}
+
+.smallBlocksText{
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
+.smallBlocksTextHeader{
+    font-size: 44px;
 }

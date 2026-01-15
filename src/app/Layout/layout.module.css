@@ -1,7 +1,12 @@
 @font-face {
   font-family: 'walsheimPro';
+  src: url('../../assets/fonts/walsheimProRegular.ttf');
+}
+@font-face {
+  font-family: 'walsheimProBold';
   src: url('../../assets/fonts/walsheimPro.ttf');
 }
+
 
 *{
     box-sizing: border-box;
@@ -15,7 +20,6 @@
 
 .parentElement{
     width: 100vw;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
