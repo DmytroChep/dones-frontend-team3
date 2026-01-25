@@ -22,6 +22,7 @@ import { ReactComponent as Trash } from "../assets/icons/trash.svg";
 import { ReactComponent as User } from "../assets/icons/user.svg";
 import { ReactComponent as Visible } from "../assets/icons/visible.svg";
 import { ReactComponent as Warning } from "../assets/icons/warning.svg";
+import { ReactComponent as arrowRightWhite } from "../assets/icons/right-arrow-white.svg";
 
 export const ICONS = {
   blackCart: BlackCart,
@@ -48,4 +49,5 @@ export const ICONS = {
   user: User,
   visible: Visible,
   warning: Warning,
+  arrowRightWhite: arrowRightWhite
 };

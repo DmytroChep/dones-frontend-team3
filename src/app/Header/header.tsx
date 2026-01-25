@@ -4,9 +4,12 @@ import  styles from "./header.module.css"
 
 
 
-export function Header() {
+export function Header(props: {className?: string}) {
 
-    return (<header className={styles.header}>
+    const {className} = props
+
+    return (<header className={`${styles.header} ${className}`}>
+        <div className={styles.headerBlock}>
             <div className={styles.leftBlock}>
                 <Link to = "/catalog/" className={styles.link}>КАТАЛОГ</Link>
                 <Link to = "/about/" className={styles.link}>ПРО НАС</Link>
@@ -18,5 +21,6 @@ export function Header() {
                 <ICONS.cart className={styles.miniLogo}/>
                 <ICONS.user className={styles.miniLogo}/>
             </div>
+        </div>
         </header>)
 }

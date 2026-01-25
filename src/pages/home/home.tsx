@@ -1,0 +1,163 @@
+import { Header } from "../../app/Header"
+import styles from "./home.module.css"
+import { Footer } from "../../app/Footer"
+import { ICONS, IMAGES } from "../../shared"
+import { Button } from "../../shared/button"
+
+export function HomePage() {
+
+    return (
+        <div className={styles.home}>
+            <div className={styles.topBlock}>
+                <p className={styles.pageTitle}>Технології</p>
+                <p className={styles.pageTitle}>які змінюють реальність</p>
+                <img src={IMAGES.drone} className={styles.drone}/>
+                <div className={styles.footer}>
+                    <div className={styles.footerBlock}>
+                        <p className={styles.footerText}>Передові технології в одному місці. <br />Обирай найкраще для найважливішого.</p>
+                        <Button className = {styles.button} textClassName={styles.buttonText}>ДО КАТАЛОГУ</ Button>
+                    </div>
+                </div>
+                <div className={styles.oval}></div>
+            </div>
+            <div className={styles.otherBlock}>
+                <div className={styles.about}>
+                    <p className={styles.topText}>ПРО НАС</p>
+                    <p className={styles.middleText}>Ми — команда, що об'єднує технології та надійність. <br /> Пропонуємо дрони й тепловізори, перевірені у найскладніших умовах. <br /> Обираємо тільки те, чому довіряємо самі.</p>
+                    {/* <button className={styles.readMore}>
+                        <p className={styles.readMoreText}>ЧИТАТИ БІЛЬШЕ</p>
+                        <ICONS.rightArrow />
+                    </button> */}
+                    <Button
+                    withArrow 
+                    arrowColor="black"
+                    textClassName={styles.readMoreText}
+                    className={styles.readMore}
+                    >ЧИТАТИ БІЛЬШЕ</Button>
+                </div>
+                <div className={styles.new}>
+                    <p className={styles.topText}>НОВЕ НА САЙТІ</p>
+                    <div className={styles.drones}>
+                        
+                        <div className={styles.droneCard}>
+                            <img src={IMAGES.correctRotateDrone} className={styles.droneImage}/>
+                            <div className={`${styles.bottomDiv} ${styles.yellow}`}>
+                                <div className={styles.text}>
+                                    <p className={styles.mainTitle}>DJI Mini 4K</p>
+                                    <p className={styles.subTitle}>Easy-To-Use Mini Camera Drone</p>
+                                </div>
+                                <div className={styles.bottomBlock}>
+                                    <p className={styles.fromText}>
+                                        from to $299
+                                    </p>
+
+                                    <Button className={styles.readMoreWhite} 
+                                    textClassName={styles.readMoreTextWhite}
+                                    arrowClassName={styles.whiteArrow}
+                                    arrowColor="white"
+                                    withArrow
+                                    >КУПИТИ</Button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className={styles.droneCard}>
+                            <img src={IMAGES.correctRotateDrone} className={styles.droneImage}/>
+                            <div className={`${styles.bottomDiv} ${styles.black}`}>
+                                <div className={styles.text}>
+                                    <p className={styles.mainTitle}>DJI Mini 4K</p>
+                                    <p className={styles.subTitle}>Easy-To-Use Mini Camera Drone</p>
+                                </div>
+                                <div className={styles.bottomBlock}>
+                                    <p className={styles.fromText}>
+                                        from to $299
+                                    </p>
+
+                                    <Button className={styles.readMoreWhite} 
+                                    textClassName={styles.readMoreTextWhite}
+                                    arrowClassName={styles.whiteArrow}
+                                    arrowColor="white"
+                                    withArrow
+                                    >КУПИТИ</Button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className={styles.droneCard}>
+                            <img src={IMAGES.correctRotateDrone} className={styles.droneImage}/>
+                            <div className={`${styles.bottomDiv} ${styles.blue}`}>
+                                <div className={styles.text}>
+                                    <p className={styles.mainTitle}>DJI Mini 4K</p>
+                                    <p className={styles.subTitle}>Easy-To-Use Mini Camera Drone</p>
+                                </div>
+                                <div className={styles.bottomBlock}>
+                                    <p className={styles.fromText}>
+                                        from to $299
+                                    </p>
+
+                                    <Button className={styles.readMoreWhite} 
+                                    textClassName={styles.readMoreTextWhite}
+                                    arrowClassName={styles.whiteArrow}
+                                    arrowColor="white"
+                                    withArrow
+                                    >КУПИТИ</Button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.catalog}>
+                    <p className={styles.topText}>КАТАЛОГ</p>
+
+                    
+                    <div className={styles.droneCardsBlock}>
+                        <div className={styles.droneCardCatalog}>
+                            <img src={IMAGES.catalogExampleDrone} className={styles.catalogImage}/>
+                            <div className={styles.textBlock}>
+                                <p className={styles.droneTitle}>DJI Mini 4K</p>
+                                <div className={styles.price}>
+                                    <p className={styles.priceText}>29 900 $</p>
+                                    <p className={styles.discount}>30 000 $</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className={styles.droneCardCatalog}>
+                            <img src={IMAGES.catalogExampleDrone} className={styles.catalogImage}/>
+                            <div className={styles.textBlock}>
+                                <p className={styles.droneTitle}>DJI Mini 4K</p>
+                                <div className={styles.price}>
+                                    <p className={`${styles.withoutDiscount}`}>29 900 $</p> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className={styles.droneCardCatalog}>
+                            <img src={IMAGES.catalogExampleDrone} className={styles.catalogImage}/>
+                            <div className={styles.textBlock}>
+                                <p className={styles.droneTitle}>DJI Mini 4K</p>
+                                <div className={styles.price}>
+                                    <p className={`${styles.withoutDiscount}`}>29 900 $</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className={styles.droneCardCatalog}>
+                            <img src={IMAGES.catalogExampleDrone} className={styles.catalogImage}/>
+                            <div className={styles.textBlock}>
+                                <p className={styles.droneTitle}>DJI Mini 4K</p>
+                                <div className={styles.price}>
+                                    <p className={`${styles.withoutDiscount}`}>29 900 $</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <Button className = {styles.button} textClassName={styles.buttonText} withArrow arrowColor="white">ДИВИТИСЬ ВСІ</ Button>
+
+                </div>
+            </div>
+        </div>
+    )
+}

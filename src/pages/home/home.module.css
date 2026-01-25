@@ -1,0 +1,296 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.pageTitle{
+    font-size: 61px;
+    color: white;
+    font-family: 'walsheimPro';
+}
+
+.topBlock{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 851px;
+    padding-top: 121px;
+    background-color: #CDD5DD;
+    flex-direction: column;
+    overflow-y: hidden;
+    /* background-color: darkblue; */
+}
+
+.oval{
+    width: 170vw;
+    position: absolute;
+    height: 100vh;
+    background-color: #CDD5DD;
+    border-radius: 50%;
+    transform: translate(0, 30%);
+    background-color: white;
+    z-index: 0;
+}   
+
+.drone{
+    width: 811px;
+    position: absolute;
+    z-index: 1;
+    transform: translateY(-10%);
+}
+
+.footer{
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+    width: 95%;
+    padding-top: 28%;
+
+    z-index: 1;
+}
+
+.footerBlock{
+    display: flex;
+    flex-direction: column;
+    gap: 31px;
+}
+
+.otherBlock{
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 180px;
+}
+
+.about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 532px; 
+    gap: 24px;
+}
+
+.topText{
+    color: #CDD5DD;
+    font-size: 44px;
+}
+
+.middleText{
+    text-align: center;
+}
+.readMoreText{
+    color: black;
+}
+.readMore{
+    background-color: white;
+    border-radius: 1234px;
+    border: 1.5px solid black;
+    color: black;
+    display: flex;
+    gap: 16px;
+    width: 243px;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonText{
+    color: white;
+}
+
+.new{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+.drones{
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    row-gap: 100px;
+    flex-wrap: wrap;
+    padding-top: 135px;
+}
+
+.droneCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    width: 437px;
+    height: 437px;
+    border-radius: 10px;
+    background-image: none;
+    transition: background-image 0.3s ease;
+}
+
+.droneCard:hover{
+    background-image: "../../assets/images/droneImage1.png";
+}
+
+
+.droneImage{
+    width: 265px;
+    height: 265px;
+    transform: translateY(-110%);
+    position: absolute;
+}
+
+.bottomDiv{
+    display: flex;
+    width: 100%;
+    height: 233px;
+    flex-direction: column;
+    align-items: center;
+    padding: 34px 24px 0 24px;
+    border-radius: 10px;
+    gap: 69px;
+}
+
+.blue{
+    background-image: linear-gradient(white, #4F94A4);
+}
+
+.black{
+    background-image: linear-gradient(white, black);
+}
+
+.yellow{
+    background-image: linear-gradient(white, #F5BE4F);
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 188px;
+    height: 52px;
+    background-color: #0C122A;
+    color: white;
+    border-radius: 1234px;
+    cursor: pointer;
+}
+
+.text{
+    font-size: 14px;
+    color: white;
+}
+
+.mainTitle{
+    font-size: 44px;
+    color: white;
+}
+
+.subTitle{
+    color: white;
+    font-size: 16px;
+}
+
+.bottomBlock{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fromText{
+    color:white;
+}
+
+
+.readMoreWhite{
+    background-color: transparent;
+    border-radius: 1234px;
+    border: 1.5px solid white;
+    display: flex;
+    gap: 14px;
+    width: 122px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.whiteArrow{
+    width: 16px;
+    height: 16px;
+    color: wheat;
+}
+
+.readMoreTextWhite{
+    color: white;
+}
+
+.catalog{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 44px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+
+
+.droneCardCatalog{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 14px 14px 14px;
+    box-sizing: border-box;
+    width: 322px;
+    gap: 26px;
+}
+
+.catalogImage{
+    width: 100%;
+}
+
+.textBlock{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;   
+    height: 86px;
+}
+
+.droneTitle{
+    font-size: 24px;
+}
+
+.price{
+    display: flex;
+    gap: 16px;
+}
+
+
+.discount{
+    color: #B62D11;
+}
+
+.priceText{
+    text-decoration: line-through;
+}
+
+.droneCardsBlock{
+    display: flex;
+    gap: auto;
+
+}
