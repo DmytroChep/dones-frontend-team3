@@ -3,8 +3,13 @@ import styles from "./home.module.css"
 import { Footer } from "../../app/Footer"
 import { ICONS, IMAGES } from "../../shared"
 import { Button } from "../../shared/button"
+import { useProductsSugg } from "../../hooks/use-suggestions"
+import { IProduct } from "../../assets/types"
 
 export function HomePage() {
+    const {Products, isLoaded} = useProductsSugg({take: 3})
+
+    console.log(Products)
 
     return (
         <div className={styles.home}>
@@ -38,8 +43,33 @@ export function HomePage() {
                 <div className={styles.new}>
                     <p className={styles.topText}>НОВЕ НА САЙТІ</p>
                     <div className={styles.drones}>
+                        {Products.map((product:IProduct) => {
+                            return (
+                                <div className={styles.droneCard}>
+                                    <img src={IMAGES.correctRotateDrone} className={styles.droneImage}/>
+                                    <div className={`${styles.bottomDiv} ${styles[product.color]}`}>
+                                        <div className={styles.text}>
+                                            <p className={styles.mainTitle}>{product.title}</p>
+                                            <p className={styles.subTitle}>{product.description}</p>
+                                        </div>
+                                        <div className={styles.bottomBlock}>
+                                            <p className={styles.fromText}>
+                                                from to ${product.price}
+                                            </p>
+
+                                            <Button className={styles.readMoreWhite} 
+                                            textClassName={styles.readMoreTextWhite}
+                                            arrowClassName={styles.whiteArrow}
+                                            arrowColor="white"
+                                            withArrow
+                                            >КУПИТИ</Button>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })}
                         
-                        <div className={styles.droneCard}>
+                        {/* <div className={styles.droneCard}>
                             <img src={IMAGES.correctRotateDrone} className={styles.droneImage}/>
                             <div className={`${styles.bottomDiv} ${styles.yellow}`}>
                                 <div className={styles.text}>
@@ -103,7 +133,7 @@ export function HomePage() {
                                     >КУПИТИ</Button>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
