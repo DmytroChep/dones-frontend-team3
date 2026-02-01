@@ -1,4 +1,4 @@
-export interface IProductsSuggHeaders{
-    typeOfSuggestion?: "new" | "popular",
-    take?: number
+export interface IProductsSuggHeaders {
+	typeOfSuggestion?: "new" | "popular";
+	take?: number;
 }

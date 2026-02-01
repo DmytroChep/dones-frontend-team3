@@ -1,53 +1,53 @@
-.headerBlock{
-    display: flex;
-    width: 100%;
-    height: 64px;
-    background-color: white;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid #E4E4E7;
-    border-radius: 1234px;
-    padding-left: 40px;
-    padding-right: 40px;
+.headerBlock {
+	display: flex;
+	width: 100%;
+	height: 64px;
+	background-color: white;
+	justify-content: center;
+	align-items: center;
+	justify-content: space-between;
+	border: 1px solid #e4e4e7;
+	border-radius: 1234px;
+	padding-left: 40px;
+	padding-right: 40px;
 }
 
-.header{
-    width: 100vw;
-    padding: 30px 40px 0 40px;
-    background-color: #CDD5DD;
+.header {
+	width: 100vw;
+	padding: 30px 40px 0 40px;
+	background-color: #cdd5dd;
 }
 
-.leftBlock{
-    display: flex;
-    gap: 27px;
-    align-items: center;
-    width: 261px;
+.leftBlock {
+	display: flex;
+	gap: 27px;
+	align-items: center;
+	width: 261px;
 }
 
-.link{
-    font-weight: 500;
-    font-size: 14px;
-    color: #9EA0AA;
-    text-decoration: none;
+.link {
+	font-weight: 500;
+	font-size: 14px;
+	color: #9ea0aa;
+	text-decoration: none;
 }
 
-.rightBlock{
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    gap: 24px;
-    width: 261px;
+.rightBlock {
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	gap: 24px;
+	width: 261px;
 }
 
-.logo{
-    width: 108px;
-    height: 21px;
-    display: flex;
+.logo {
+	width: 108px;
+	height: 21px;
+	display: flex;
 }
 
-.miniLogo{
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
+.miniLogo {
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
 }

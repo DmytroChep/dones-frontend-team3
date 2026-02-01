@@ -1,39 +1,39 @@
-.notFound{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.notFound {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.notFound p{
-    transform: translateY(15vh);
-    color: #676974;
+.notFound p {
+	transform: translateY(15vh);
+	color: #676974;
 }
 
-.notFoundText{
-    font-size: 40px;
+.notFoundText {
+	font-size: 40px;
 }
 
-.notFoundTextSmall{
-    font-size: 24px;
+.notFoundTextSmall {
+	font-size: 24px;
 }
 
-.droneImage{
-    width: 750px;
-    height: 750px;
+.droneImage {
+	width: 750px;
+	height: 750px;
 }
 
-.oval{
-    width: 103vw;
-    position: absolute;
-    height: 100vh;
-    background-color: #CDD5DD;
-    border-radius: 50%;
-    transform: translate(0, 45%);
-    z-index: -1;
+.oval {
+	width: 103vw;
+	position: absolute;
+	height: 100vh;
+	background-color: #cdd5dd;
+	border-radius: 50%;
+	transform: translate(0, 45%);
+	z-index: -1;
 }
-.centerElement{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.centerElement {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 }
