@@ -7,6 +7,9 @@
 	align-items: center;
 }
 
+header{
+	background-color: #cdd5dd;
+}
 .pageTitle {
 	font-size: 61px;
 	color: white;
@@ -79,7 +82,8 @@
 .topText {
 	color: #cdd5dd;
 	font-size: 44px;
-    font-family: "walsheimProBold";
+	font-family: "walsheimProBold";
+	letter-spacing: -1%;
 }
 
 .middleText {

@@ -8,7 +8,7 @@ export interface IProduct {
 	title: string;
 	price: number;
 	img: string;
-	category: ICategory;
+	category: ICategory[];
 	description: string;
 	color: string;
 	_count: {

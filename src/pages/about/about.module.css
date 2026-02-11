@@ -8,6 +8,10 @@
 	padding-right: 40px;
 }
 
+header{
+	background-color: white;
+}
+
 .firstBlock {
 	display: flex;
 	flex-direction: column;

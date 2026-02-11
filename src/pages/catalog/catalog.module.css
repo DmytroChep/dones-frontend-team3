@@ -1,0 +1,175 @@
+
+.catalog {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	padding: 40px 39px 0 39px;
+}
+
+.catalogDiv{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+}
+.catalogTitle {
+	color: #cdd5dd;
+	font-size: 44px;
+    font-family: "walsheimProBold";
+	letter-spacing: -1%;
+}
+
+
+
+.droneCardCatalog {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 14px 14px 14px 14px;
+	box-sizing: border-box;
+	width: 322px;
+	gap: 26px;
+}
+
+.catalogImage {
+	width: 100%;
+}
+
+.textBlock {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 86px;
+}
+
+.droneTitle {
+	font-size: 24px;
+}
+
+.price {
+	display: flex;
+	gap: 16px;
+}
+
+.products{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 100%;
+	gap: 24px;
+}
+
+.choosedFilter{
+	width: 60px;
+	height: 60px;
+	border-radius: 1234px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: black;
+	font-size: 20px;
+	border: 0;
+	background-color: #cdd5dd;
+	cursor: pointer;
+}
+
+.hidden{
+	display: none;
+}
+.filters {
+    display: flex;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.filter, .choosedFilter {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Плавность */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.filter {
+    background-color: #f5f7f9;
+    color: #555;
+}
+
+.filter:hover {
+    background-color: #e2e8f0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.choosedFilter {
+    background-color: #666d6e;
+    color: white;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+}
+
+.filter:active, .choosedFilter:active {
+    transform: scale(0.95); 
+}
+
+.droneCardCatalog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 322px;
+    gap: 20px;
+    background: white;
+    border-radius: 20px;
+    border: 1px solid #f0f0f0;
+    transition: all 0.4s ease;
+	cursor: pointer;
+}
+
+.droneCardCatalog:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.catalogImage {
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.droneCardCatalog:hover .catalogImage {
+    transform: scale(1.05); 
+}
+
+.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+    display: none; 
+	transition: all 0.4s ease;
+}
+
+.withoutDiscount {
+    font-weight: bold;
+    color: #2d3436;
+    font-size: 1.2rem;
+}
+
+
+.droneFilter{
+	width: 100%;
+	height: 100%;
+}
+
+.lenseFilter{
+	width: 100%;
+	height: 75%;
+}

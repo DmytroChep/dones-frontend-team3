@@ -5,4 +5,5 @@ export interface IButtonProps {
 	arrowClassName?: string;
 	textClassName?: string;
 	arrowColor?: "white" | "black";
+	navigateTo?: string
 }

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Footer } from "../../app/Footer";
 import { Header } from "../../app/Header";
 import type { IProduct } from "../../assets/types";
@@ -13,6 +14,8 @@ export function HomePage() {
 		take: 3,
 		typeOfSuggestion: "popular",
 	});
+
+	const navigate = useNavigate()
 
 	console.log([newProducts, popularProducts]);
 
@@ -162,7 +165,7 @@ export function HomePage() {
 				</div>
 
 				<div className={styles.catalog}>
-					<p className={styles.topText}>КАТАЛОГ</p>
+					<p className={styles.topText}  	>КАТАЛОГ</p>
 
 					<div className={styles.droneCardsBlock}>
 						{popularProducts.map((element) => {
@@ -232,6 +235,7 @@ export function HomePage() {
 						textClassName={styles.buttonText}
 						withArrow
 						arrowColor="white"
+						navigateTo="/catalog/"
 					>
 						ДИВИТИСЬ ВСІ
 					</Button>
