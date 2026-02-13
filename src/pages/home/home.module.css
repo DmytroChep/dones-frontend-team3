@@ -7,9 +7,6 @@
 	align-items: center;
 }
 
-header{
-	background-color: #cdd5dd;
-}
 .pageTitle {
 	font-size: 61px;
 	color: white;
@@ -69,6 +66,7 @@ header{
 	flex-direction: column;
 	align-items: center;
 	gap: 180px;
+	background-color: white;
 }
 
 .about {

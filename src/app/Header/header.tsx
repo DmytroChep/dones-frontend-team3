@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import { ICONS, IMAGES } from "../../shared";
 import styles from "./header.module.css";
 
-export function Header(props: { className?: string }) {
-	const { className } = props;
+export function Header(props: { className?: string, isWhiteBg: boolean }) {
+	const { className, isWhiteBg } = props;
 
 	return (
-		<header className={`${styles.header} ${className}`}>
+		<header className={`${styles.header} ${className} ${isWhiteBg ? styles.whiteBg : styles.darkBg}`}>
 			<div className={styles.headerBlock}>
 				<div className={styles.leftBlock}>
 					<Link to="/catalog/" className={styles.link}>

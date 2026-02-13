@@ -8,6 +8,7 @@ import droneImage1 from "../assets/images/droneImage1.png";
 import footerLogo from "../assets/images/footerLogo.png";
 import logo from "../assets/images/logo.png";
 import lense from "../assets/images/lense.png"
+import correctRotationDrone2 from "../assets/images/correctRotationDrone2.png"
 
 export const IMAGES = {
 	logo: logo,
@@ -19,5 +20,6 @@ export const IMAGES = {
 	correctRotateDrone: correctRotateDrone,
 	droneImage1: droneImage1,
 	catalogExampleDrone: catalogExampleDrone,
-	monocular: lense
+	monocular: lense,
+	correctRotationDrone2: correctRotationDrone2
 };

@@ -1,0 +1,171 @@
+.productPage {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.topBlock {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 651px;
+    background-color: #cdd5dd;
+    flex-direction: column;
+    z-index: 1;
+    padding-top: 134px;
+	gap: 20px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden; 
+}
+
+.titleAndDescBlock {
+    width: 720px;   
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    position: relative;
+}
+
+.title {
+    font-size: 60px;
+    width: 100%;
+    letter-spacing: 0.03em;
+    color: white;
+    font-family: "walsheimProBold";
+    text-align: center;
+    margin: 0;
+}
+
+.description {
+    width: 100%;
+    color: #3D4155;
+    letter-spacing: 0.03em;
+    font-size: 16px;
+    text-align: center;
+    margin: 0;
+}
+
+.ovalShell {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.oval {
+    width: 180vw;
+    height: 1000px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 43%);
+    z-index: 1;
+}
+
+.droneImage {
+    width: 50vw; 
+    height: auto;
+    z-index: 10; 
+    /* position: absolute; */
+    /* bottom: -50px; 
+    left: 50%; */
+    /* transform: translateY(-20%); */
+    /* object-fit: contain;  */
+}
+
+
+
+.buyBlock {
+    background-color: white;
+    border-radius: 20px; 
+    padding: 24px;
+	gap: 24px;
+    
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+    
+    display: flex;
+    flex-direction: column;
+	position: absolute;
+	right: 40px;
+	bottom: 99px;
+	z-index: 10;
+}
+
+.droneInfoSmall{
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.droneImageSmall{
+	width: 50px;
+}
+
+.priceAndTitle{
+	width: 146px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.priceAndTitle p{
+	color: #0C122A;
+	font-size: 14px;
+}
+
+.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 144px;
+	height: 40px;
+	background-color: #0c122a;
+	color: white;
+	border-radius: 1234px;
+	cursor: pointer;
+}
+
+.text {
+	font-size: 14px;
+	color: white;
+}
+
+.buttonsBlock{
+	display: flex;
+	gap: 16px;
+}
+
+.buttonCart{
+	width: 44px;
+	height: 44px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #0C122A;
+	border-radius: 1234px;
+	background-color: white;
+	cursor: pointer;
+}
+
+.icon{
+	width: 16px;
+}
+
+
+
+.mainData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	padding-left: 40px;
+	padding-right: 40px;
+    width: 100%;
+    padding-top: 150px; 
+    min-height: 500px;
+	background-color: white;
+}

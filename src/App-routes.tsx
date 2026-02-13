@@ -4,13 +4,18 @@ import { About } from "./pages/about";
 import { HomePage } from "./pages/home";
 import { NotFound } from "./pages/not-found/not-found";
 import { CatalogPage } from "./pages/catalog";
+import { ProductPage } from "./pages/productPage";
+import { DarkHeaderLayout } from "./app/darkHeaderLayout";
 
 export function AppRoutes() {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={<Layout />}>
+				<Route path="/" element={<DarkHeaderLayout />}>
 					<Route path="/" element={<HomePage />} />
+					<Route path="/product/:id" element={<ProductPage />} />
+				</Route>
+				<Route path="/" element={<Layout />}>
 					<Route path="/about/" element={<About />} />
 					<Route path="/catalog/" element={<CatalogPage/>}/>
 				</Route>

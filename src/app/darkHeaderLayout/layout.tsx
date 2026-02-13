@@ -4,10 +4,10 @@ import { Header } from "../Header/";
 import { Main } from "../Main";
 import styles from "./layout.module.css";
 
-export function Layout() {
+export function DarkHeaderLayout() {
 	return (
 		<div className={styles.parentElement}>
-			<Header isWhiteBg/>
+			<Header isWhiteBg={false}/>
 			<Main>
 				<Outlet></Outlet>
 			</Main>
