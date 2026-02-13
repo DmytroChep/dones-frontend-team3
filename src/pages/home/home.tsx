@@ -8,9 +8,9 @@ import { Button } from "../../shared/button";
 import styles from "./home.module.css";
 
 export function HomePage() {
-	const { Products: popularProducts, isLoaded: isPopularLoaded } =
+	const { products: popularProducts, isLoaded: isPopularLoaded } =
 		useProductsSugg({ take: 4, typeOfSuggestion: "new" });
-	const { Products: newProducts, isLoaded: isNewLoaded } = useProductsSugg({
+	const { products: newProducts, isLoaded: isNewLoaded } = useProductsSugg({
 		take: 3,
 		typeOfSuggestion: "popular",
 	});
@@ -190,45 +190,45 @@ export function HomePage() {
 							);
 						})}
 						{/* <div className={styles.droneCardCatalog}>
-                            <img src={IMAGES.catalogExampleDrone} className={styles.catalogImage}/>
-                            <div className={styles.textBlock}>
-                                <p className={styles.droneTitle}>DJI Mini 4K</p>
-                                <div className={styles.price}>
-                                    <p className={styles.priceText}>29 900 $</p>
-                                    <p className={styles.discount}>30 000 $</p>
-                                </div>
-                            </div>
-                        </div>
+							<img src={IMAGES.catalogExampleDrone} className={styles.catalogImage}/>
+							<div className={styles.textBlock}>
+								<p className={styles.droneTitle}>DJI Mini 4K</p>
+								<div className={styles.price}>
+									<p className={styles.priceText}>29 900 $</p>
+									<p className={styles.discount}>30 000 $</p>
+								</div>
+							</div>
+						</div>
 
-                        <div className={styles.droneCardCatalog}>
-                            <img src={IMAGES.catalogExampleDrone} className={styles.catalogImage}/>
-                            <div className={styles.textBlock}>
-                                <p className={styles.droneTitle}>DJI Mini 4K</p>
-                                <div className={styles.price}>
-                                    <p className={`${styles.withoutDiscount}`}>29 900 $</p> 
-                                </div>
-                            </div>
-                        </div>
+						<div className={styles.droneCardCatalog}>
+							<img src={IMAGES.catalogExampleDrone} className={styles.catalogImage}/>
+							<div className={styles.textBlock}>
+								<p className={styles.droneTitle}>DJI Mini 4K</p>
+								<div className={styles.price}>
+									<p className={`${styles.withoutDiscount}`}>29 900 $</p> 
+								</div>
+							</div>
+						</div>
 
-                        <div className={styles.droneCardCatalog}>
-                            <img src={IMAGES.catalogExampleDrone} className={styles.catalogImage}/>
-                            <div className={styles.textBlock}>
-                                <p className={styles.droneTitle}>DJI Mini 4K</p>
-                                <div className={styles.price}>
-                                    <p className={`${styles.withoutDiscount}`}>29 900 $</p>
-                                </div>
-                            </div>
-                        </div>
+						<div className={styles.droneCardCatalog}>
+							<img src={IMAGES.catalogExampleDrone} className={styles.catalogImage}/>
+							<div className={styles.textBlock}>
+								<p className={styles.droneTitle}>DJI Mini 4K</p>
+								<div className={styles.price}>
+									<p className={`${styles.withoutDiscount}`}>29 900 $</p>
+								</div>
+							</div>
+						</div>
 
-                        <div className={styles.droneCardCatalog}>
-                            <img src={IMAGES.catalogExampleDrone} className={styles.catalogImage}/>
-                            <div className={styles.textBlock}>
-                                <p className={styles.droneTitle}>DJI Mini 4K</p>
-                                <div className={styles.price}>
-                                    <p className={`${styles.withoutDiscount}`}>29 900 $</p>
-                                </div>
-                            </div>
-                        </div> */}
+						<div className={styles.droneCardCatalog}>
+							<img src={IMAGES.catalogExampleDrone} className={styles.catalogImage}/>
+							<div className={styles.textBlock}>
+								<p className={styles.droneTitle}>DJI Mini 4K</p>
+								<div className={styles.price}>
+									<p className={`${styles.withoutDiscount}`}>29 900 $</p>
+								</div>
+							</div>
+						</div> */}
 					</div>
 					<Button
 						className={styles.button}

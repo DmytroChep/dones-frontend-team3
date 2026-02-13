@@ -6,7 +6,7 @@ import { ThreeDot } from "react-loading-indicators";
 import { useNavigate } from "react-router-dom";
 
 export function CatalogPage() {
-	const {Products, isLoaded} = useProductsSugg({typeOfSuggestion: "new"})
+	const {products, isLoaded} = useProductsSugg({typeOfSuggestion: "new"})
 	const [choosedFilter, setChoosedFilter] = useState<string>("all")
 
 	const navigate = useNavigate()
@@ -36,7 +36,7 @@ export function CatalogPage() {
 
 				</div>
 				<div className={styles.products}>
-					{isLoaded ? Products.map((element) => {
+					{isLoaded ? products.map((element) => {
 						return (
 								<div
 									className={`${styles.droneCardCatalog} 

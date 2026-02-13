@@ -4,11 +4,17 @@ import { useParams } from "react-router-dom";
 import styles from "./productPage.module.css"
 import { ICONS, IMAGES } from "../../shared";
 import { Button } from "../../shared/button";
+import { IProduct } from "../../assets/types";
+import { useProductsSugg } from "../../hooks/use-suggestions";
 
 export function ProductPage(){
 	const { id } = useParams<{ id: string }>(); 
   	const productId = Number(id);
 	const {product, isLoaded} = useProductById(productId)
+
+
+	const {products} = useProductsSugg({sameAs: {limit: 4, name: product?.title}})
+	
 
 	return (
 		<div className={styles.productPage}>
@@ -28,7 +34,7 @@ export function ProductPage(){
 						<img src={IMAGES.correctRotationDrone2} className={styles.droneImageSmall}/>
 						<div className={styles.priceAndTitle}>
 							<p className={styles.smallTitle}>{product?.title}</p>
-							<p className={styles.smallPrice}>{product?.price}</p>
+							<p className={styles.smallPrice}>{product?.price} ₴ </p>
 						</div>	
 					</div>
 					<div className={styles.buttonsBlock}>
@@ -41,7 +47,105 @@ export function ProductPage(){
 				</div>
 			</div>
 			<div className={styles.mainData}>
+				{product?.productDescription.map((product) => {
+					return (product.id == 0 ? (
+						<div className={styles.firstBlock}>
+						<div className={styles.aboutUsText}>
+							<p className={styles.adoutUsTextHeader}>{product.title.toLocaleUpperCase()}</p>
+							<p className={styles.adoutUsTextMain}>
+								{product.description}
+							</p>
+						</div>
+						<img src={IMAGES.aboutImage1} className={styles.imageBlock1} />
+					</div>
+					) : (<p/>))
+				})}
 				
+				{product?.productDescription.map((element) => {
+					return (
+						element.id % 2 === 0 ? (<div className={styles.secondAndThirdBlock}>
+							<div className={styles.smallBlocksText}>
+								<p className={styles.smallBlocksTextHeader}>{element.title}</p>
+								<p className={styles.smallBlocksTextMain}>
+									{element.description}
+								</p>
+							</div>
+							<img src={IMAGES.aboutImage2} className={styles.imageBlock2} />
+						</div>) : (
+						<div className={styles.secondAndThirdBlock}>
+							<img src={IMAGES.aboutImage2} className={styles.imageBlock2} />
+							<div className={styles.smallBlocksText}>
+								<p className={styles.smallBlocksTextHeader}>{element.title}</p>
+								<p className={styles.smallBlocksTextMain}>
+									{element.description}
+								</p>
+							</div>
+						</div>
+						)
+					)
+				})}
+				{product?.ProductCharacteristic.map((product) => {
+				return (<div className={styles.characteristics}>
+					<p className={styles.adoutUsTextHeader}>{product.title}</p>
+					<p className={styles.adoutUsTextMain}>
+						{product.description}
+					</p>
+
+					<div className={styles.characteristicsBlock}>
+						<div className={styles.characteristicsSubBlock}>
+							<p className={styles.subBlockText}>{product.coding}</p>
+							<p className={styles.subBlockTitle}>Кодування</p>
+						</div>
+						<div className={styles.characteristicsSubBlock}>
+							<p className={styles.subBlockText}>{product.ufsStorage} <p className={styles.gygabite}>GB</p></p>
+							<p className={styles.subBlockTitle}>UFS Сховище</p>
+						</div>
+						<div className={styles.characteristicsSubBlock}>
+							<p className={styles.subBlockText}>{product.eMMSStorage} <p className={styles.gygabite}>GB</p></p>
+							<p className={styles.subBlockTitle}>eMMS</p>
+						</div>
+
+					</div>
+					<img src={IMAGES.drone} className={styles.imageBlock1} />
+				</div>)
+				})}				
+				
+				<div className={styles.catalog}>
+					<p className={styles.topText}>СХОЖІ ТОВАРИ</p>
+
+					<div className={styles.droneCardsBlock}>
+						{products.map((element) => {
+							return (
+								<div
+									className={styles.droneCardCatalog}
+									key={`catalog${element.id}`}
+								>
+									<img
+										src={IMAGES.catalogExampleDrone}
+										className={styles.catalogImage}
+									/>
+									<div className={styles.textBlock}>
+										<p className={styles.droneTitle}>{element.title}</p>
+										<div className={styles.price}>
+											<p className={`${styles.withoutDiscount}`}>
+												{element.price} $
+											</p>
+										</div>
+									</div>
+								</div>
+							);
+						})}
+					</div>
+					<Button
+						className={styles.button}
+						textClassName={styles.buttonText}
+						withArrow
+						arrowColor="white"
+						navigateTo="/catalog/"
+					>
+						ДИВИТИСЬ ВСІ
+					</Button>
+				</div>
 			</div>
 		</div>
 		

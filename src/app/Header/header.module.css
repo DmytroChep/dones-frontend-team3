@@ -18,6 +18,7 @@
 
 .header {			
 	width: 100vw;
+	background-color: transparent !important;
 	padding: 30px 40px 0 40px;
 	position: fixed;
 	z-index: 10;
@@ -58,12 +59,3 @@
 	height: 24px;
 	cursor: pointer;
 }
-
-/* 
-.whiteBg{
-	background-color: white;
-}
-
-.darkBg{
-	background-color: #cdd5dd;
-} */

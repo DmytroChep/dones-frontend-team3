@@ -15,7 +15,7 @@ export interface IProduct {
 		orderProduct: number;
 	};
 	productDescription: productDescription[],
-	ProductCharacteristic: ProductCharacteristic
+	ProductCharacteristic: ProductCharacteristic[]
 }
 
 
