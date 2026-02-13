@@ -1,62 +1,114 @@
 .about {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding-top: 57px;
-	gap: 160px;
-	padding-left: 40px;
-	padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Плавный отступ сверху и между крупными блоками */
+    padding-top: clamp(80px, 10vw, 120px); 
+    gap: clamp(80px, 15vw, 160px);
+    padding-left: clamp(15px, 5vw, 40px);
+    padding-right: clamp(15px, 5vw, 40px);
+    max-width: 1440px;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
-
 .firstBlock {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(40px, 8vw, 70px);
+    width: 100%;
 }
 
 .imageBlock1 {
-	width: 1014px;
+    width: 100%;
+    max-width: 1014px; /* Твой размер */
+    height: auto;
+    border-radius: 24px;
+    object-fit: cover;
 }
 
 .aboutUsText {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
 }
 
 .adoutUsTextHeader {
-	font-size: 44px;
-	color: #cdd5dd;
-	font-weight: 900;
-	font-family: "walsheimProBold";
+    font-size: clamp(32px, 6vw, 44px);
+    color: #cdd5dd;
+    font-weight: 900;
+    font-family: "walsheimProBold";
+    margin: 0;
 }
 
 .adoutUsTextMain {
-	text-align: center;
-	width: 70%;
-	font-size: 16px;
+    text-align: center;
+    width: clamp(100%, 80%, 70%); /* На мобилках на всю ширину */
+    font-size: clamp(14px, 2vw, 16px);
+    line-height: 1.6;
+    margin: 0;
 }
 
+/* Шахматная сетка */
 .secondAndThirdBlock {
-	display: grid;
-	align-items: center;
-	grid-template-columns: 1fr 1fr;
-	gap: 24px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(30px, 5vw, 80px); /* Увеличил разрыв для воздуха */
+    width: 100%;
 }
 
 .imageBlock2 {
-	width: 100%;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
 }
 
 .smallBlocksText {
-	display: flex;
-	flex-direction: column;
-	gap: 45px;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 4vw, 45px);
 }
 
 .smallBlocksTextHeader {
-	font-size: 44px;
+    font-size: clamp(28px, 5vw, 44px);
+    font-family: "walsheimProBold";
+    line-height: 1.1;
+    margin: 0;
+}
+
+.smallBlocksTextMain {
+    font-size: clamp(14px, 2vw, 16px);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --- АДАПТИВ --- */
+
+@media (max-width: 900px) {
+    .secondAndThirdBlock {
+        grid-template-columns: 1fr; /* Текст и фото в одну колонку */
+        gap: 40px;
+    }
+
+    /* Делаем так, чтобы во втором блоке текст был над картинкой, 
+       даже если в HTML картинка идет первой */
+    .secondAndThirdBlock:nth-of-type(3) img {
+        order: 2;
+    }
+    .secondAndThirdBlock:nth-of-type(3) .smallBlocksText {
+        order: 1;
+    }
+
+    .adoutUsTextMain {
+        width: 100%;
+    }
+    
+    .about {
+        padding-top: 100px; /* Чтобы хедер не перекрывал заголовок */
+    }
 }

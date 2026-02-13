@@ -1,61 +1,123 @@
-.headerBlock {
-	display: flex;
-	width: 100%;
-	height: 64px;
-	background-color: rgba(255, 255, 255, 0);
-	justify-content: center;
-	align-items: center;
-	justify-content: space-between;
-	border: 1px solid #e4e4e7;
-	border-radius: 1234px;
-	padding-left: 40px;
-	padding-right: 40px;
-	/* position: fixed; */
-	z-index: 10;
-	background-color: rgba(255, 255, 255, 0.7);
-	backdrop-filter: blur(7px);
+.header {           
+    width: 100%;
+    background-color: transparent !important;
+    padding: 30px 40px 0 40px;
+    position: fixed;
+    z-index: 100;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
 }
 
-.header {			
-	width: 100vw;
-	background-color: transparent !important;
-	padding: 30px 40px 0 40px;
-	position: fixed;
-	z-index: 10;
-	
-	/* background-color: #cdd5dd; */
+.headerBlock {
+    display: flex;
+    width: 100%;
+    max-width: 1440px; /* Ограничиваем ширину, чтобы на огромных мониторах не разъезжалось */
+    height: 64px;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #e4e4e7;
+    border-radius: 1234px;
+    padding: 0 40px;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(7px);
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Боковые блоки теперь гибкие, что гарантирует центровку логотипа */
+.leftBlock, .rightBlock {
+    display: flex;
+    align-items: center;
+    flex: 1; 
 }
 
 .leftBlock {
-	display: flex;
-	gap: 27px;
-	align-items: center;
-	width: 261px;
-}
-
-.link {
-	font-weight: 500;
-	font-size: 14px;
-	color: #9ea0aa;
-	text-decoration: none;
+    gap: 27px;
+    justify-content: flex-start;
 }
 
 .rightBlock {
-	display: flex;
-	align-items: center;
-	justify-content: end;
-	gap: 24px;
-	width: 261px;
+    gap: 5%;
+    justify-content: flex-end;
+}
+
+.link {
+    font-weight: 500;
+    font-size: 14px;
+    color: #9ea0aa;
+    text-decoration: none;
+    transition: color 0.2s;
+    white-space: nowrap;
+}
+
+.link:hover {
+    color: #0c122a;
 }
 
 .logo {
-	width: 108px;
-	height: 21px;
-	display: flex;
+    width: 108px;
+    height: auto;
+    flex-shrink: 0; /* Логотип не должен сжиматься */
 }
 
 .miniLogo {
-	width: 24px;
-	height: 24px;
-	cursor: pointer;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.miniLogo:hover {
+    transform: scale(1.1);
+}
+
+/* --- БУРГЕР СТИЛИ --- */
+.burgerBtn {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 101;
+}
+.burgerLine {
+    width: 20px;
+    height: 2px;
+    background-color: #0c122a;
+    transition: 0.3s;
+}
+
+/* Адаптив */
+@media (max-width: 1024px) {
+    .header { padding: 20px 20px 0 20px; }
+    .headerBlock { padding: 0 25px; }
+    .leftBlock { gap: 15px; }
+}
+
+@media (max-width: 850px) {
+    .burgerBtn {
+        display: flex;
+        flex: 1;
+    }
+
+    .leftBlock {
+        display: none; /* Скрываем обычное меню */
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        border: 1px solid #e4e4e7;
+    }
+
+    .leftBlock.active {
+        display: flex; /* Показываем при клике */
+    }
+
+    .rightBlock { flex: 1; }
 }

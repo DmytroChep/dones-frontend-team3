@@ -87,6 +87,7 @@ export function HomePage() {
 												arrowClassName={styles.whiteArrow}
 												arrowColor="white"
 												withArrow
+												navigateTo={`/product/${product.id}`}
 											>
 												КУПИТИ
 											</Button>
