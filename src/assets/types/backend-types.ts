@@ -14,26 +14,44 @@ export interface IProduct {
 	_count: {
 		orderProduct: number;
 	};
-	productDescription: productDescription[],
-	ProductCharacteristic: ProductCharacteristic[]
+	productDescription: productDescription[];
+	ProductCharacteristic: ProductCharacteristic[];
 }
 
-
-interface productDescription{
-	id: number,
-	title: string,
-	description: string,
-	img: string,
-	productId: number
+export interface productDescription {
+	id: number;
+	title: string;
+	description: string;
+	img: string;
+	productId: number;
 }
 
-interface ProductCharacteristic{
-	id: number,
-	title: string,
-	description: string,
-	img: string,
-	coding: string,
-	ufsStorage: number,
-	eMMSStorage: number,
-	productId: number
+export interface ProductCharacteristic {
+	id: number;
+	title: string;
+	description: string;
+	img: string;
+	coding: string;
+	ufsStorage: number;
+	eMMSStorage: number;
+	productId: number;
+}
+
+export interface IUser {
+	id: number;
+	username: string;
+	email: string;
+	password: string;
+	isAdmin: boolean;
+}
+
+export interface IUserReg {
+	username: string;
+	email: string;
+	password: string;
+}
+
+export interface IUserLogin {
+	email: string;
+	password: string;
 }

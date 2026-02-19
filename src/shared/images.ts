@@ -3,12 +3,14 @@ import aboutImage1 from "../assets/images/about-image1.jpg";
 import aboutImage2 from "../assets/images/about-image2.jpg";
 import catalogExampleDrone from "../assets/images/catalogExampleDrone.png";
 import correctRotateDrone from "../assets/images/correctRotateDrone.png";
+import correctRotationDrone2 from "../assets/images/correctRotationDrone2.png";
 import drone from "../assets/images/drone.png";
 import droneImage1 from "../assets/images/droneImage1.png";
 import footerLogo from "../assets/images/footerLogo.png";
+import lense from "../assets/images/lense.png";
 import logo from "../assets/images/logo.png";
-import lense from "../assets/images/lense.png"
-import correctRotationDrone2 from "../assets/images/correctRotationDrone2.png"
+import Footer from "../assets/images/Footer.png";
+
 
 export const IMAGES = {
 	logo: logo,
@@ -21,5 +23,6 @@ export const IMAGES = {
 	droneImage1: droneImage1,
 	catalogExampleDrone: catalogExampleDrone,
 	monocular: lense,
-	correctRotationDrone2: correctRotationDrone2
+	correctRotationDrone2: correctRotationDrone2,
+	footer: Footer
 };

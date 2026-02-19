@@ -1,159 +1,166 @@
 .catalog {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-height: 100vh;
-    align-items: center;
-    /* Используем clamp для отступов: на мобилках 20px, на десктопе 40px */
-    padding: clamp(20px, 5vw, 40px) clamp(15px, 3vw, 39px);
-    box-sizing: border-box;
-    background-color: #fcfcfc; /* Легкий фон для выделения карточек */
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	min-height: 100vh;
+	align-items: center;
+	/* Используем clamp для отступов: на мобилках 20px, на десктопе 40px */
+	padding: clamp(20px, 5vw, 40px) clamp(15px, 3vw, 39px);
+	box-sizing: border-box;
+	background-color: #fcfcfc; /* Легкий фон для выделения карточек */
 }
 
 .catalogDiv {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 1440px; /* Чтобы каталог не растягивался бесконечно */
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 1440px; /* Чтобы каталог не растягивался бесконечно */
 }
 
 .catalogTitle {
-    color: #cdd5dd;
-    /* Резиновый шрифт для заголовка */
-    font-size: clamp(32px, 6vw, 44px);
-    font-family: "walsheimProBold";
-    letter-spacing: -1%;
-    margin-bottom: 30px;
+	color: #cdd5dd;
+	/* Резиновый шрифт для заголовка */
+	font-size: clamp(32px, 6vw, 44px);
+	font-family: "walsheimProBold";
+	letter-spacing: -1%;
+	margin-bottom: 30px;
 }
 
 /* --- ФИЛЬТРЫ --- */
 .filters {
-    display: flex;
-    gap: clamp(10px, 2vw, 20px);
-    padding: 20px 0;
-    flex-wrap: wrap;
+	display: flex;
+	gap: clamp(10px, 2vw, 20px);
+	padding: 20px 0;
+	flex-wrap: wrap;
 }
 
-.filter, .choosedFilter {
-    width: clamp(50px, 8vw, 60px);
-    height: clamp(50px, 8vw, 60px);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+.filter,
+.choosedFilter {
+	width: clamp(50px, 8vw, 60px);
+	height: clamp(50px, 8vw, 60px);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .filter {
-    background-color: #f5f7f9;
-    color: #555;
+	background-color: #f5f7f9;
+	color: #555;
 }
 
 .filter:hover {
-    background-color: #e2e8f0;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+	background-color: #e2e8f0;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .choosedFilter {
-    background-color: #666d6e;
-    color: white;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    transform: scale(1.05);
+	background-color: #666d6e;
+	color: white;
+	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+	transform: scale(1.05);
 }
 
 /* --- СЕТКА ТОВАРОВ --- */
 .products {
-    display: grid;
-    /* Автоматическая сетка: карточки по 322px, если не лезут — переносятся */
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: clamp(16px, 3vw, 24px);
-    width: 100%;
-    justify-content: center;
-    margin-top: 20px;
+	display: grid;
+	/* Автоматическая сетка: карточки по 322px, если не лезут — переносятся */
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: clamp(16px, 3vw, 24px);
+	width: 100%;
+	justify-content: center;
+	margin-top: 20px;
 }
 
 .droneCardCatalog {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-    /* Убираем жесткую ширину 322px для адаптивности внутри грида */
-    width: 100%; 
-    max-width: 360px;
-    margin: 0 auto;
-    gap: 20px;
-    background: white;
-    border-radius: 20px;
-    border: 1px solid #f0f0f0;
-    transition: all 0.4s ease;
-    cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px;
+	box-sizing: border-box;
+	/* Убираем жесткую ширину 322px для адаптивности внутри грида */
+	width: 100%;
+	max-width: 360px;
+	margin: 0 auto;
+	gap: 20px;
+	background: white;
+	border-radius: 20px;
+	border: 1px solid #f0f0f0;
+	transition: all 0.4s ease;
+	cursor: pointer;
 }
 
 .droneCardCatalog:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+	transform: translateY(-8px);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 .catalogImage {
-    width: 100%;
-    aspect-ratio: 1 / 1; /* Чтобы картинки были всегда квадратными и ровными */
-    object-fit: contain;
-    transition: transform 0.5s ease;
+	width: 100%;
+	aspect-ratio: 1 / 1; /* Чтобы картинки были всегда квадратными и ровными */
+	object-fit: contain;
+	transition: transform 0.5s ease;
 }
 
 .droneCardCatalog:hover .catalogImage {
-    transform: scale(1.05); 
+	transform: scale(1.05);
 }
 
 .textBlock {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 86px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 86px;
 }
 
 .droneTitle {
-    font-size: clamp(18px, 2vw, 24px);
-    margin: 0;
-    color: #1a1a1a;
+	font-size: clamp(18px, 2vw, 24px);
+	margin: 0;
+	color: #1a1a1a;
 }
 
 .price {
-    display: flex;
-    gap: 16px;
-    align-items: center;
+	display: flex;
+	gap: 16px;
+	align-items: center;
 }
 
 .withoutDiscount {
-    font-weight: bold;
-    color: #2d3436;
-    font-size: clamp(1rem, 1.5vw, 1.2rem);
+	font-weight: bold;
+	color: #2d3436;
+	font-size: clamp(1rem, 1.5vw, 1.2rem);
 }
 
 /* Фильтры иконок */
-.droneFilter { width: 100%; height: 100%; }
-.lenseFilter { width: 100%; height: 75%; }
+.droneFilter {
+	width: 100%;
+	height: 100%;
+}
+.lenseFilter {
+	width: 100%;
+	height: 75%;
+}
 
 /* Состояние скрытия */
 .hidden {
-    display: none; 
-    opacity: 0;
+	display: none;
+	opacity: 0;
 }
 
 /* Адаптив для мелких экранов */
 @media (max-width: 480px) {
-    .catalog {
-        padding: 20px 15px;
-    }
-    .products {
-        grid-template-columns: 1fr; /* По одному товару в ряд на узких телефонах */
-    }
-    .filters {
-        justify-content: center;
-    }
+	.catalog {
+		padding: 20px 15px;
+	}
+	.products {
+		grid-template-columns: 1fr; /* По одному товару в ряд на узких телефонах */
+	}
+	.filters {
+		justify-content: center;
+	}
 }

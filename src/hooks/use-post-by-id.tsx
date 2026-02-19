@@ -1,29 +1,28 @@
 import { useEffect, useState } from "react";
-import type {IProduct} from "../assets/types"
+import type { IProduct } from "../assets/types";
 
-export function useProductById(id: number){
-    const [product, setProduct] = useState<IProduct | null>(null)
-    const [isLoaded, setIsLoaded] = useState<boolean>(false)
+export function useProductById(id: number) {
+	const [product, setProduct] = useState<IProduct | null>(null);
+	const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
-    useEffect(() => {
-            async function getAllProducts() {
-                try {
-                    setIsLoaded(false);
+	useEffect(() => {
+		async function getAllProducts() {
+			try {
+				setIsLoaded(false);
 
-                    const response = await fetch(`http://127.0.0.1:3000/products/${id}`)
-                    const data = await response.json();
+				const response = await fetch(`http://127.0.0.1:3000/products/${id}`);
+				const data = await response.json();
 
-                    setProduct(data);
-                } catch (error) {
-                    console.error("Failed to fetch Products:", error);
-                } finally {
-                    setIsLoaded(true);
-                }
-            }
-    
-            getAllProducts();
-        }, [id]);
+				setProduct(data);
+			} catch (error) {
+				console.error("Failed to fetch Products:", error);
+			} finally {
+				setIsLoaded(true);
+			}
+		}
 
-    return {product, isLoaded}
+		getAllProducts();
+	}, [id]);
+
+	return { product, isLoaded };
 }
-

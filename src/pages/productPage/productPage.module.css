@@ -1,293 +1,296 @@
 /* Плавность для всех интерактивных элементов (добавляем к существующим) */
-.button, .buttonCart, .droneCardCatalog, .readMoreWhite {
-    transition: all 0.3s ease;
+.button,
+.buttonCart,
+.droneCardCatalog,
+.readMoreWhite {
+	transition: all 0.3s ease;
 }
 
 .productPage {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
+	display: flex;
+	width: 100%;
+	flex-direction: column;
 }
 
 .topBlock {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 651px;
-    background-color: #cdd5dd;
-    flex-direction: column;
-    z-index: 1;
-    padding-top: 134px;
-    gap: 20px;
-    box-sizing: border-box;
-    position: relative;
-    overflow: hidden; 
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 651px;
+	background-color: #cdd5dd;
+	flex-direction: column;
+	z-index: 1;
+	padding-top: 134px;
+	gap: 20px;
+	box-sizing: border-box;
+	position: relative;
+	overflow: hidden;
 }
 
 .titleAndDescBlock {
-    width: 720px;   
-    max-width: 95%; /* Адаптив: не даем выходить за края экрана */
-    gap: 24px;
-    display: flex;
-    flex-direction: column;
-    z-index: 2;
-    position: relative;
-    align-items: center; /* Центрируем контент внутри */
+	width: 720px;
+	max-width: 95%; /* Адаптив: не даем выходить за края экрана */
+	gap: 24px;
+	display: flex;
+	flex-direction: column;
+	z-index: 2;
+	position: relative;
+	align-items: center; /* Центрируем контент внутри */
 }
 
 .title {
-    font-size: clamp(32px, 8vw, 60px); /* Плавное уменьшение на мобилках */
-    width: 100%;
-    letter-spacing: 0.03em;
-    color: white;
-    font-family: "walsheimProBold";
-    text-align: center;
-    margin: 0;
+	font-size: clamp(32px, 8vw, 60px); /* Плавное уменьшение на мобилках */
+	width: 100%;
+	letter-spacing: 0.03em;
+	color: white;
+	font-family: "walsheimProBold";
+	text-align: center;
+	margin: 0;
 }
 
 .description {
-    width: 100%;
-    color: #3D4155;
-    letter-spacing: 0.03em;
-    font-size: 16px;
-    text-align: center;
-    margin: 0;
+	width: 100%;
+	color: #3d4155;
+	letter-spacing: 0.03em;
+	font-size: 16px;
+	text-align: center;
+	margin: 0;
 }
 
 .ovalShell {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
 }
 
 .oval {
-    width: 180vw;
-    height: 1000px;
-    background-color: white;
-    border-radius: 50%;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 43%);
-    z-index: 1;
+	width: 180vw;
+	height: 1000px;
+	background-color: white;
+	border-radius: 50%;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 43%);
+	z-index: 1;
 }
 
 .droneImage {
-    width: 50vw; 
-    max-width: 650px; /* Чтобы не был слишком огромным на больших экранах */
-    height: auto;
-    z-index: 10; 
-    position: relative;
+	width: 50vw;
+	max-width: 650px; /* Чтобы не был слишком огромным на больших экранах */
+	height: auto;
+	z-index: 10;
+	position: relative;
 }
 
 /* Блок покупки */
 .buyBlock {
-    background-color: white;
-    border-radius: 20px; 
-    padding: 24px;
-    gap: 24px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    right: 40px;
-    bottom: 99px;
-    z-index: 10;
+	background-color: white;
+	border-radius: 20px;
+	padding: 24px;
+	gap: 24px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	right: 40px;
+	bottom: 99px;
+	z-index: 10;
 }
 
 .buyBlock:hover {
-    transform: translateY(-5px); /* Легкий эффект подъема */
+	transform: translateY(-5px); /* Легкий эффект подъема */
 }
 
-.droneInfoSmall{
-    display: flex;
-    gap: 8px;
-    align-items: center;
+.droneInfoSmall {
+	display: flex;
+	gap: 8px;
+	align-items: center;
 }
 
-.droneImageSmall{
-    width: 50px;
+.droneImageSmall {
+	width: 50px;
 }
 
-.priceAndTitle{
-    width: 146px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+.priceAndTitle {
+	width: 146px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
 }
 
-.priceAndTitle p{
-    color: #0C122A;
-    font-size: 14px;
-    margin: 0; /* Убираем лишние отступы браузера */
+.priceAndTitle p {
+	color: #0c122a;
+	font-size: 14px;
+	margin: 0; /* Убираем лишние отступы браузера */
 }
 
 .button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 188px; /* Оставил твой оригинальный размер из нижней части кода */
-    height: 52px;
-    background-color: #0c122a;
-    color: white;
-    border-radius: 1234px;
-    cursor: pointer;
-    border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 188px; /* Оставил твой оригинальный размер из нижней части кода */
+	height: 52px;
+	background-color: #0c122a;
+	color: white;
+	border-radius: 1234px;
+	cursor: pointer;
+	border: none;
 }
 
 .button:hover {
-    opacity: 0.9;
+	opacity: 0.9;
 }
 
 .text {
-    font-size: 14px;
-    color: white;
+	font-size: 14px;
+	color: white;
 }
 
-.buttonsBlock{
-    display: flex;
-    gap: 16px;
-    align-items: center;
+.buttonsBlock {
+	display: flex;
+	gap: 16px;
+	align-items: center;
 }
 
-.buttonCart{
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #0C122A;
-    border-radius: 1234px;
-    background-color: white;
-    cursor: pointer;
+.buttonCart {
+	width: 44px;
+	height: 44px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #0c122a;
+	border-radius: 1234px;
+	background-color: white;
+	cursor: pointer;
 }
 
-.icon{
-    width: 16px;
+.icon {
+	width: 16px;
 }
 
 /* Основной контент */
 .mainData {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 150px 40px 100px;
-    width: 100%;
-    min-height: 500px;
-    background-color: white;
-    gap: 160px;
-    box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 150px 40px 100px;
+	width: 100%;
+	min-height: 500px;
+	background-color: white;
+	gap: 160px;
+	box-sizing: border-box;
 }
 
 .firstBlock {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 70px;
-    width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 70px;
+	width: 100%;
 }
 
 .imageBlock1 {
-    width: 100%;
-    max-width: 1014px; /* Твой оригинальный размер */
-    height: auto;
+	width: 100%;
+	max-width: 1014px; /* Твой оригинальный размер */
+	height: auto;
 }
 
 .aboutUsText {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 24px;
 }
 
 .adoutUsTextHeader {
-    font-size: clamp(28px, 5vw, 44px);
-    color: #0C122A;
-    text-align: center;
+	font-size: clamp(28px, 5vw, 44px);
+	color: #0c122a;
+	text-align: center;
 }
 
 .adoutUsTextMain {
-    text-align: center;
-    width: 70%;
-    max-width: 800px;
-    font-size: 16px;
+	text-align: center;
+	width: 70%;
+	max-width: 800px;
+	font-size: 16px;
 }
 
 .secondAndThirdBlock {
-    display: grid;
-    align-items: center;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    width: 100%;
-    max-width: 1100px;
+	display: grid;
+	align-items: center;
+	grid-template-columns: 1fr 1fr;
+	gap: 24px;
+	width: 100%;
+	max-width: 1100px;
 }
 
 .imageBlock2 {
-    width: 100%;
-    height: auto;
+	width: 100%;
+	height: auto;
 }
 
 .smallBlocksText {
-    display: flex;
-    flex-direction: column;
-    gap: 45px;
+	display: flex;
+	flex-direction: column;
+	gap: 45px;
 }
 
 .smallBlocksTextHeader {
-    font-size: clamp(24px, 4vw, 44px);
+	font-size: clamp(24px, 4vw, 44px);
 }
 
 /* Характеристики */
-.characteristics{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 44px;
-    width: 100%;
+.characteristics {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 44px;
+	width: 100%;
 }
 
-.characteristicsBlock{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1000px;
-    padding: 0 40px; /* Немного уменьшил для безопасности */
-}   
-
-.characteristicsSubBlock{
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    justify-content: center;
-    align-items: center;
+.characteristicsBlock {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	max-width: 1000px;
+	padding: 0 40px; /* Немного уменьшил для безопасности */
 }
 
-.subBlockTitle{
-    font-size: 16px;
-    text-align: center;
+.characteristicsSubBlock {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	justify-content: center;
+	align-items: center;
 }
 
-.subBlockText{
-    color: #6D717F;
-    letter-spacing: 3%;
-    font-family: "walsheimProBold";
-    min-width: 90px;
-    text-align: center;
-    display: flex;
-    gap: 10px;
-    font-size: clamp(24px, 5vw, 44px);
-    align-items: end;
+.subBlockTitle {
+	font-size: 16px;
+	text-align: center;
 }
 
-.gygabite{
-    color: #6D717F;
-    letter-spacing: 3%;
-    font-family: "walsheimProBold";
-    text-align: center;
-    font-size: 22px;
+.subBlockText {
+	color: #6d717f;
+	letter-spacing: 3%;
+	font-family: "walsheimProBold";
+	min-width: 90px;
+	text-align: center;
+	display: flex;
+	gap: 10px;
+	font-size: clamp(24px, 5vw, 44px);
+	align-items: end;
+}
+
+.gygabite {
+	color: #6d717f;
+	letter-spacing: 3%;
+	font-family: "walsheimProBold";
+	text-align: center;
+	font-size: 22px;
 }
 
 /* Каталог */
@@ -302,63 +305,71 @@
 	letter-spacing: -1%;
 }
 .catalog {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 44px;
-    margin-top: -100px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 44px;
+	margin-top: -100px;
 }
 
 .droneCardCatalog {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 14px;
-    box-sizing: border-box;
-    width: 322px;
-    gap: 26px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 14px;
+	box-sizing: border-box;
+	width: 322px;
+	gap: 26px;
 }
 
 .droneCardCatalog:hover {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Легкая тень при наведении */
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Легкая тень при наведении */
 }
 
 .droneCardsBlock {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+	display: flex;
+	gap: 20px;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
-.buttonText{
+.buttonText {
 	color: white;
 }
 /* --- АДАПТИВНЫЕ ПРАВКИ --- */
 
 @media (max-width: 1024px) {
-    .buyBlock {
-        position: relative;
-        right: auto;
-        bottom: auto;
-        margin-top: 20px;
-        align-self: center; /* Центрируем, если не влезает */
-    }
-    
-    .secondAndThirdBlock {
-        grid-template-columns: 1fr; /* Колонки друг под другом на планшетах */
-        text-align: center;
-    }
+	.buyBlock {
+		position: relative;
+		right: auto;
+		bottom: auto;
+		margin-top: 20px;
+		align-self: center; /* Центрируем, если не влезает */
+	}
 
-    .characteristicsBlock {
-        flex-wrap: wrap; /* Чтобы не слипались */
-        justify-content: center;
-        gap: 40px;
-    }
+	.secondAndThirdBlock {
+		grid-template-columns: 1fr; /* Колонки друг под другом на планшетах */
+		text-align: center;
+	}
+
+	.characteristicsBlock {
+		flex-wrap: wrap; /* Чтобы не слипались */
+		justify-content: center;
+		gap: 40px;
+	}
 }
 
 @media (max-width: 768px) {
-    .topBlock { height: auto; padding-bottom: 50px; }
-    .droneImage { width: 80vw; }
-    .mainData { gap: 80px; padding: 100px 20px 50px; }
+	.topBlock {
+		height: auto;
+		padding-bottom: 50px;
+	}
+	.droneImage {
+		width: 80vw;
+	}
+	.mainData {
+		gap: 80px;
+		padding: 100px 20px 50px;
+	}
 }

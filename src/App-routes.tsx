@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { DarkHeaderLayout } from "./app/darkHeaderLayout";
 import { Layout } from "./app/Layout";
 import { About } from "./pages/about";
+import { CatalogPage } from "./pages/catalog";
 import { HomePage } from "./pages/home";
 import { NotFound } from "./pages/not-found/not-found";
-import { CatalogPage } from "./pages/catalog";
 import { ProductPage } from "./pages/productPage";
-import { DarkHeaderLayout } from "./app/darkHeaderLayout";
 
 export function AppRoutes() {
 	return (
@@ -17,7 +17,7 @@ export function AppRoutes() {
 				</Route>
 				<Route path="/" element={<Layout />}>
 					<Route path="/about/" element={<About />} />
-					<Route path="/catalog/" element={<CatalogPage/>}/>
+					<Route path="/catalog/" element={<CatalogPage />} />
 				</Route>
 				<Route path="*" element={<NotFound />} />
 			</Routes>

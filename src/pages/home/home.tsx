@@ -1,9 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { Footer } from "../../app/Footer";
-import { Header } from "../../app/Header";
 import type { IProduct } from "../../assets/types";
 import { useProductsSugg } from "../../hooks/use-suggestions";
-import { ICONS, IMAGES } from "../../shared";
+import { IMAGES } from "../../shared";
 import { Button } from "../../shared/button";
 import styles from "./home.module.css";
 
@@ -15,7 +13,7 @@ export function HomePage() {
 		typeOfSuggestion: "popular",
 	});
 
-	const navigate = useNavigate()
+	const _navigate = useNavigate();
 
 	console.log([newProducts, popularProducts]);
 
@@ -166,7 +164,7 @@ export function HomePage() {
 				</div>
 
 				<div className={styles.catalog}>
-					<p className={styles.topText}  	>КАТАЛОГ</p>
+					<p className={styles.topText}>КАТАЛОГ</p>
 
 					<div className={styles.droneCardsBlock}>
 						{popularProducts.map((element) => {

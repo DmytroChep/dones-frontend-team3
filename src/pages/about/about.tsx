@@ -1,5 +1,3 @@
-import { Footer } from "../../app/Footer";
-import { Header } from "../../app/Header/";
 import { IMAGES } from "../../shared";
 import styles from "./about.module.css";
 

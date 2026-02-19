@@ -7,10 +7,13 @@ import styles from "./layout.module.css";
 export function DarkHeaderLayout() {
 	return (
 		<div className={styles.parentElement}>
-			<Header isWhiteBg={false}/>
+			<Header isWhiteBg={false} />
 			<Main>
 				<Outlet></Outlet>
 			</Main>
+			<div className={styles.spacer}>
+
+			</div>
 			<Footer></Footer>
 		</div>
 	);

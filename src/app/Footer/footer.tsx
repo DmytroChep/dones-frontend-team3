@@ -5,7 +5,7 @@ import styles from "./footer.module.css";
 export function Footer() {
 	return (
 		<footer className={styles.footer}>
-			<div className={styles.oval}></div>
+			<img src={IMAGES.footer} alt="" className={styles.footerBg} />
 			<div className={styles.footerInfo}>
 				<div className={styles.infoBlock}>
 					<div>
@@ -32,7 +32,6 @@ export function Footer() {
 					</div>
 				</div>
 			</div>
-			<img src={IMAGES.footerLogo} className={styles.footerLogo} />
 			<div className={styles.footerLinks}>
 				<Link to="/catalog/" className={styles.link}>
 					КАТАЛОГ
@@ -50,7 +49,6 @@ export function Footer() {
 					КАБІНЕТ
 				</Link>
 			</div>
-			<div className={styles.footerBottom}></div>
 		</footer>
 	);
 }

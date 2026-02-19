@@ -1,76 +1,81 @@
 .notFound {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 100vh; /* Занимаем весь экран */
-    position: relative;
-    overflow: hidden;
-    background-color: white;
-    padding-top: 80px; /* Оставляем место под Header */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	min-height: 100vh; /* Занимаем весь экран */
+	position: relative;
+	overflow: hidden;
+	background-color: white;
+	padding-top: 80px; /* Оставляем место под Header */
 }
 
 .centerElement {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    z-index: 5;
-    text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	z-index: 5;
+	text-align: center;
 	overflow: hidden;
-    flex-grow: 1; /* Позволяет контенту центрироваться по вертикали */
+	flex-grow: 1; /* Позволяет контенту центрироваться по вертикали */
 }
 
 .notFoundText {
-    font-size: clamp(28px, 4vw, 40px);
-    color: #676974;
-    margin: 0;
-    font-family: "walsheimProBold";
+	font-size: clamp(28px, 4vw, 40px);
+	color: #676974;
+	margin: 0;
+	font-family: "walsheimProBold";
 }
 
 .notFoundTextSmall {
-    font-size: clamp(18px, 2vw, 24px);
-    color: #676974;
-    margin: 10px 0 30px 0;
+	font-size: clamp(18px, 2vw, 24px);
+	color: #676974;
+	margin: 10px 0 30px 0;
 }
 
 .droneImage {
-    width: 750px;
-    max-width: 85%; /* Чтобы на ноутбуках не был на весь экран */
-    height: auto;
-    object-fit: contain;
-    /* Добавим плавное парение */
-    animation: float 4s ease-in-out infinite;
+	width: 750px;
+	max-width: 85%; /* Чтобы на ноутбуках не был на весь экран */
+	height: auto;
+	object-fit: contain;
+	/* Добавим плавное парение */
+	animation: float 4s ease-in-out infinite;
 }
 
 .oval {
-    position: absolute;
-    width: 4000px;
-    height: 4000px;
-    background-color: #cdd5dd;
-    border-radius: 50%;
-    /* Регулируем положение "горизонта" */
-    bottom: -3650px; 
-    left: 50%;
-    transform: translate(-50%);
-    z-index: 1; 
+	position: absolute;
+	width: 4000px;
+	height: 4000px;
+	background-color: #cdd5dd;
+	border-radius: 50%;
+	/* Регулируем положение "горизонта" */
+	bottom: -3650px;
+	left: 50%;
+	transform: translate(-50%);
+	z-index: 1;
 }
 
 /* Анимация полета */
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-30px); }
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-30px);
+	}
 }
 
 /* ФИКС ДЛЯ МОБИЛОК (если нужно чуть подправить под маленькие экраны) */
 @media (max-width: 768px) {
-    .oval {
-        width: 550vw;
-        bottom: -30%;
+	.oval {
+		width: 550vw;
+		bottom: -30%;
 		transform: translate(-50%, 87%);
-    }
-    .droneImage {
-        width: 90%;
-    }
+	}
+	.droneImage {
+		width: 90%;
+	}
 }

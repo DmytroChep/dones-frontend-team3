@@ -1,8 +1,7 @@
+import { useNavigate } from "react-router-dom";
 import { ICONS } from "../icons";
-import { IMAGES } from "../images";
 import styles from "./button.module.css";
 import type { IButtonProps } from "./button-types";
-import { useNavigate } from "react-router-dom";
 
 export function Button(props: IButtonProps) {
 	const {
@@ -12,15 +11,18 @@ export function Button(props: IButtonProps) {
 		arrowColor,
 		textClassName,
 		arrowClassName,
-		navigateTo
+		navigateTo,
 	} = props;
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 	return (
-		<div className={`${styles.button} ${className}`} onClick={() => {
-							if (navigateTo){
-								navigate(navigateTo)
-							}
-						}}>
+		<div
+			className={`${styles.button} ${className}`}
+			onClick={() => {
+				if (navigateTo) {
+					navigate(navigateTo);
+				}
+			}}
+		>
 			<p className={`${styles.text} ${textClassName}`}>{children}</p>
 			{withArrow ? (
 				arrowColor === "white" ? (
