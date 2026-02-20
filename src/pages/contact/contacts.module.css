@@ -1,0 +1,116 @@
+.main{
+    width: 100%;
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 57px;
+}
+
+.title{
+    color: #CDD5DD;
+    font-size: 44px;
+    letter-spacing: 3%;
+    font-family: "walsheimProBold";
+}
+
+.data{
+    display: flex;
+    gap: 25px;
+
+}
+
+.ourContacts{
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+    width: 668px;
+}   
+
+.titleOurContacts{
+    font-size: 24px;
+    /* color: #6D717F; */
+}
+
+.contactInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    color: #6D717F;
+}
+
+.icon{
+    width: 24px;
+    height: 24px;
+}
+
+.contactField{
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #6D717F;
+}
+
+.weInSocNets{
+    font-size: 20px;
+    color: #0C122A;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 168px;
+    align-items: center;
+}
+
+.socIcons{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.contactsWithUs{
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+    width: 668px;
+}
+
+.field{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.fieldInput{
+	height: 40px;
+	width: 100%;
+	border: 1px solid #CED0D4;
+	border-radius: 4px;
+	padding-left: 16px;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.send{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0C122A;
+    border-radius: 1234px;
+    border: 0;
+    width: 170px;
+    height: 52px;
+    color: white;
+    font-size: 14px;
+    font-family: "walsheimPro";
+}
+
+.textArea{
+    padding-top: 10px;
+    transition: all 0s ;
+}

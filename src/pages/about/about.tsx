@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import { IMAGES } from "../../shared";
 import styles from "./about.module.css";
 
 export function About() {
+	useEffect(() => {
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	}, [])
 	return (
 		<div className={styles.about}>
 			<div className={styles.firstBlock}>

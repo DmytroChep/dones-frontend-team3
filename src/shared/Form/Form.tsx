@@ -3,191 +3,172 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/user-context";
 import styles from "./Form.module.css";
+// Импортируем только нужные типы
 import type { IFormData, ISignInForm, ISignUpForm } from "./Form.types";
 import { ICONS } from "../icons";
 
-interface IconProps {
-	className?: string;
-	onClick?: (event: MouseEvent<SVGSVGElement | HTMLButtonElement>) => void;
-}
-
 export function Form(props: { variant: "signIn" | "signUp" }) {
 	const { variant } = props;
-	const { handleSubmit, register } = useForm<IFormData>();
-	const navigate = useNavigate();
 
+	// Используем ISignUpForm как базу, так как она самая полная
+	const {
+		handleSubmit,
+		register,
+		watch,
+		formState: { errors },
+		setError,
+	} = useForm<ISignUpForm>();
+
+	const navigate = useNavigate();
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 	const [isConfirmVisible, setIsConfirmVisible] = useState(false);
 
-	const [PasswordIcon, setPasswordIcon] = useState<React.FC<IconProps>>(
-		() => ICONS.invisible,
-	);
-	const [ConfirmPasswordIcon, setConfirmPasswordIcon] = useState<
-		React.FC<IconProps>
-	>(() => ICONS.invisible);
+	const passwordValue = watch("password");
 
 	const UserContextData = useContext(UserContext);
 	if (!UserContextData) return null;
 	const { signUp, signIn } = UserContextData;
 
-
-	const handleTogglePassword = (
-		event: MouseEvent<SVGSVGElement | HTMLButtonElement>,
-	) => {
-		event.preventDefault(); 
-		event.stopPropagation(); 
-
-		const nextState = !isPasswordVisible;
-		setIsPasswordVisible(nextState);
-		setPasswordIcon(() => (nextState ? ICONS.visible : ICONS.invisible));
-	};
-
-
-	const handleToggleConfirm = (
-		event: MouseEvent<SVGSVGElement | HTMLButtonElement>,
-	) => {
+	const handleTogglePassword = (event: MouseEvent) => {
 		event.preventDefault();
-		event.stopPropagation();
-
-		const nextState = !isConfirmVisible;
-		setIsConfirmVisible(nextState);
-		setConfirmPasswordIcon(() => (nextState ? ICONS.visible : ICONS.invisible));
+		setIsPasswordVisible(!isPasswordVisible);
 	};
 
-	async function onSubmit(data: IFormData) {
+	const handleToggleConfirm = (event: MouseEvent) => {
+		event.preventDefault();
+		setIsConfirmVisible(!isConfirmVisible);
+	};
+
+	async function onSubmit(data: ISignUpForm) {
 		try {
 			if (variant === "signUp") {
-				const { confirmPassword, ...dataToSubmit } = data as ISignUpForm;
-				const finalData = { isAdmin: false, ...dataToSubmit };
-				if (data.password === confirmPassword) {
-					await signUp(finalData);
-					navigate("/auth/signIn/");
-				}
-			} else {
-				await signIn(data as ISignInForm);
+				const { confirmPassword, ...dataToSubmit } = data;
+
+				const result = await signUp({isAdmin: false, ...dataToSubmit});
+
+				
+
 				navigate("/");
+			} else {
+				const result = await signIn({
+					email: data.email,
+					password: data.password,
+				} as ISignInForm);
+
+
+				navigate("/");
+				
 			}
 		} catch (err) {
-			console.error(`error: ${err}`);
+			console.error(err);
+			setError("root", { message: "Помилка сервера" });
 		}
 	}
 
-	const reloadPage = () => {
-		window.location.reload();
-	};
+	const PasswordIcon = isPasswordVisible ? ICONS.visible : ICONS.invisible;
+	const ConfirmIcon = isConfirmVisible ? ICONS.visible : ICONS.invisible;
 
-	return variant === "signUp" ? (
-		<form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+	return (
+		<form onSubmit={handleSubmit(onSubmit)} className={styles.form} noValidate>
 			<div className={styles.fields}>
-				<div className={styles.field}>
-					<p className={styles.fieldTitle}>Ім'я</p>
-					<div className={styles.input}>
-						<input
-							placeholder="Введіть ім'я"
-							className={styles.fieldInput}
-							{...register("username")}
-						/>
+				{variant === "signUp" && (
+					<div className={styles.field}>
+						<p className={styles.fieldTitle}>Ім'я</p>
+						<div className={styles.input}>
+							<input
+								placeholder="Введіть ім'я"
+								className={`${errors.username ? styles.inputError : styles.fieldInput}`}
+								{...register("username", { required: "Це поле обов'язкове" })}
+							/>
+						</div>
+						{errors.username && (
+							<p className={styles.error}>{errors.username.message}</p>
+						)}
 					</div>
-				</div>
+				)}
 
-				<div className={styles.field}>
-					<p className={styles.fieldTitle}>Email</p>
-					<div className={styles.input}>
-						<input
-							placeholder="Введіть email"
-							className={styles.fieldInput}
-							{...register("email")}
-						/>
-					</div>
-				</div>
-
-				<div className={styles.field}>
-					<p className={styles.fieldTitle}>Пароль</p>
-					<div className={styles.input}>
-						<input
-							placeholder="Введіть пароль"
-							className={styles.fieldInput}
-							type={isPasswordVisible ? "text" : "password"}
-							{...register("password")}
-						/>
-						<PasswordIcon
-							className={styles.iconInvisible}
-							onClick={handleTogglePassword}
-						/>
-					</div>
-				</div>
-
-				<div className={styles.field}>
-					<p className={styles.fieldTitle}>Підтвердження пароля</p>
-					<div className={styles.input}>
-						<input
-							placeholder="Повторіть пароль"
-							className={styles.fieldInput}
-							type={isConfirmVisible ? "text" : "password"}
-							{...register("confirmPassword")}
-						/>
-						<ConfirmPasswordIcon
-							className={styles.iconInvisible}
-							onClick={handleToggleConfirm}
-						/>
-					</div>
-				</div>
-
-				<p className={styles.isAlreadyReg}>вже є акаунт? Увійти</p>
-			</div>
-
-			<div className={styles.buttonsAndWarning}>
-				<div className={styles.buttons}>
-					<button type="button" className={styles.cancel} onClick={reloadPage}>
-						СКАСУВАТИ
-					</button>
-					<button type="submit" className={styles.submit}>
-						ЗАРЕЄСТРУВАТИСЯ
-					</button>
-				</div>
-				<p className={styles.warning}>
-					При вході або реєстрації, я підтверджую згоду з умовами{" "}
-					<span className={styles.redText}>публічного договору</span>
-				</p>
-			</div>
-		</form>
-	) : (
-		<form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-			<div className={styles.fields}>
 				<div className={styles.field}>
 					<p className={styles.fieldTitle}>Email</p>
 					<div className={styles.input}>
 						<input
 							placeholder="Введіть email"
 							type="email"
-							className={styles.fieldInput}
-							{...register("email")}
+							className={`${errors.email ? styles.inputError : styles.fieldInput}`}
+							{...register("email", {
+								required: "Це поле обов'язкове",
+								pattern: {
+									value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+									message: "Невірний формат",
+								},
+							})}
 						/>
 					</div>
+					{errors.email && (
+						<p className={styles.error}>{errors.email.message}</p>
+					)}
 				</div>
+
 				<div className={styles.field}>
 					<p className={styles.fieldTitle}>Пароль</p>
 					<div className={styles.input}>
 						<input
 							placeholder="Введіть пароль"
+							className={`${errors.password ? styles.inputError : styles.fieldInput}`}
 							type={isPasswordVisible ? "text" : "password"}
-							className={styles.fieldInput}
-							{...register("password")}
+							{...register("password", { required: "Це поле обов'язкове" })}
 						/>
 						<PasswordIcon
 							className={styles.iconInvisible}
 							onClick={handleTogglePassword}
 						/>
 					</div>
+					{errors.password && (
+						<p className={styles.error}>{errors.password.message}</p>
+					)}
 				</div>
-				<p className={styles.isAlreadyReg}>Забули пароль?</p>
+
+				{variant === "signUp" && (
+					<div className={styles.field}>
+						<p className={styles.fieldTitle}>Підтвердження пароля</p>
+						<div className={styles.input}>
+							<input
+								placeholder="Повторіть пароль"
+								className={`${errors.confirmPassword ? styles.inputError : styles.fieldInput}`}
+								type={isConfirmVisible ? "text" : "password"}
+								{...register("confirmPassword", {
+									required: "Це поле обов'язкове",
+									validate: (value) =>
+										value === passwordValue || "Паролі не співпадають",
+								})}
+							/>
+							<ConfirmIcon
+								className={styles.iconInvisible}
+								onClick={handleToggleConfirm}
+							/>
+						</div>
+						{errors.confirmPassword && (
+							<p className={styles.error}>{errors.confirmPassword.message}</p>
+						)}
+					</div>
+				)}
+
+				{errors.root && (
+					<p className={styles.error} style={{ textAlign: "center" }}>
+						{errors.root.message}
+					</p>
+				)}
 			</div>
+
 			<div className={styles.buttons}>
-				<button type="button" className={styles.cancel} onClick={reloadPage}>
+				<button
+					type="button"
+					className={styles.cancel}
+					onClick={() => navigate(-1)}
+				>
 					СКАСУВАТИ
 				</button>
 				<button type="submit" className={styles.submit}>
-					УВІЙТИ
+					{variant === "signUp" ? "ЗАРЕЄСТРУВАТИСЯ" : "УВІЙТИ"}
 				</button>
 			</div>
 		</form>

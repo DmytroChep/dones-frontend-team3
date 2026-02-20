@@ -32,6 +32,14 @@
 	padding-left: 16px;
 }
 
+.inputError{
+	height: 40px;
+	width: 100%;
+	border: 1px solid #B62D11;
+	border-radius: 4px;
+	padding-left: 16px;
+}
+
 .isAlreadyReg{
 	width: 100%;
 	color: #CED0D4;
@@ -110,4 +118,9 @@
 .input{
 	position: relative;
 	width: 100%;
+}
+
+.error{
+	font-size: 13px;
+	color: #B62D11;
 }

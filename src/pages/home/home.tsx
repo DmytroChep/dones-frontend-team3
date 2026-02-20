@@ -4,6 +4,7 @@ import { useProductsSugg } from "../../hooks/use-suggestions";
 import { IMAGES } from "../../shared";
 import { Button } from "../../shared/button";
 import styles from "./home.module.css";
+import { useEffect } from "react";
 
 export function HomePage() {
 	const { products: popularProducts, isLoaded: isPopularLoaded } =
@@ -17,11 +18,15 @@ export function HomePage() {
 
 	console.log([newProducts, popularProducts]);
 
+	useEffect(() => {
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	}, [])
+
 	return (
 		<div className={styles.home}>
 			<div className={styles.topBlock}>
-				<p className={styles.pageTitle}>Технології</p>
-				<p className={styles.pageTitle}>які змінюють реальність</p>
+				<p className={styles.pageTitle}>ТЕХНОЛОГІЇ</p>
+				<p className={styles.pageTitle}>ЯКІ ЗМІНЮЮТЬ РЕАЛЬНІСТЬ </p>
 				<img src={IMAGES.drone} className={styles.drone} />
 				<div className={styles.footer}>
 					<div className={styles.footerBlock}>

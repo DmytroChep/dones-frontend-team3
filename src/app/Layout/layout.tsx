@@ -3,8 +3,12 @@ import { Footer } from "../Footer/";
 import { Header } from "../Header/";
 import { Main } from "../Main";
 import styles from "./layout.module.css";
+import { useEffect } from "react";
 
 export function Layout() {
+	useEffect(() => {
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	}, [])
 	return (
 		<div className={styles.parentElement}>
 			<Header isWhiteBg />

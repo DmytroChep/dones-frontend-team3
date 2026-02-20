@@ -15,8 +15,8 @@ import type { IFormData } from "../shared/Form/Form.types";
 interface IUserContext {
 	token: string | null;
 	user: IUser | null;
-	signUp: (userData: IUserReg) => void;
-	signIn: (userData: IUserLogin) => void;
+	signUp: (userData: IUserReg) => Promise<string>;
+	signIn: (userData: IUserLogin) => Promise<string>;
 	logout: () => void;
 }
 
@@ -42,9 +42,10 @@ export function UserContextProvider(props: IUserContextProviderProps) {
 
 		if (!response.ok) throw new Error("Login failed");
 
-		const data = await response.json();
+		const data: string = await response.json();
 		setToken(data);
 		localStorage.setItem("token", data);
+		return data
 	}
 
 	async function signUp(UserBody: IFormData) {
@@ -59,7 +60,9 @@ export function UserContextProvider(props: IUserContextProviderProps) {
 		const data = await response.json();
 		setToken(data);
 		localStorage.setItem("token", data);
+		return data
 	}
+
 
 	const logout = useCallback(() => {
 		setToken(null);

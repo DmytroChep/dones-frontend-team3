@@ -13,7 +13,9 @@
 .catalogDiv {
 	display: flex;
 	flex-direction: column;
+	align-items: end;
 	width: 100%;
+	gap: 44px;
 	max-width: 1440px; /* Чтобы каталог не растягивался бесконечно */
 }
 
@@ -32,6 +34,8 @@
 	gap: clamp(10px, 2vw, 20px);
 	padding: 20px 0;
 	flex-wrap: wrap;
+	width: 100%;
+	justify-content: start;
 }
 
 .filter,
@@ -150,6 +154,39 @@
 .hidden {
 	display: none;
 	opacity: 0;
+}
+
+.pagination{
+	display: flex;
+	gap: 6px;
+	
+}
+
+.arrowBtn{
+	height: 40px;
+	width: 40px;
+	border: 0;
+	border-radius: 1234px;
+
+}
+
+.activePage{
+	height: 40px;
+	width: 40px;
+	border: 0;
+	border-radius: 1234px;
+}
+
+button{
+	cursor: pointer;
+}
+
+.pageBtn{
+	height: 40px;
+	width: 40px;
+	border: 0;
+	border-radius: 1234px;
+	background-color: #F4F4F4;
 }
 
 /* Адаптив для мелких экранов */

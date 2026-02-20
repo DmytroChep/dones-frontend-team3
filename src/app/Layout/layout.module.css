@@ -3,8 +3,13 @@
 	src: url("../../assets/fonts/walsheimProRegular.ttf");
 }
 @font-face {
-	font-family: "walsheimProBold";
+	font-family: "walsheimProRegular";
 	src: url("../../assets/fonts/walsheimPro.ttf");
+}
+
+@font-face {
+	font-family: "walsheimProBold";
+	src: url("../../assets/fonts/walsheimProBold.ttf");
 }
 
 * {

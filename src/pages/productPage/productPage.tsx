@@ -5,6 +5,7 @@ import { useProductsSugg } from "../../hooks/use-suggestions";
 import { ICONS, IMAGES } from "../../shared";
 import { Button } from "../../shared/button";
 import styles from "./productPage.module.css";
+import { useEffect } from "react";
 
 export function ProductPage() {
 	const { id } = useParams<{ id: string }>();
@@ -12,8 +13,13 @@ export function ProductPage() {
 	const { product, isLoaded } = useProductById(productId);
 
 	const { products } = useProductsSugg({
+		take: 4,
 		sameAs: { limit: 4, name: product?.title },
 	});
+
+	useEffect(() => {
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	}, [])
 
 	return (
 		<div className={styles.productPage}>

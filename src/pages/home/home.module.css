@@ -22,8 +22,8 @@
 .pageTitle {
 	font-size: clamp(32px, 6vw, 61px); /* Адаптивный размер шрифта */
 	color: white;
-	font-family: "walsheimPro";
-	z-index: 5; /* Текст гарантированно над дроном */
+	font-family: "walsheimProBold";
+	z-index: 2; /* Текст гарантированно над дроном */
 	margin: 0;
 	text-align: center;
 	position: relative;
@@ -34,14 +34,14 @@
 	width: 811px;
 	max-width: 90%;
 	position: absolute;
-	top: 58%; /* Опускаем дрон ниже текста */
+	top: 45%; /* Опускаем дрон ниже текста */
 	left: 50%;
 	transform: translate(-50%, -50%);
-	z-index: 1;
+	z-index: 3;
 }
 
 .oval {
-	width: 170vw;
+	width: 130vw;
 	position: absolute;
 	height: 100vh;
 	background-color: white;
@@ -54,7 +54,7 @@
 
 .footer {
 	display: flex;
-	align-items: flex-end; /* Твой стиль */
+	align-items: flex-end; 
 	flex-direction: column;
 	width: 90%;
 	margin-top: auto;
@@ -67,7 +67,8 @@
 	display: flex;
 	flex-direction: column;
 	gap: 31px;
-	align-items: flex-end; /* Твой стиль */
+	align-items: flex-start; /* Твой стиль */
+	margin-top: -20%;
 }
 
 /* --- ОБЩИЙ БЛОК КОНТЕНТА --- */

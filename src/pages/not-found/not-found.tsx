@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import { IMAGES } from "../../shared";
 import styles from "./not-found.module.css";
 
 export function NotFound() {
+	useEffect(() => {
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	}, [])
 	return (
 		<div className={styles.notFound}>
 			<div className={styles.centerElement}>
