@@ -3,14 +3,12 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/user-context";
 import styles from "./Form.module.css";
-// Импортируем только нужные типы
 import type { IFormData, ISignInForm, ISignUpForm } from "./Form.types";
 import { ICONS } from "../icons";
 
 export function Form(props: { variant: "signIn" | "signUp" }) {
 	const { variant } = props;
 
-	// Используем ISignUpForm как базу, так как она самая полная
 	const {
 		handleSubmit,
 		register,
@@ -48,7 +46,7 @@ export function Form(props: { variant: "signIn" | "signUp" }) {
 
 				
 
-				navigate("/");
+				navigate("/profile/")
 			} else {
 				const result = await signIn({
 					email: data.email,
@@ -56,8 +54,7 @@ export function Form(props: { variant: "signIn" | "signUp" }) {
 				} as ISignInForm);
 
 
-				navigate("/");
-				
+				navigate("/profile/")
 			}
 		} catch (err) {
 			console.error(err);
@@ -163,11 +160,13 @@ export function Form(props: { variant: "signIn" | "signUp" }) {
 				<button
 					type="button"
 					className={styles.cancel}
-					onClick={() => navigate(-1)}
+					onClick={() => {
+						window.location.reload()
+					}}
 				>
 					СКАСУВАТИ
 				</button>
-				<button type="submit" className={styles.submit}>
+				<button type="submit" className={styles.submit} >
 					{variant === "signUp" ? "ЗАРЕЄСТРУВАТИСЯ" : "УВІЙТИ"}
 				</button>
 			</div>

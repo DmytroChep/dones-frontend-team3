@@ -1,12 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context";
 import styles from "./productPage.module.css";
+import { useNavigate } from "react-router-dom";
 
 export function Profile() {
 	const cotnextData = useContext(UserContext);
 	const [choosedOption, setChoosedOption] = useState<
 		"userData" | "orders" | "deliveries"
 	>("userData");
+	const navigate = useNavigate()
 	useEffect(() => {
 		window.scrollTo({ top: 0, behavior: "smooth" });
 	}, [])
@@ -14,7 +16,8 @@ export function Profile() {
 		return null;
 	}
 
-	const { user } = cotnextData;
+	const { user, logout } = cotnextData;
+
 
 
 	return (
@@ -46,7 +49,10 @@ export function Profile() {
 					АДРЕСА ДОСТАВКИ
 				</p>
 				<hr className={styles.hr} />
-				<p className={`${styles.link}`}>ВИЙТИ</p>
+				<p className={`${styles.link}`} onClick={() => {
+					logout()
+					navigate("/")
+					}}>ВИЙТИ</p>
 			</div>
 
 			<div
@@ -107,6 +113,7 @@ export function Profile() {
 							<input
 								placeholder="Ваш E-mail"
 								className={`${styles.fieldInput}`}
+								value={user?.email}
 							/>
 						</div>
 					</div>

@@ -10,7 +10,7 @@ import footerLogo from "../assets/images/footerLogo.png";
 import lense from "../assets/images/lense.png";
 import logo from "../assets/images/logo.png";
 import Footer from "../assets/images/Footer.png";
-
+import homeHeader from "../assets/images/HomeHeader.png"
 
 export const IMAGES = {
 	logo: logo,
@@ -24,5 +24,6 @@ export const IMAGES = {
 	catalogExampleDrone: catalogExampleDrone,
 	monocular: lense,
 	correctRotationDrone2: correctRotationDrone2,
-	footer: Footer
+	footer: Footer,
+	homeHeader: homeHeader
 };

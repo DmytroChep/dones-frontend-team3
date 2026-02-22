@@ -44,7 +44,14 @@ export function ProductPage() {
 						/>
 						<div className={styles.priceAndTitle}>
 							<p className={styles.smallTitle}>{product?.title}</p>
-							<p className={styles.smallPrice}>{product?.price} ₴ </p>
+							{product?.discount ? (
+								<div className={styles.price}>
+									<p className={styles.priceText}>{product?.price} $</p>
+									<p className={styles.discount}>{product?.discount} $</p>
+								</div>
+							): (<div className={styles.price}>
+								<p className={styles.withoutDiscount}>{product?.price} $</p>
+							</div>)}
 						</div>
 					</div>
 					<div className={styles.buttonsBlock}>

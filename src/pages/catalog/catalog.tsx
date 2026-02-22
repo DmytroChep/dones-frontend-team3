@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import { ThreeDot } from "react-loading-indicators";
 import { useNavigate } from "react-router-dom";
 import { useProductsSugg } from "../../hooks/use-suggestions";
-import { IMAGES } from "../../shared";
+import { ICONS, IMAGES } from "../../shared";
 import styles from "./catalog.module.css";
 
 export function CatalogPage() {
@@ -87,9 +87,20 @@ export function CatalogPage() {
 									alt={element.title}
 								/>
 								<div className={styles.textBlock}>
-									<p className={styles.droneTitle}>{element.title}</p>
-									<div className={styles.price}>
-										<p className={styles.withoutDiscount}>{element.price} $</p>
+									<div className={styles.titleAndPrice}>
+										<p className={styles.droneTitle}>{element.title}</p>
+										{element.discount ? (
+											<div className={styles.price}>
+												<p className={styles.priceText}>{element.price} $</p>
+												<p className={styles.discount}>{element.discount} $</p>
+											</div>
+										): (<div className={styles.price}>
+											<p className={styles.withoutDiscount}>{element.price} $</p>
+										</div>)}
+										
+									</div>
+									<div className={styles.buyButton}>
+										<ICONS.blackCart className={`${styles.buyIcon}`} />
 									</div>
 								</div>
 							</div>
@@ -104,7 +115,9 @@ export function CatalogPage() {
 						<button
 							type="button"
 							disabled={currentPage === 1}
-							onClick={() => setCurrentPage((prev) => prev - 1)}
+							onClick={() => {
+								setCurrentPage((prev) => prev - 1)
+							}}
 							className={styles.arrowBtn}
 						>
 							{"<"}
@@ -116,7 +129,10 @@ export function CatalogPage() {
 								<button
 									type="button"
 									key={`page-${pageNumber}`}
-									onClick={() => setCurrentPage(pageNumber)}
+									onClick={() => {
+										setCurrentPage(pageNumber)
+										// window.scrollTo({ top: 20, behavior: "smooth" });
+									}}
 									className={
 										currentPage === pageNumber
 											? styles.activePage

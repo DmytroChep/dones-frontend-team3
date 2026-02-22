@@ -14,13 +14,13 @@ export function HomePage() {
 		typeOfSuggestion: "popular",
 	});
 
-	const _navigate = useNavigate();
+	const navigate = useNavigate();
 
 	console.log([newProducts, popularProducts]);
 
-	useEffect(() => {
+
 		window.scrollTo({ top: 0, behavior: "smooth" });
-	}, [])
+
 
 	return (
 		<div className={styles.home}>

@@ -8,6 +8,7 @@ export interface IProduct {
 	title: string;
 	price: number;
 	img: string;
+	discount?:number;
 	category: ICategory[];
 	description: string;
 	color: string;

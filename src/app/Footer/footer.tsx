@@ -9,7 +9,7 @@ export function Footer() {
 			<div className={styles.footerInfo}>
 				<div className={styles.infoBlock}>
 					<div>
-						<h1>1K+</h1>
+						<h1 className={styles.bolder}>1K+</h1>
 					</div>
 					<div>
 						<p>Успішних відправок</p>
@@ -17,7 +17,7 @@ export function Footer() {
 				</div>
 				<div className={styles.infoBlock}>
 					<div>
-						<h1>1.5K+</h1>
+						<h1 className={styles.bolder}>1.5K+</h1>
 					</div>
 					<div>
 						<p>Задоволених клієнтів</p>
@@ -25,7 +25,7 @@ export function Footer() {
 				</div>
 				<div className={styles.infoBlock}>
 					<div>
-						<h1>24/7</h1>
+						<h1 className={styles.bolder}>24/7</h1>
 					</div>
 					<div>
 						<p>Підтримка клієнтів</p>

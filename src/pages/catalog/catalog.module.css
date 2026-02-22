@@ -115,17 +115,53 @@
 }
 
 .textBlock {
+	display: flex;
 	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.buyButton{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 44px;
+	height: 44px;
+	border: 1px solid black;
+	border-radius: 1234px;
+}
+
+.titleAndPrice {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	min-height: 86px;
+	max-width: 75%;
+}
+
+.priceText{
+	text-decoration: line-through;
+}
+.discount{
+	color: red;
 }
 
 .droneTitle {
 	font-size: clamp(18px, 2vw, 24px);
 	margin: 0;
 	color: #1a1a1a;
+}
+.buyIcon{
+	width: 16px; 
+	height: 16px;
+}
+
+.buyButton {
+   opacity: 0;
+}
+
+.droneCardCatalog:hover .buyButton {
+   opacity: 1;
 }
 
 .price {
@@ -156,37 +192,35 @@
 	opacity: 0;
 }
 
-.pagination{
+.pagination {
 	display: flex;
 	gap: 6px;
-	
 }
 
-.arrowBtn{
-	height: 40px;
-	width: 40px;
-	border: 0;
-	border-radius: 1234px;
-
-}
-
-.activePage{
+.arrowBtn {
 	height: 40px;
 	width: 40px;
 	border: 0;
 	border-radius: 1234px;
 }
 
-button{
+.activePage {
+	height: 40px;
+	width: 40px;
+	border: 0;
+	border-radius: 1234px;
+}
+
+button {
 	cursor: pointer;
 }
 
-.pageBtn{
+.pageBtn {
 	height: 40px;
 	width: 40px;
 	border: 0;
 	border-radius: 1234px;
-	background-color: #F4F4F4;
+	background-color: #f4f4f4;
 }
 
 /* Адаптив для мелких экранов */

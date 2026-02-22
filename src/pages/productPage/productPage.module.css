@@ -66,8 +66,16 @@
 	pointer-events: none;
 }
 
+.priceText{
+	text-decoration: line-through;
+}
+.discount{
+	color: red !important; 
+}
+
+
 .oval {
-	width: 180vw;
+	width: 145vw;
 	height: 1000px;
 	background-color: white;
 	border-radius: 50%;
