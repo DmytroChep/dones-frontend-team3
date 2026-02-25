@@ -22,12 +22,10 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	overflow: scroll;
 	background-color: #cdd5dd;
 }
 
-
-.spacer{
+.spacer {
 	width: 100%;
 	height: 100px;
 	background-color: white;

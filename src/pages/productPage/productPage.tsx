@@ -13,13 +13,12 @@ export function ProductPage() {
 	const { product, isLoaded } = useProductById(productId);
 
 	const { products } = useProductsSugg({
-		take: 4,
-		sameAs: { limit: 4, name: product?.title },
+		sameAs: { name: "Тепловізор", limit:4 },
 	});
 
 	useEffect(() => {
 		window.scrollTo({ top: 0, behavior: "smooth" });
-	}, [])
+	}, []);
 
 	return (
 		<div className={styles.productPage}>
@@ -49,9 +48,11 @@ export function ProductPage() {
 									<p className={styles.priceText}>{product?.price} $</p>
 									<p className={styles.discount}>{product?.discount} $</p>
 								</div>
-							): (<div className={styles.price}>
-								<p className={styles.withoutDiscount}>{product?.price} $</p>
-							</div>)}
+							) : (
+								<div className={styles.price}>
+									<p className={styles.withoutDiscount}>{product?.price} $</p>
+								</div>
+							)}
 						</div>
 					</div>
 					<div className={styles.buttonsBlock}>
@@ -83,7 +84,7 @@ export function ProductPage() {
 							<img src={IMAGES.aboutImage1} className={styles.imageBlock1} />
 						</div>
 					) : (
-						<p key={product.id}/>
+						<p key={product.id} />
 					);
 				})}
 

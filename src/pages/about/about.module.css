@@ -2,7 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	/* Плавный отступ сверху и между крупными блоками */
+	
 	padding-top: clamp(80px, 10vw, 120px);
 	gap: clamp(80px, 15vw, 160px);
 	padding-left: clamp(15px, 5vw, 40px);
@@ -22,7 +22,7 @@
 
 .imageBlock1 {
 	width: 100%;
-	max-width: 1014px; /* Твой размер */
+	max-width: 1014px; 
 	height: auto;
 	border-radius: 24px;
 	object-fit: cover;
@@ -46,18 +46,18 @@
 
 .adoutUsTextMain {
 	text-align: center;
-	width: clamp(100%, 80%, 70%); /* На мобилках на всю ширину */
+	width: clamp(100%, 80%, 70%); 
 	font-size: clamp(14px, 2vw, 16px);
 	line-height: 1.6;
 	margin: 0;
 }
 
-/* Шахматная сетка */
+
 .secondAndThirdBlock {
 	display: grid;
 	align-items: center;
 	grid-template-columns: 1fr 1fr;
-	gap: clamp(30px, 5vw, 80px); /* Увеличил разрыв для воздуха */
+	gap: clamp(30px, 5vw, 80px); 
 	width: 100%;
 }
 
@@ -87,16 +87,15 @@
 	margin: 0;
 }
 
-/* --- АДАПТИВ --- */
+
 
 @media (max-width: 900px) {
 	.secondAndThirdBlock {
-		grid-template-columns: 1fr; /* Текст и фото в одну колонку */
+		grid-template-columns: 1fr; 
 		gap: 40px;
 	}
 
-	/* Делаем так, чтобы во втором блоке текст был над картинкой, 
-       даже если в HTML картинка идет первой */
+	
 	.secondAndThirdBlock:nth-of-type(3) img {
 		order: 2;
 	}
@@ -109,6 +108,6 @@
 	}
 
 	.about {
-		padding-top: 100px; /* Чтобы хедер не перекрывал заголовок */
+		padding-top: 100px; 
 	}
 }

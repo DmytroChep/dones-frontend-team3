@@ -1,4 +1,4 @@
-.form{
+.form {
 	display: flex;
 	flex-direction: column;
 	gap: 44px;
@@ -8,7 +8,7 @@
 	box-sizing: border-box;
 }
 
-.fields{
+.fields {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
@@ -17,110 +17,123 @@
 	box-sizing: border-box;
 }
 
-.field{
+.field {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
 }
 
-.fieldInput{
+.fieldInput {
 	height: 40px;
 	width: 100%;
-	border: 1px solid #CED0D4;
+	border: 1px solid #ced0d4;
 	border-radius: 4px;
 	padding-left: 16px;
 }
 
-.inputError{
+.inputError {
 	height: 40px;
 	width: 100%;
-	border: 1px solid #B62D11;
+	border: 1px solid #b62d11;
 	border-radius: 4px;
 	padding-left: 16px;
 }
 
-.isAlreadyReg{
+.isAlreadyReg {
 	width: 100%;
-	color: #CED0D4;
+	color: #ced0d4;
 	text-decoration: underline;
 	cursor: pointer;
 }
 
-.buttons{
+.buttons {
 	display: flex;
 	gap: 10px;
 	width: 100%;
-
 }
 
-.buttonsAndWarning{
+.buttonsAndWarning {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
-	
 }
 
-.warning{
-	color: #9EA0AA;
+.warning {
+	color: #9ea0aa;
 }
 
-.redText{
-	color: #B62D11;
+.redText {
+	color: #b62d11;
 }
 
-.cancel{
+.cancel {
 	height: 41px;
-	border: 1px solid #0C122A;
+	border: 1px solid #0c122a;
 	border-radius: 1234px;
 	background-color: white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: #0C122A;
+	color: #0c122a;
 }
 
-.cancel{
+.cancel {
 	height: 41px;
-	border: 1px solid #0C122A;
+	border: 1px solid #0c122a;
 	border-radius: 1234px;
 	background-color: white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: #0C122A;
+	color: #0c122a;
 	font-size: 16px;
 	padding: 12.5px 16px 12.5px 16px;
 	cursor: pointer;
 }
 
-.submit{
+.submit {
 	height: 41px;
-	border: 1px solid #0C122A;
+	border: 1px solid #0c122a;
 	border-radius: 1234px;
 	color: white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #0C122A;
+	background-color: #0c122a;
 	font-size: 16px;
 	padding: 12.5px 16px 12.5px 16px;
 	cursor: pointer;
 }
 
-.iconInvisible{
+.iconInvisible {
 	cursor: pointer;
 	position: absolute;
 	right: 15px;
 	top: 10px;
 }
 
-.input{
+.input {
 	position: relative;
 	width: 100%;
 }
 
-.error{
+.error {
 	font-size: 13px;
-	color: #B62D11;
+	color: #b62d11;
+}
+
+.buttonsAndWarning {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	width: 100%;
+}
+
+.resetPassword {
+	font-size: 14px;
+	color: #9ea0aa;
+	text-decoration: underline;
+	width: 100%;
+	cursor: pointer;
 }

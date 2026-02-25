@@ -1,16 +1,11 @@
 import type { IModalProps } from "./modal.types"
 import styles from "./modal.module.css"
-import { FunctionComponent, useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import { createPortal } from "react-dom"
-import { ICONS } from "../icons"
-
 
 export function Modal(props: IModalProps) {
     const { children, className, isOpen, onClose, doCloseOnOutsideClick, portalElem=document.body } = props
-
     const modalRef = useRef<HTMLDivElement>(null)
-    
-
 
     useEffect(() => {
         if (!isOpen || !doCloseOnOutsideClick) return; 
@@ -32,12 +27,10 @@ export function Modal(props: IModalProps) {
         };
     }, [isOpen, doCloseOnOutsideClick, onClose]);
 
-    if (!isOpen) {
-        return null
-    }
+    if (!isOpen) return null;
 
     return createPortal(
-        <div className={`${className} ${styles.modal}`} ref={modalRef}>
+        <div className={`${className} ${styles.modal}`} ref={modalRef} onClick={(e) => e.stopPropagation()}>
             {children}
         </div>,
         portalElem

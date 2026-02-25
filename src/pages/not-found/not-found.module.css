@@ -4,11 +4,11 @@
 	align-items: center;
 	justify-content: center;
 	width: 100%;
-	min-height: 100vh; /* Занимаем весь экран */
+	min-height: 100vh; 
 	position: relative;
 	overflow: hidden;
 	background-color: white;
-	padding-top: 80px; /* Оставляем место под Header */
+	padding-top: 80px; 
 }
 
 .centerElement {
@@ -19,7 +19,7 @@
 	z-index: 5;
 	text-align: center;
 	overflow: hidden;
-	flex-grow: 1; /* Позволяет контенту центрироваться по вертикали */
+	flex-grow: 1; 
 }
 
 .notFoundText {
@@ -37,10 +37,10 @@
 
 .droneImage {
 	width: 750px;
-	max-width: 85%; /* Чтобы на ноутбуках не был на весь экран */
+	max-width: 85%; 
 	height: auto;
 	object-fit: contain;
-	/* Добавим плавное парение */
+	
 	animation: float 4s ease-in-out infinite;
 }
 
@@ -50,14 +50,14 @@
 	height: 4000px;
 	background-color: #cdd5dd;
 	border-radius: 50%;
-	/* Регулируем положение "горизонта" */
+	
 	bottom: -3650px;
 	left: 50%;
 	transform: translate(-50%);
 	z-index: 1;
 }
 
-/* Анимация полета */
+
 @keyframes float {
 	0%,
 	100% {
@@ -68,7 +68,7 @@
 	}
 }
 
-/* ФИКС ДЛЯ МОБИЛОК (если нужно чуть подправить под маленькие экраны) */
+
 @media (max-width: 768px) {
 	.oval {
 		width: 550vw;

@@ -8,7 +8,7 @@ export interface IProduct {
 	title: string;
 	price: number;
 	img: string;
-	discount?:number;
+	discount?: number;
 	category: ICategory[];
 	description: string;
 	color: string;
@@ -44,13 +44,18 @@ export interface IUser {
 	email: string;
 	password: string;
 	isAdmin: boolean;
+	name?: string;
+	surname?: string;
+	middleName?: string;
+	birthday?: string;
+	phoneNumber?: string;
 }
 
 export interface IUserReg {
 	username: string;
 	email: string;
 	password: string;
-	isAdmin: boolean
+	isAdmin: boolean;
 }
 
 export interface IUserLogin {

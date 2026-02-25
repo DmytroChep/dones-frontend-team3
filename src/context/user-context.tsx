@@ -43,8 +43,9 @@ export function UserContextProvider(props: IUserContextProviderProps) {
 		if (!response.ok) throw new Error("Login failed");
 
 		const data: string = await response.json();
-		setToken(data);
+		console.log(data)
 		localStorage.setItem("token", data);
+		setToken(data);
 		return data
 	}
 

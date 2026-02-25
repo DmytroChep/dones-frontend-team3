@@ -32,12 +32,12 @@
 	position: absolute;
 	height: 100vh;
 	border-radius: 50%;
-	/* Овал должен начинаться сверху и уходить вниз */
+	
 	top: 0;
 	left: 50%;
 	transform: translate(-50%, -80%);
 	background-color: white;
-	z-index: 2; /* Овал выше логотипа */
+	z-index: 2; 
 }
 
 .footerInfo {
@@ -45,7 +45,7 @@
 	justify-content: center;
 	flex-wrap: wrap;
 	gap: clamp(30px, 10vw, 180px);
-	z-index: 10; /* Контент всегда сверху */
+	z-index: 10; 
 	position: relative;
 	width: 100%;
 	padding: 20px 20px;	
@@ -72,25 +72,25 @@
 	text-align: center;
 }
 
-/* Логотип-подложка */
+
 .footerLogo {
 	width: 90%;
 	max-width: 909px;
 	height: auto;
-	z-index: 1; /* Самый нижний слой, под овалом */
+	z-index: 1; 
 	position: relative;
-	/* Это критический момент: затягиваем лого под овал */
+	
 	margin-top: -100px;
-	/* Делаем его чуть прозрачным как на втором фото */
+	
 	opacity: 0.5;
-	pointer-events: none; /* Чтобы не мешал кликать по ссылкам */
+	pointer-events: none; 
 }
 
 .footerLinks {
 	display: flex;
 	justify-content: center;
 	gap: clamp(15px, 3vw, 27px);
-	margin-top: -20px; /* Приподнимаем к логотипу */
+	margin-top: -20px; 
 	padding-bottom: 40px;
 	z-index: 10;
 	position: relative;
@@ -110,7 +110,7 @@
 	font-family: "walsheimProRegular";
 }
 
-/* Адаптив для мобилок */
+
 @media (max-width: 768px) {
 	.footerInfo {
 		flex-direction: column;
@@ -133,8 +133,8 @@
 
 
 	.footerLogo {
-		margin-top: -50px; /* На мобилках наезд меньше */
-		width: 120%; /* Делаем лого шире экрана для эффекта */
+		margin-top: -50px; 
+		width: 120%; 
 	}
 
 	.footerLinks {
@@ -143,6 +143,6 @@
 	}
 
 	.oval {
-		width: 300vw; /* Более плоский овал на мобилках */
+		width: 300vw; 
 	}
 }

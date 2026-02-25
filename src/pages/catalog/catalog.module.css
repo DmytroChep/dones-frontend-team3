@@ -4,10 +4,10 @@
 	width: 100%;
 	min-height: 100vh;
 	align-items: center;
-	/* Используем clamp для отступов: на мобилках 20px, на десктопе 40px */
+	
 	padding: clamp(20px, 5vw, 40px) clamp(15px, 3vw, 39px);
 	box-sizing: border-box;
-	background-color: #fcfcfc; /* Легкий фон для выделения карточек */
+	background-color: #fcfcfc; 
 }
 
 .catalogDiv {
@@ -16,19 +16,19 @@
 	align-items: end;
 	width: 100%;
 	gap: 44px;
-	max-width: 1440px; /* Чтобы каталог не растягивался бесконечно */
+	max-width: 1440px; 
 }
 
 .catalogTitle {
 	color: #cdd5dd;
-	/* Резиновый шрифт для заголовка */
+	
 	font-size: clamp(32px, 6vw, 44px);
 	font-family: "walsheimProBold";
 	letter-spacing: -1%;
 	margin-bottom: 30px;
 }
 
-/* --- ФИЛЬТРЫ --- */
+
 .filters {
 	display: flex;
 	gap: clamp(10px, 2vw, 20px);
@@ -69,10 +69,10 @@
 	transform: scale(1.05);
 }
 
-/* --- СЕТКА ТОВАРОВ --- */
+
 .products {
 	display: grid;
-	/* Автоматическая сетка: карточки по 322px, если не лезут — переносятся */
+	
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	gap: clamp(16px, 3vw, 24px);
 	width: 100%;
@@ -86,7 +86,7 @@
 	align-items: center;
 	padding: 20px;
 	box-sizing: border-box;
-	/* Убираем жесткую ширину 322px для адаптивности внутри грида */
+	
 	width: 100%;
 	max-width: 360px;
 	margin: 0 auto;
@@ -105,7 +105,7 @@
 
 .catalogImage {
 	width: 100%;
-	aspect-ratio: 1 / 1; /* Чтобы картинки были всегда квадратными и ровными */
+	aspect-ratio: 1 / 1; 
 	object-fit: contain;
 	transition: transform 0.5s ease;
 }
@@ -176,7 +176,7 @@
 	font-size: clamp(1rem, 1.5vw, 1.2rem);
 }
 
-/* Фильтры иконок */
+
 .droneFilter {
 	width: 100%;
 	height: 100%;
@@ -186,7 +186,7 @@
 	height: 75%;
 }
 
-/* Состояние скрытия */
+
 .hidden {
 	display: none;
 	opacity: 0;
@@ -223,13 +223,13 @@ button {
 	background-color: #f4f4f4;
 }
 
-/* Адаптив для мелких экранов */
+
 @media (max-width: 480px) {
 	.catalog {
 		padding: 20px 15px;
 	}
 	.products {
-		grid-template-columns: 1fr; /* По одному товару в ряд на узких телефонах */
+		grid-template-columns: 1fr; 
 	}
 	.filters {
 		justify-content: center;
