@@ -36,7 +36,7 @@ export function useProductsSugg(productsSuggHeaders: IProductsSuggHeaders) {
 		}
 
 		getAllProducts();
-	}, [typeOfSuggestion, take, sameAs]);
+	}, [typeOfSuggestion, take, JSON.stringify(sameAs)]);
 
 	return { products, isLoaded };
 }

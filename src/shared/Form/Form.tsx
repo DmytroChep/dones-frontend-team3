@@ -1,4 +1,4 @@
-import { useContext, useState, MouseEvent, useEffect } from "react";
+import { useContext, useState, type MouseEvent, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { UserContext } from "../../context/user-context";
@@ -7,7 +7,6 @@ import type { ISignInForm, ISignUpForm } from "./Form.types";
 import { ICONS } from "../icons";
 import { useSendEmalCode } from "../../hooks/use-send-email-code";
 import { useIsCodeExists } from "../../hooks/use-is-code-exists";
-import { useUpdateUserData } from "../../hooks/use-update-user-data";
 import { useUpdatePassword } from "../../hooks/use-update-password";
 
 interface IFormProps {
@@ -39,21 +38,19 @@ export function Form({ variant, resetStep, setResetStep }: IFormProps) {
 
 	const { sendCode } = useSendEmalCode();
 	const { checkCode } = useIsCodeExists();
-	const updateUserData = useUpdateUserData();
 	const UserContextData = useContext(UserContext);
 	const { updatePassword } = useUpdatePassword();
 
-	// --- ЭФФЕКТ ВОССТАНОВЛЕНИЯ ДАННЫХ ПРИ ПЕРЕЗАГРУЗКЕ ---
 	useEffect(() => {
 		const code = searchParams.get("code");
 		const savedEmail = localStorage.getItem(EMAIL_STORAGE_KEY);
 
 		if (code) {
-			setResetStep(2); // Сразу на шаг ввода/проверки кода
+			setResetStep(2);
 			setValue("resetCode", code);
 
 			if (savedEmail) {
-				setValue("email", savedEmail); // Возвращаем email в состояние формы
+				setValue("email", savedEmail); 
 			}
 		}
 	}, [searchParams, setResetStep, setValue]);
@@ -75,7 +72,7 @@ export function Form({ variant, resetStep, setResetStep }: IFormProps) {
 			try {
 				if (resetStep === 1) {
 					if (!isCodeSent) {
-						// Сохраняем email перед отправкой кода
+					
 						await sendCode(data.email);
 						localStorage.setItem(EMAIL_STORAGE_KEY, data.email);
 						setIsCodeSent(true);
@@ -84,7 +81,7 @@ export function Form({ variant, resetStep, setResetStep }: IFormProps) {
 						setIsCodeSent(false);
 					}
 				} else if (resetStep === 2) {
-					// Проверка кода
+				
 					const isValid = await checkCode(Number(data.resetCode));
 					if (isValid) {
 						setResetStep(3);
@@ -97,12 +94,12 @@ export function Form({ variant, resetStep, setResetStep }: IFormProps) {
 						password: data.password,
 					});
 
-					// Очистка
+
 					localStorage.removeItem(EMAIL_STORAGE_KEY);
 					setResetStep(0);
 					navigate(window.location.pathname, { replace: true });
 				}
-			} catch (err) {
+			} catch {
 				setError("root", { message: "Щось пішло не так. Спробуйте пізніше." });
 			}
 			return;
@@ -124,7 +121,7 @@ export function Form({ variant, resetStep, setResetStep }: IFormProps) {
 				} as ISignInForm);
 				if (result?.split(".").length === 3) return navigate("/profile/");
 			}
-		} catch (err) {
+		} catch {
 			setError("root", { message: "Невірний логін або пароль" });
 		}
 	}
@@ -157,10 +154,7 @@ export function Form({ variant, resetStep, setResetStep }: IFormProps) {
 							</>
 						) : (
 							<div style={{ textAlign: "center", padding: "10px 0" }}>
-								<p className={styles.fieldTitle} style={{ color: "green" }}>
-									✔ Лист надіслано!
-								</p>
-								<p style={{ fontSize: "14px" }}>
+								<p>
 									Ми відправили код на <b>{userEmail}</b>.<br />
 									Перевірте пошту и натисніть "Далі".
 								</p>
@@ -296,7 +290,7 @@ export function Form({ variant, resetStep, setResetStep }: IFormProps) {
 						if (resetStep > 0) {
 							setResetStep(0);
 							setIsCodeSent(false);
-							localStorage.removeItem(EMAIL_STORAGE_KEY); // Чистим при возврате
+							localStorage.removeItem(EMAIL_STORAGE_KEY); 
 						} else {
 							window.location.reload();
 						}

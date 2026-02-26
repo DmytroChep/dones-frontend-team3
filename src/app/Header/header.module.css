@@ -68,6 +68,7 @@
 	height: 24px;
 	cursor: pointer;
 	transition: transform 0.2s;
+	z-index: 1234567;
 }
 
 .miniLogo:hover {
@@ -137,7 +138,173 @@
     cursor: pointer;
 }
 
+.cartBlock{
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
+.modalTitle{
+	font-family: "walsheimProRegular";
+}
+
+.headerModalCart{
+	width: 100%;
+	height: 60px;
+	border-radius: 16px;
+	display: flex;
+	padding-left: 24px;
+	align-items: center;
+	box-sizing: border-box;
+}
+
+.mainCartModal{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	padding-left: 24px;
+	padding-right: 24px;
+	overflow: scroll;
+	max-height: 372px;
+}
+
+.cartNullDiv{
+	width: 100%;
+	height: 100%;
+	min-height: 224px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 16px 24px 16px 24px;
+	border-top: 1px solid #9EA0AA;
+	border-bottom: 1px solid #9EA0AA;
+	gap: 16px;
+}
+
+.cartNullText{
+	text-align: center;
+	color: #9EA0AA;
+	font-size: 20px;
+}
+
+.mainCartModal{
+	border-bottom: 1px solid #9EA0AA;
+}
+
+.buttonDiv{
+	width: 100%;
+	display: flex;
+	padding-bottom: 16px;
+	justify-content: end;
+	padding-right: 24px;
+}
+
+.button{
+	border-radius: 1234px;
+	padding: 12.5px 16px 12.5px 16px;
+	border: 1.5px solid #0C122A;
+	color: #0C122A;
+	font-size: 14px;
+	letter-spacing: 9%;
+	background-color: transparent;
+}
+
+.trashIcon{
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+}
+
+.productCart{
+	display: flex;
+	width: 100%;
+	gap: 26px;
+	padding: 18px 8px 18px 8px;
+	border-bottom: 1px solid #9EA0AA;
+}
+
+
+.droneCartImage{
+	width: 108px;
+}
+
+.otherCartProdcutInfo{
+	display: flex;
+	gap: 31px;
+	align-items: center;
+}
+
+.titleAndPrice{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+}
+
+.title{
+	font-size: 24px;
+	font-family: "walsheimProRegular";
+	width: 240px;
+}
+
+.price{
+	display: flex;
+	gap: 16px;
+	font-size: 14px;
+}
+
+.priceText{
+	text-decoration: line-through;
+}
+
+.discount{
+	color: #B62D11;
+}
+
+.changeQuantity{
+	display: flex;
+	gap: 16px;
+	align-items: center;
+}
+
+.changeQuantityButton{
+	width: 36px;
+	height: 36px;
+	background-color: transparent;
+	border: 1.5px solid #9EA0AA;
+	border-radius: 1234px;
+	font-size: 20px;
+}
+
+.cost{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 10px;
+	font-size: 16px;
+}
+
+.saved{
+	color: #9EA0AA;
+}
+
+.withDiscount{
+	color: #B62D11;
+	font-size: 20px;
+}
+
+.generalCostDiv{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.generalCost{
+	text-decoration: line-through;
+}
 
 @media (max-width: 1024px) {
 	.header {

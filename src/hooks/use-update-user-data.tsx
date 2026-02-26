@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { IUpdateuser } from "../assets/types/hooks/update-user-types";
+import type { IUpdateuser } from "../assets/types/hooks/update-user-types";
 import { UserContext } from "../context";
 
 export function useUpdateUserData() {

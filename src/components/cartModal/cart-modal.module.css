@@ -1,0 +1,15 @@
+.modal {
+	position: absolute;
+	right: -55px;
+	top: 55px;
+	display: flex;
+	align-items: center;
+    flex-direction: column;
+	width: 638px;
+	z-index: 12345;
+	transition: all 1s;
+	background-color: white;
+	border-radius: 16px;
+	box-sizing: border-box;
+    gap: 16px;
+}

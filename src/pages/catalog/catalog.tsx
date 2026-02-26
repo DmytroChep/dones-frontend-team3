@@ -1,9 +1,11 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useContext } from "react";
 import { ThreeDot } from "react-loading-indicators";
 import { useNavigate } from "react-router-dom";
 import { useProductsSugg } from "../../hooks/use-suggestions";
 import { ICONS, IMAGES } from "../../shared";
 import styles from "./catalog.module.css";
+import { CartContext } from "../../context/cart-context";
+import { IProduct } from "../../assets/types";
 
 export function CatalogPage() {
 	const { products, isLoaded } = useProductsSugg({ typeOfSuggestion: "new" });
@@ -33,7 +35,18 @@ export function CatalogPage() {
 
 	useEffect(() => {
 		window.scrollTo({ top: 0, behavior: "smooth" });
-	}, [])
+	}, []);
+
+	const cartContextData = useContext(CartContext);
+
+	const addProductToCart = cartContextData?.addToCart;
+	const cartProducts = cartContextData?.products || [];
+
+
+	const productsWithoutQuantity: IProduct[] = cartProducts.map((element) => {
+		const { quantity, ...product } = element;
+		return product
+	});
 
 	return (
 		<div className={styles.catalog}>
@@ -94,12 +107,24 @@ export function CatalogPage() {
 												<p className={styles.priceText}>{element.price} $</p>
 												<p className={styles.discount}>{element.discount} $</p>
 											</div>
-										): (<div className={styles.price}>
-											<p className={styles.withoutDiscount}>{element.price} $</p>
-										</div>)}
-										
+										) : (
+											<div className={styles.price}>
+												<p className={styles.withoutDiscount}>
+													{element.price} $
+												</p>
+											</div>
+										)}
 									</div>
-									<div className={styles.buyButton}>
+									<div
+										className={styles.buyButton}
+										onClick={(event) => {
+											event.stopPropagation();
+
+											if (addProductToCart && !cartProducts.some(product => product.id === element.id)) {
+												addProductToCart({ ...element, quantity: 1 });
+											}
+										}}
+									>
 										<ICONS.blackCart className={`${styles.buyIcon}`} />
 									</div>
 								</div>
@@ -116,7 +141,7 @@ export function CatalogPage() {
 							type="button"
 							disabled={currentPage === 1}
 							onClick={() => {
-								setCurrentPage((prev) => prev - 1)
+								setCurrentPage((prev) => prev - 1);
 							}}
 							className={styles.arrowBtn}
 						>
@@ -130,7 +155,7 @@ export function CatalogPage() {
 									type="button"
 									key={`page-${pageNumber}`}
 									onClick={() => {
-										setCurrentPage(pageNumber)
+										setCurrentPage(pageNumber);
 										// window.scrollTo({ top: 20, behavior: "smooth" });
 									}}
 									className={

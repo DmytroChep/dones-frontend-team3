@@ -1,6 +1,5 @@
-import { useContext, useState } from "react";
-import { IUpdatePassword } from "../assets/types/hooks/update-user-types";
-import { UserContext } from "../context";
+import { useState } from "react";
+import type { IUpdatePassword } from "../assets/types/hooks/update-user-types";
 
 export function useUpdatePassword() {
 	const [isLoading, setIsLoading] = useState(false);

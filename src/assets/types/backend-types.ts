@@ -19,6 +19,23 @@ export interface IProduct {
 	ProductCharacteristic: ProductCharacteristic[];
 }
 
+export interface ICartProduct {
+	id: number;
+	title: string;
+	price: number;
+	img: string;
+	discount?: number;
+	category: ICategory[];
+	description: string;
+	color: string;
+	quantity: number;
+	_count: {
+		orderProduct: number;
+	};
+	productDescription: productDescription[];
+	ProductCharacteristic: ProductCharacteristic[];
+}
+
 export interface productDescription {
 	id: number;
 	title: string;
