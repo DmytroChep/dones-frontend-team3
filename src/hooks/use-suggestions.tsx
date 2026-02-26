@@ -25,6 +25,7 @@ export function useProductsSugg(productsSuggHeaders: IProductsSuggHeaders) {
 				const response = await fetch(
 					`http://127.0.0.1:3000/products/suggestions?${params.toString()}`,
 				);
+				console.log(params)
 				const data = await response.json();
 
 				setProducts(data);

@@ -5,7 +5,8 @@ import { useProductsSugg } from "../../hooks/use-suggestions";
 import { ICONS, IMAGES } from "../../shared";
 import { Button } from "../../shared/button";
 import styles from "./productPage.module.css";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { CartContext } from "../../context/cart-context";
 
 export function ProductPage() {
 	const { id } = useParams<{ id: string }>();
@@ -13,12 +14,18 @@ export function ProductPage() {
 	const { product, isLoaded } = useProductById(productId);
 
 	const { products } = useProductsSugg({
-		sameAs: { name: "Тепловізор", limit:4 },
+		sameAs: { name: product?.title, limit:4 },
 	});
 
 	useEffect(() => {
 		window.scrollTo({ top: 0, behavior: "smooth" });
 	}, []);
+
+	const cartContextData = useContext(CartContext);
+
+	const addProductToCart = cartContextData?.addToCart;
+	const cartProducts = cartContextData?.products
+	const incChangesCount = cartContextData?.incChangesCount;
 
 	return (
 		<div className={styles.productPage}>
@@ -56,7 +63,22 @@ export function ProductPage() {
 						</div>
 					</div>
 					<div className={styles.buttonsBlock}>
-						<button className={styles.buttonCart} type="button">
+						<button className={styles.buttonCart} type="button" onClick={(event) => {
+											event.stopPropagation();
+
+											if (
+												addProductToCart &&
+												cartProducts &&
+												incChangesCount &&
+												product &&
+												!cartProducts.some(
+													(element) => element.id === product.id,
+												)
+											) {
+												addProductToCart({ ...product, quantity: 1 });
+												incChangesCount();
+											}
+										}}>
 							<ICONS.blackCart className={styles.icon} />
 						</button>
 

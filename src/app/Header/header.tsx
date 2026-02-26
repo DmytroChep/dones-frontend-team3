@@ -6,8 +6,6 @@ import { Modal } from "../../shared/Modal";
 import { Form } from "../../shared/Form";
 import { CartModal } from "../../components/cartModal";
 import { CartContext } from "../../context/cart-context";
-import { IProduct } from "../../assets/types";
-import { ICartProduct } from "../../assets/types/backend-types";
 
 export function Header(props: { className?: string; isWhiteBg: boolean }) {
 	const { className, isWhiteBg } = props;
@@ -55,6 +53,8 @@ export function Header(props: { className?: string; isWhiteBg: boolean }) {
 	const cartModalContextData = useContext(CartContext);
 
 	const products = cartModalContextData?.products;
+	const changesCount = cartModalContextData?.changesCount;
+	const zeroChangesCount = cartModalContextData?.zeroChangesCount;
 	const removeProductFromCart = cartModalContextData?.removeProductFromCart;
 	const incProductQuantity = cartModalContextData?.incProductQuantity;
 	const decProductQuantity = cartModalContextData?.decProductQuantity;
@@ -139,10 +139,17 @@ export function Header(props: { className?: string; isWhiteBg: boolean }) {
 				<div className={styles.rightBlock}>
 					<div
 						className={styles.cartBlock}
-						onClick={handleInputFocusCart}
+						onClick={(event) => {
+							if (zeroChangesCount){
+								zeroChangesCount()
+							}
+							handleInputFocusCart(event)
+						}}
 						ref={cartDivRef}
 					>
 						<ICONS.cart className={styles.miniLogo} />
+						{!(changesCount === 0) ? <p className={styles.changes}>{changesCount}</p> : false}
+						
 						<CartModal
 							portalElem={cartDivRef}
 							className={styles.cartModal}
@@ -161,8 +168,7 @@ export function Header(props: { className?: string; isWhiteBg: boolean }) {
 								{products ? (
 									!(products.length === 0) ? (
 										<div className={styles.mainCartModalDiv}>
-											{
-											products.map((element) => {
+											{products.map((element) => {
 												return (
 													<div className={styles.productCart} key={element.id}>
 														<img
@@ -233,8 +239,7 @@ export function Header(props: { className?: string; isWhiteBg: boolean }) {
 														</div>
 													</div>
 												);
-											})
-										}
+											})}
 										</div>
 									) : (
 										<div className={styles.cartNullDiv}>
@@ -251,39 +256,37 @@ export function Header(props: { className?: string; isWhiteBg: boolean }) {
 							</div>
 							<div className={styles.cost}>
 								<div className={styles.generalCostDiv}>
-									<p className={styles.generalCostText}>
-										Загальна сума
-									</p>
+									<p className={styles.generalCostText}>Загальна сума</p>
 									<p className={styles.generalCost}>
 										{products?.reduce((sum, element) => {
 											return sum + element.price * element.quantity;
-										}, 0)} ₴
+										}, 0)}{" "}
+										₴
 									</p>
 								</div>
 
 								<div className={styles.generalCostDiv}>
-									<p className={styles.savedText}>
-										Заощадженно
-									</p>
+									<p className={styles.savedText}>Заощадженно</p>
 									<p className={styles.saved}>
-										-{products?.reduce((sum, element) => {
-											const savingPerItem = element.discount 
-												? (element.price - element.discount) 
+										-
+										{products?.reduce((sum, element) => {
+											const savingPerItem = element.discount
+												? element.price - element.discount
 												: 0;
-											return sum + (savingPerItem * element.quantity);
-										}, 0)} ₴
+											return sum + savingPerItem * element.quantity;
+										}, 0)}{" "}
+										₴
 									</p>
 								</div>
 
 								<div className={styles.generalCostDiv}>
-									<p className={styles.withDiscountText}>
-										Зі знижкою
-									</p>
+									<p className={styles.withDiscountText}>Зі знижкою</p>
 									<p className={styles.withDiscount}>
 										{products?.reduce((sum, element) => {
 											const actualPrice = element.discount || element.price;
-											return sum + (actualPrice * element.quantity);
-										}, 0)} ₴
+											return sum + actualPrice * element.quantity;
+										}, 0)}{" "}
+										₴
 									</p>
 								</div>
 							</div>

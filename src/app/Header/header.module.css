@@ -68,7 +68,7 @@
 	height: 24px;
 	cursor: pointer;
 	transition: transform 0.2s;
-	z-index: 1234567;
+	z-index: 1;
 }
 
 .miniLogo:hover {
@@ -285,10 +285,27 @@
 	width: 100%;
 	gap: 10px;
 	font-size: 16px;
+	padding: 16px 24px 16px 24px;
 }
 
 .saved{
 	color: #9EA0AA;
+}
+
+.changes{
+	width: 17px;
+	height: 17px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #B62D11;
+	border-radius: 1234px;
+	position: absolute;
+	top: -1px;
+	right: -3px;
+	color: white;
+	font-size: 10px;
+	z-index: 2; 
 }
 
 .withDiscount{

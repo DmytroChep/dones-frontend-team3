@@ -41,12 +41,7 @@ export function CatalogPage() {
 
 	const addProductToCart = cartContextData?.addToCart;
 	const cartProducts = cartContextData?.products || [];
-
-
-	const productsWithoutQuantity: IProduct[] = cartProducts.map((element) => {
-		const { quantity, ...product } = element;
-		return product
-	});
+	const incChangesCount = cartContextData?.incChangesCount;
 
 	return (
 		<div className={styles.catalog}>
@@ -95,7 +90,7 @@ export function CatalogPage() {
 								key={`catalog${element.id}`}
 							>
 								<img
-									src={IMAGES.catalogExampleDrone}
+									src={element.img}
 									className={styles.catalogImage}
 									alt={element.title}
 								/>
@@ -120,8 +115,15 @@ export function CatalogPage() {
 										onClick={(event) => {
 											event.stopPropagation();
 
-											if (addProductToCart && !cartProducts.some(product => product.id === element.id)) {
+											if (
+												addProductToCart &&
+												incChangesCount &&
+												!cartProducts.some(
+													(product) => product.id === element.id,
+												)
+											) {
 												addProductToCart({ ...element, quantity: 1 });
+												incChangesCount();
 											}
 										}}
 									>
