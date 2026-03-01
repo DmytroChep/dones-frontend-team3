@@ -11,6 +11,7 @@ import lense from "../assets/images/lense.png";
 import logo from "../assets/images/logo.png";
 import Footer from "../assets/images/Footer.png";
 import homeHeader from "../assets/images/HomeHeader.png"
+import altFooter from "../assets/images/altFooter.png"
 
 export const IMAGES = {
 	logo: logo,
@@ -25,5 +26,6 @@ export const IMAGES = {
 	monocular: lense,
 	correctRotationDrone2: correctRotationDrone2,
 	footer: Footer,
-	homeHeader: homeHeader
+	homeHeader: homeHeader,
+	altFooter: altFooter
 };

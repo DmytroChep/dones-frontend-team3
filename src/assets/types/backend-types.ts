@@ -68,6 +68,50 @@ export interface IUser {
 	phoneNumber?: string;
 }
 
+export interface IAdress{
+	id: number,
+	city: string,
+	postDepartament?: string,
+	street: string,
+	home: string,
+	appartament: string,
+	entrants: string,
+}
+export interface ICreateAdress{
+	id?: number,
+	city: string,
+	postDepartament?: string,
+	street: string,
+	home: string,
+	appartament: string,
+	entrants: string,
+}
+
+export interface IUpdateAdress{
+	id?: number,
+	city?: string,
+	postDepartament?: string,
+	street?: string,
+	home?: string,
+	appartament?: string,
+	entrants?: string,
+}
+
+export interface IUerWithRelations{
+	id: number;
+	username: string;
+	email: string;
+	password: string;
+	isAdmin: boolean;
+	name?: string;
+	surname?: string;
+	middleName?: string;
+	birthday?: string;
+	phoneNumber?: string;
+	userAdress: IAdress[]
+	order: IOrder[]
+}
+
 export interface IUserReg {
 	username: string;
 	email: string;
@@ -78,4 +122,12 @@ export interface IUserReg {
 export interface IUserLogin {
 	email: string;
 	password: string;
+}
+
+
+export interface IOrder{
+	id: number
+	totalPrice: number
+	status: string
+	createdAt:string
 }

@@ -9,6 +9,7 @@ import type {
 	IUser,
 	IUserLogin,
 	IUserReg,
+	IUerWithRelations,
 } from "../assets/types/backend-types";
 import type { IFormData } from "../shared/Form/Form.types";
 
@@ -18,6 +19,7 @@ interface IUserContext {
 	signUp: (userData: IUserReg) => Promise<string>;
 	signIn: (userData: IUserLogin) => Promise<string>;
 	logout: () => void;
+	getUserRelations: () => Promise<IUerWithRelations>;
 }
 
 interface IUserContextProviderProps {
@@ -33,6 +35,44 @@ export function UserContextProvider(props: IUserContextProviderProps) {
 	);
 	const [user, setUser] = useState<IUser | null>(null);
 
+	async function me() {
+		if (!token) return;
+
+		try {
+			const response = await fetch(`http://127.0.0.1:3000/user/me`, {
+				method: "GET",
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			});
+
+			if (response.ok) {
+				const userData = await response.json();
+				setUser(userData);
+				return userData;
+			}
+		} catch (err) {
+			console.error("Ошибка загрузки пользователя", err);
+		}
+	}
+
+	const getUserRelations = useCallback(async () => {
+		const user = await me();
+		const response = await fetch(
+			`http://127.0.0.1:3000/user/getUser/${user.id}`,
+			{
+				method: "GET",
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			},
+		);
+
+		const data = await response.json();
+
+		return data;
+	}, [token]);
+
 	async function signIn(UserBody: IFormData) {
 		const response = await fetch(`http://127.0.0.1:3000/user/login`, {
 			method: "POST",
@@ -43,10 +83,10 @@ export function UserContextProvider(props: IUserContextProviderProps) {
 		if (!response.ok) throw new Error("Login failed");
 
 		const data: string = await response.json();
-		console.log(data)
+		console.log(data);
 		localStorage.setItem("token", data);
 		setToken(data);
-		return data
+		return data;
 	}
 
 	async function signUp(UserBody: IFormData) {
@@ -61,9 +101,8 @@ export function UserContextProvider(props: IUserContextProviderProps) {
 		const data = await response.json();
 		setToken(data);
 		localStorage.setItem("token", data);
-		return data
+		return data;
 	}
-
 
 	const logout = useCallback(() => {
 		setToken(null);
@@ -98,7 +137,9 @@ export function UserContextProvider(props: IUserContextProviderProps) {
 	}, [token, logout]);
 
 	return (
-		<UserContext.Provider value={{ token, user, signIn, signUp, logout }}>
+		<UserContext.Provider
+			value={{ token, user, signIn, signUp, logout, getUserRelations }}
+		>
 			{children}
 		</UserContext.Provider>
 	);

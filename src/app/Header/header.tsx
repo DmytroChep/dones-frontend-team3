@@ -6,6 +6,7 @@ import { Modal } from "../../shared/Modal";
 import { Form } from "../../shared/Form";
 import { CartModal } from "../../components/cartModal";
 import { CartContext } from "../../context/cart-context";
+import { Button } from "../../shared/button";
 
 export function Header(props: { className?: string; isWhiteBg: boolean }) {
 	const { className, isWhiteBg } = props;
@@ -52,8 +53,7 @@ export function Header(props: { className?: string; isWhiteBg: boolean }) {
 
 	const cartModalContextData = useContext(CartContext);
 
-	const products = cartModalContextData?.products;
-	const changesCount = cartModalContextData?.changesCount;
+	const products = cartModalContextData?.products || [];
 	const zeroChangesCount = cartModalContextData?.zeroChangesCount;
 	const removeProductFromCart = cartModalContextData?.removeProductFromCart;
 	const incProductQuantity = cartModalContextData?.incProductQuantity;
@@ -140,16 +140,22 @@ export function Header(props: { className?: string; isWhiteBg: boolean }) {
 					<div
 						className={styles.cartBlock}
 						onClick={(event) => {
-							if (zeroChangesCount){
-								zeroChangesCount()
+							if (zeroChangesCount) {
+								zeroChangesCount();
 							}
-							handleInputFocusCart(event)
+							handleInputFocusCart(event);
 						}}
 						ref={cartDivRef}
 					>
 						<ICONS.cart className={styles.miniLogo} />
-						{!(changesCount === 0) ? <p className={styles.changes}>{changesCount}</p> : false}
-						
+						{!(products.length === 0) ? (
+							<p className={styles.changes}>{products.reduce((sum, element) => {
+								return sum + element.quantity
+							}, 0)}</p>
+						) : (
+							false
+						)}
+
 						<CartModal
 							portalElem={cartDivRef}
 							className={styles.cartModal}
@@ -254,6 +260,8 @@ export function Header(props: { className?: string; isWhiteBg: boolean }) {
 									<p></p>
 								)}
 							</div>
+							{!(products?.length === 0 )? (
+									
 							<div className={styles.cost}>
 								<div className={styles.generalCostDiv}>
 									<p className={styles.generalCostText}>Загальна сума</p>
@@ -278,7 +286,7 @@ export function Header(props: { className?: string; isWhiteBg: boolean }) {
 										₴
 									</p>
 								</div>
-
+								
 								<div className={styles.generalCostDiv}>
 									<p className={styles.withDiscountText}>Зі знижкою</p>
 									<p className={styles.withDiscount}>
@@ -290,15 +298,38 @@ export function Header(props: { className?: string; isWhiteBg: boolean }) {
 									</p>
 								</div>
 							</div>
-							<div className={styles.buttonDiv}>
-								<button
-									className={styles.button}
-									type="button"
-									onClick={handleInputFocusCart}
-								>
-									ПРОДОВЖИТИ ПОКУПКИ
-								</button>
-							</div>
+							) : <p/>}
+
+							{products?.length === 0 ? (
+								<div className={styles.buttonDiv}>
+									<button
+										className={styles.button}
+										type="button"
+										onClick={handleInputFocusCart}
+									>
+										ПРОДОВЖИТИ ПОКУПКИ
+									</button>
+								</div>
+							) : (
+								<div className={styles.buttonDiv}>
+									<button className={styles.button} type="button">
+										ПЕРЕЙТИ ДО КОШИКА
+									</button>
+									<div onClick={() => {
+										navigate("/order/")
+									}}>
+										<Button
+											withArrow
+											arrowColor="white"
+											className={styles.darkButton}
+											textClassName={styles.whiteText}
+											
+										>
+											ОФОРМИТИ ЗАМОВЛЕННЯ
+										</Button>
+									</div>
+								</div>
+							)}
 						</CartModal>
 					</div>
 					<ICONS.user

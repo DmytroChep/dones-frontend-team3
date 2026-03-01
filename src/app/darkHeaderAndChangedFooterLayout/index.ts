@@ -1,0 +1,1 @@
+export { DarkHeaderAndChangedFooterLayout } from "./layout";

@@ -10,6 +10,7 @@ interface ICartContext {
 	changesCount: number;
 	incChangesCount: () => void;
 	zeroChangesCount: () => void;
+	removeAllProducts: () => void;
 }
 
 interface ICartContextProviderProps {
@@ -74,6 +75,11 @@ export function CartContextProvider(props: ICartContextProviderProps) {
 		localStorage.setItem("changesCount", `${changesCount + 1}`);
 	}
 
+	function removeAllProducts() {
+		setProducts([])
+		localStorage.setItem("cartProducts", "[]")
+	}
+
 	function zeroChangesCount() {
 		setChangesCount(0);
 		localStorage.setItem("changesCount", "0");
@@ -106,6 +112,7 @@ export function CartContextProvider(props: ICartContextProviderProps) {
 				changesCount,
 				incChangesCount,
 				zeroChangesCount,
+				removeAllProducts
 			}}
 		>
 			{children}

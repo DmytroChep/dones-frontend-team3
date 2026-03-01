@@ -14,7 +14,7 @@ export function ProductPage() {
 	const { product, isLoaded } = useProductById(productId);
 
 	const { products } = useProductsSugg({
-		sameAs: { name: product?.title, limit:4 },
+		sameAs: { name: product?.title, limit: 4 },
 	});
 
 	useEffect(() => {
@@ -24,30 +24,36 @@ export function ProductPage() {
 	const cartContextData = useContext(CartContext);
 
 	const addProductToCart = cartContextData?.addToCart;
-	const cartProducts = cartContextData?.products
+	const cartProducts = cartContextData?.products;
 	const incChangesCount = cartContextData?.incChangesCount;
+	const incProductQuantity = cartContextData?.incProductQuantity;
 
 	return (
 		<div className={styles.productPage}>
 			<div className={styles.topBlock}>
 				{isLoaded ? (
 					<div className={styles.titleAndDescBlock}>
-						<p className={styles.title}>{product?.title}</p>
+						<p className={styles.title}>{product?.title.toLocaleUpperCase()}</p>
 						<p className={styles.description}>{product?.description}</p>
 					</div>
 				) : (
 					<ThreeDot color="#6f6f6f" size="medium" text="" textColor="" />
 				)}
-				<img src={IMAGES.correctRotationDrone2} className={styles.droneImage} />
+				<img
+					src={product?.img}
+					className={
+						product?.category !== undefined &&
+						!(product?.category[0].name === "monocular")
+							? styles.droneImage
+							: styles.monocularImage
+					}
+				/>
 				<div className={styles.ovalShell}>
 					<div className={styles.oval}></div>
 				</div>
 				<div className={styles.buyBlock}>
 					<div className={styles.droneInfoSmall}>
-						<img
-							src={IMAGES.correctRotationDrone2}
-							className={styles.droneImageSmall}
-						/>
+						<img src={product?.img} className={styles.droneImageSmall} />
 						<div className={styles.priceAndTitle}>
 							<p className={styles.smallTitle}>{product?.title}</p>
 							{product?.discount ? (
@@ -63,22 +69,31 @@ export function ProductPage() {
 						</div>
 					</div>
 					<div className={styles.buttonsBlock}>
-						<button className={styles.buttonCart} type="button" onClick={(event) => {
-											event.stopPropagation();
+						<button
+							className={styles.buttonCart}
+							type="button"
+							onClick={(event) => {
+								event.stopPropagation();
 
-											if (
-												addProductToCart &&
-												cartProducts &&
-												incChangesCount &&
-												product &&
-												!cartProducts.some(
-													(element) => element.id === product.id,
-												)
-											) {
-												addProductToCart({ ...product, quantity: 1 });
-												incChangesCount();
-											}
-										}}>
+								if (
+									addProductToCart &&
+									cartProducts &&
+									incChangesCount &&
+									product &&
+									!cartProducts.some((element) => element.id === product.id)
+								) {
+									addProductToCart({ ...product, quantity: 1 });
+									incChangesCount();
+								} else if (
+									incProductQuantity &&
+									cartProducts &&
+									product &&
+									cartProducts.some((element) => product.id === element.id)
+								) {
+									incProductQuantity(product.id);
+								}
+							}}
+						>
 							<ICONS.blackCart className={styles.icon} />
 						</button>
 
@@ -94,70 +109,115 @@ export function ProductPage() {
 				</div>
 			</div>
 			<div className={styles.mainData}>
-				{product?.productDescription.map((product) => {
-					return product.id === 0 ? (
-						<div className={styles.firstBlock} key={product.id}>
+				{product?.productDescription.map((element) => {
+					return element.id === 0 ? (
+						<div className={styles.firstBlock} key={element.id}>
 							<div className={styles.aboutUsText}>
 								<p className={styles.adoutUsTextHeader}>
-									{product.title.toLocaleUpperCase()}
+									{element.title.toLocaleUpperCase()}
 								</p>
-								<p className={styles.adoutUsTextMain}>{product.description}</p>
+								<p className={styles.adoutUsTextMain}>{element.description}</p>
 							</div>
-							<img src={IMAGES.aboutImage1} className={styles.imageBlock1} />
+							<img src={element.img} className={styles.imageBlock1} />
 						</div>
 					) : (
-						<p key={product.id} />
+						<p key={element.id} />
 					);
 				})}
 
 				{product?.productDescription.map((element) => {
-					return element.id % 2 === 0 ? (
-						<div className={styles.secondAndThirdBlock} key={element.id}>
-							<div className={styles.smallBlocksText}>
-								<p className={styles.smallBlocksTextHeader}>{element.title}</p>
-								<p className={styles.smallBlocksTextMain}>
-									{element.description}
-								</p>
+					return !(element.id === 0) ? (
+						element.id % 2 === 0 ? (
+							<div className={styles.secondAndThirdBlock} key={element.id}>
+								<div className={styles.smallBlocksText}>
+									<p className={styles.smallBlocksTextHeader}>
+										{element.title.toLocaleUpperCase()}
+									</p>
+									<p className={styles.smallBlocksTextMain}>
+										{element.description}
+									</p>
+								</div>
+								<img src={element.img} className={styles.imageBlock2} />
 							</div>
-							<img src={IMAGES.aboutImage2} className={styles.imageBlock2} />
-						</div>
+						) : (
+							<div className={styles.secondAndThirdBlock} key={element.id}>
+								<img src={element.img} className={styles.imageBlock2} />
+								<div className={styles.smallBlocksText}>
+									<p className={styles.smallBlocksTextHeader}>
+										{element.title.toLocaleUpperCase()}
+									</p>
+									<p className={styles.smallBlocksTextMain}>
+										{element.description}
+									</p>
+								</div>
+							</div>
+						)
 					) : (
-						<div className={styles.secondAndThirdBlock} key={element.id}>
-							<img src={IMAGES.aboutImage2} className={styles.imageBlock2} />
-							<div className={styles.smallBlocksText}>
-								<p className={styles.smallBlocksTextHeader}>{element.title}</p>
-								<p className={styles.smallBlocksTextMain}>
-									{element.description}
-								</p>
-							</div>
-						</div>
+						<p key={element.id}></p>
 					);
 				})}
-				{product?.ProductCharacteristic.map((product) => {
+				{product?.ProductCharacteristic.map((element) => {
+					if (product.category && product.category[0].name === "drone") {
+						return (
+							<div className={styles.characteristics} key={element.id}>
+								<p className={styles.adoutUsTextHeader}>
+									{element.title.toLocaleUpperCase()}
+								</p>
+								<p className={styles.adoutUsTextMain}>{element.description}</p>
+
+								<div className={styles.characteristicsBlock}>
+									<div className={styles.characteristicsSubBlock}>
+										<p className={styles.subBlockText}>{element.coding}</p>
+										<p className={styles.subBlockTitle}>Кодування</p>
+									</div>
+									<div className={styles.characteristicsSubBlock}>
+										<p className={styles.subBlockText}>
+											{element.ufsStorage} <p className={styles.gygabite}>GB</p>
+										</p>
+										<p className={styles.subBlockTitle}>UFS Сховище</p>
+									</div>
+									<div className={styles.characteristicsSubBlock}>
+										<p className={styles.subBlockText}>
+											{element.eMMSStorage}{" "}
+											<p className={styles.gygabite}>GB</p>
+										</p>
+										<p className={styles.subBlockTitle}>eMMS</p>
+									</div>
+								</div>
+								<img src={element.img} className={styles.imageBlock1} />
+							</div>
+						);
+					}
 					return (
-						<div className={styles.characteristics} key={product.id}>
-							<p className={styles.adoutUsTextHeader}>{product.title}</p>
-							<p className={styles.adoutUsTextMain}>{product.description}</p>
+						<div className={styles.characteristics} key={element.id}>
+							<p className={styles.adoutUsTextHeader}>
+								{element.title.toLocaleUpperCase()}
+							</p>
+							<p className={styles.adoutUsTextMain}>{element.description}</p>
 
 							<div className={styles.characteristicsBlock}>
 								<div className={styles.characteristicsSubBlock}>
-									<p className={styles.subBlockText}>{product.coding}</p>
-									<p className={styles.subBlockTitle}>Кодування</p>
+									<p className={styles.subBlockText}>{element.coding}</p>
+									<p className={styles.subBlockTitle}>
+										Точний лазер із дальністю дії
+									</p>
 								</div>
 								<div className={styles.characteristicsSubBlock}>
 									<p className={styles.subBlockText}>
-										{product.ufsStorage} <p className={styles.gygabite}>GB</p>
+										{element.ufsStorage} <p className={styles.gygabite}></p>
 									</p>
-									<p className={styles.subBlockTitle}>UFS Сховище</p>
+									<p className={styles.subBlockTitle}>Діапазон температур</p>
 								</div>
 								<div className={styles.characteristicsSubBlock}>
 									<p className={styles.subBlockText}>
-										{product.eMMSStorage} <p className={styles.gygabite}>GB</p>
+										{element.eMMSStorage} <p className={styles.gygabite}></p>
 									</p>
-									<p className={styles.subBlockTitle}>eMMS</p>
+									<p className={styles.subBlockTitle}>
+										eMMC понад 8 годин роботи
+									</p>
 								</div>
 							</div>
-							<img src={IMAGES.drone} className={styles.imageBlock1} />
+							<img src={element.img} className={styles.imageBlock1} />
 						</div>
 					);
 				})}
@@ -172,10 +232,7 @@ export function ProductPage() {
 									className={styles.droneCardCatalog}
 									key={`catalog${element.id}`}
 								>
-									<img
-										src={IMAGES.catalogExampleDrone}
-										className={styles.catalogImage}
-									/>
+									<img src={element.img} className={styles.catalogImage} />
 									<div className={styles.textBlock}>
 										<p className={styles.droneTitle}>{element.title}</p>
 										<div className={styles.price}>

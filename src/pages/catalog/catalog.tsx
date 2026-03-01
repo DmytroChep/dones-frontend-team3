@@ -42,6 +42,7 @@ export function CatalogPage() {
 	const addProductToCart = cartContextData?.addToCart;
 	const cartProducts = cartContextData?.products || [];
 	const incChangesCount = cartContextData?.incChangesCount;
+	const incProductQuantity = cartContextData?.incProductQuantity;
 
 	return (
 		<div className={styles.catalog}>
@@ -124,6 +125,13 @@ export function CatalogPage() {
 											) {
 												addProductToCart({ ...element, quantity: 1 });
 												incChangesCount();
+											} else if (
+												incProductQuantity &&
+												cartProducts.some(
+													(product) => product.id === element.id,
+												)
+											) {
+												incProductQuantity(element.id);
 											}
 										}}
 									>

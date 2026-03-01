@@ -12,12 +12,18 @@ export function Button(props: IButtonProps) {
 		textClassName,
 		arrowClassName,
 		navigateTo,
+		type = "button",
+		onClick,
 	} = props;
 	const navigate = useNavigate();
 	return (
-		<div
+		<button
+			type={type}
 			className={`${styles.button} ${className}`}
-			onClick={() => {
+			onClick={(e) => {
+				if (onClick) {
+					onClick(e);
+				}
 				if (navigateTo) {
 					navigate(navigateTo);
 				}
@@ -33,6 +39,6 @@ export function Button(props: IButtonProps) {
 			) : (
 				false
 			)}
-		</div>
+		</button>
 	);
 }

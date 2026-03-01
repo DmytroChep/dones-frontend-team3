@@ -4,7 +4,6 @@
 	width: 100%;
 	padding: 81px 80px 0 80px;
 	gap: 200px;
-	
 }
 
 .profileLinks {
@@ -13,71 +12,288 @@
 	gap: 44px;
 }
 
-.linksTitle{
+.linksTitle {
 	font-size: 30px;
 }
 
-.link{
+.link {
 	font-size: 14px;
-	color: #9EA0AA;
+	color: #9ea0aa;
 	cursor: pointer;
 }
 
-.hr{
-	color: #9EA0AA;
+.hr {
+	color: #9ea0aa;
 }
-.choosedOption{
+.choosedOption {
 	color: black;
 	font-size: 14px;
 }
 
-.hidden{
+.hidden {
 	display: none;
 }
 
-
-.field{
+.field {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
 }
 
-.fieldInput{
+.fieldInput {
 	height: 40px;
 	width: 100%;
-	border: 1px solid #CED0D4;
+	border: 1px solid #ced0d4;
 	border-radius: 4px;
 	padding-left: 16px;
 }
 
-.userDataTitle{
+.userDataTitle {
 	font-size: 24px;
 }
 
-.userData{
+.userData {
 	min-width: 668px;
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
 }
 
-.fieldsContactData{
+.fieldsContactData {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
 }
 
-.button{
+.button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	width: 158px;
 	height: 41px;
-	border: 1px solid #9EA0AA;
-	color: #9EA0AA;
+	border: 1px solid #9ea0aa;
+	color: #9ea0aa;
 	background-color: transparent;
 	border-radius: 1234px;
 	letter-spacing: 9%;
 	cursor: pointer;
+}
+
+/* deliveries.module.css */
+
+.deliveries {
+	flex: 1;
+	padding: 0 20px;
+}
+
+.sectionTitle {
+	font-size: 16px;
+	font-weight: 400;
+	letter-spacing: 0.05em;
+	margin-bottom: 20px;
+	color: #1a1a1a;
+}
+
+/* ---- Address list ---- */
+.addressList {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-bottom: 16px;
+}
+
+/* ---- Single card ---- */
+.addressCard {
+	border: 1px solid #d9d9d9;
+	border-radius: 4px;
+	overflow: hidden;
+	transition: border-color 0.2s ease;
+}
+
+.addressCardSelected {
+	border-color: #1a1a1a;
+}
+
+/* ---- Card header (always visible) ---- */
+.cardHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 14px 16px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.radioLabel {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+	flex: 1;
+}
+
+/* Hide native radio */
+.radioInput {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+/* Custom radio circle */
+.radioCustom {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 16px;
+	height: 16px;
+	min-width: 16px;
+	border-radius: 50%;
+	border: 1.5px solid #999;
+	background: #fff;
+	transition: border-color 0.2s ease;
+}
+
+.radioInput:checked + .radioCustom {
+	border-color: #1a1a1a;
+	background: #1a1a1a;
+	box-shadow: inset 0 0 0 3px #fff;
+}
+
+.addressSummary {
+	font-size: 13px;
+	color: #1a1a1a;
+	line-height: 1.4;
+}
+
+.editBtn {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 4px;
+	color: #888;
+	font-size: 14px;
+	line-height: 1;
+	transition: color 0.2s ease;
+	flex-shrink: 0;
+}
+
+.editBtn:hover {
+	color: #1a1a1a;
+}
+
+/* ---- Expanded card body ---- */
+.cardBody {
+	padding: 0 16px 20px;
+	border-top: 1px solid #e8e8e8;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	margin-top: 0;
+}
+
+/* ---- Form fields inside card ---- */
+.formField {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.formLabel {
+	font-size: 12px;
+	color: #555;
+	letter-spacing: 0.02em;
+}
+
+.formInput {
+	width: 100%;
+	border: 1px solid #d9d9d9;
+	border-radius: 3px;
+	padding: 10px 12px;
+	font-size: 14px;
+	color: #1a1a1a;
+	background: #fff;
+	outline: none;
+	transition: border-color 0.2s ease;
+	box-sizing: border-box;
+}
+
+.formInput:focus {
+	border-color: #1a1a1a;
+}
+
+.formInput::placeholder {
+	color: #bbb;
+}
+
+/* ---- City suggestions ---- */
+.citySuggestions {
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+	margin-top: 2px;
+}
+
+.citySuggestion {
+	font-size: 12px;
+	color: #888;
+	cursor: pointer;
+	text-decoration: underline;
+	text-underline-offset: 2px;
+	transition: color 0.15s ease;
+}
+
+.citySuggestion:hover {
+	color: #1a1a1a;
+}
+
+.citySuggestionActive {
+	color: #1a1a1a;
+	font-weight: 500;
+}
+
+/* ---- Save button inside card ---- */
+.saveBtn {
+	align-self: flex-start;
+	margin-top: 6px;
+	padding: 10px 24px;
+	border: 1.5px solid #1a1a1a;
+	border-radius: 20px;
+	background: #fff;
+	color: #1a1a1a;
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: 0.08em;
+	cursor: pointer;
+	transition:
+		background 0.2s ease,
+		color 0.2s ease;
+}
+
+.saveBtn:hover {
+	background: #1a1a1a;
+	color: #fff;
+}
+
+/* ---- Add address button ---- */
+.addAddressBtn {
+	margin-top: 8px;
+	padding: 10px 24px;
+	border: 1.5px solid #b0b0b0;
+	border-radius: 20px;
+	background: #fff;
+	color: #888;
+	font-size: 12px;
+	font-weight: 400;
+	letter-spacing: 0.08em;
+	cursor: pointer;
+	transition:
+		border-color 0.2s ease,
+		color 0.2s ease;
+}
+
+.addAddressBtn:hover {
+	border-color: #1a1a1a;
+	color: #1a1a1a;
 }

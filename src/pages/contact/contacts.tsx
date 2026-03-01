@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { ICONS } from "../../shared"
 import styles from "./contacts.module.css"
+import { UserContext } from "../../context";
 
 export function Contact(){
 
@@ -8,6 +9,10 @@ export function Contact(){
 		window.scrollTo({ top: 0, behavior: "smooth" });
 	}, [])
     
+    const userCotnextData = useContext(UserContext)
+
+    const user = userCotnextData?.user
+
     return (
         <div className={styles.main}>
             <p className={styles.title}>КОНТАКТИ</p>
@@ -39,6 +44,7 @@ export function Contact(){
                                 <input
                                     placeholder="Введіть ім'я"
                                     className={`${styles.fieldInput}`}
+                                    value={user?.name || ""}
                                 />
                             </div>
                         </div>
@@ -48,6 +54,7 @@ export function Contact(){
                                 <input
                                     placeholder="+38 0"
                                     className={`${styles.fieldInput}`}
+                                    value={user?.phoneNumber || ""}
                                 />
                             </div>
                         </div>
@@ -57,6 +64,7 @@ export function Contact(){
                                 <input
                                     placeholder="Ваш E-mail"
                                     className={`${styles.fieldInput}`}
+                                    value={user?.email || ""}
                                 />
                             </div>
                         </div>

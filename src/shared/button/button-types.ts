@@ -1,5 +1,6 @@
-export interface IButtonProps {
-	className?: string;
+
+export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+	className?: string; 
 	children: string;
 	withArrow?: boolean;
 	arrowClassName?: string;

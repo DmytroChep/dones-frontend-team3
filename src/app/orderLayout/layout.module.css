@@ -1,0 +1,35 @@
+@font-face {
+	font-family: "walsheimPro";
+	src: url("../../assets/fonts/walsheimProRegular.ttf");
+}
+@font-face {
+	font-family: "walsheimProRegular";
+	src: url("../../assets/fonts/walsheimPro.ttf");
+}
+
+@font-face {
+	font-family: "walsheimProBold";
+	src: url("../../assets/fonts/walsheimProBold.ttf");
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: "walsheimPro";
+	font-weight: 100;
+	color: #0c122a;
+}
+
+.parentElement {
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.spacer {
+	width: 100%;
+	height: 100px;
+	background-color: white;
+}

@@ -69,7 +69,7 @@ export function HomePage() {
 							return (
 								<div className={styles.droneCard} key={product.id}>
 									<img
-										src={IMAGES.correctRotateDrone}
+										src={product.img}
 										className={styles.droneImage}
 									/>
 									<div
@@ -179,7 +179,7 @@ export function HomePage() {
 									key={`catalog${element.id}`}
 								>
 									<img
-										src={IMAGES.catalogExampleDrone}
+										src={element.img}
 										className={styles.catalogImage}
 									/>
 									<div className={styles.textBlock}>

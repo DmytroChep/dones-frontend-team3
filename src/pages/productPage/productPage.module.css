@@ -20,7 +20,7 @@
 	background-color: #cdd5dd;
 	flex-direction: column;
 	z-index: 1;
-	padding-top: 134px;
+	padding-top: 50px;
 	gap: 20px;
 	box-sizing: border-box;
 	position: relative;
@@ -40,16 +40,16 @@
 
 .title {
 	font-size: clamp(32px, 8vw, 60px); 
-	width: 100%;
+	width: 843px;
 	letter-spacing: 0.03em;
 	color: white;
-	font-family: "walsheimProBold";
+	font-family: "walsheimProRegular";
 	text-align: center;
 	margin: 0;
 }
 
 .description {
-	width: 100%;
+	width: 843px;
 	color: #3d4155;
 	letter-spacing: 0.03em;
 	font-size: 16px;
@@ -86,13 +86,22 @@
 }
 
 .droneImage {
-	width: 50vw;
-	max-width: 650px; 
-	height: auto;
+	/* width: 50vw; */
+	max-width: 550px; 
+	/* margin-top: -50px; */
+	height: 95%;
 	z-index: 10;
 	position: relative;
 }
 
+.monocularImage{
+	/* width: 50vw; */
+	max-width: 550px; 
+	/* margin-top: -100px; */
+	height: 95%;
+	z-index: 10;
+	position: relative;
+}
 
 .buyBlock {
 	background-color: white;
@@ -184,11 +193,11 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 150px 40px 100px;
+	padding: 150px 40px 100px;	
 	width: 100%;
 	min-height: 500px;
 	background-color: white;
-	gap: 160px;
+	gap: 60px;
 	box-sizing: border-box;
 }
 
@@ -217,6 +226,7 @@
 	font-size: clamp(28px, 5vw, 44px);
 	color: #0c122a;
 	text-align: center;
+	width: 720px;
 }
 
 .adoutUsTextMain {
@@ -233,6 +243,7 @@
 	gap: 24px;
 	width: 100%;
 	max-width: 1100px;
+	padding-bottom: 160px;
 }
 
 .imageBlock2 {
@@ -264,8 +275,8 @@
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
-	max-width: 1000px;
-	padding: 0 40px; 
+	max-width: 1014px;
+	/* padding: 0 40px 0 40px;  */
 }
 
 .characteristicsSubBlock {
@@ -284,7 +295,7 @@
 .subBlockText {
 	color: #6d717f;
 	letter-spacing: 3%;
-	font-family: "walsheimProBold";
+	font-family: "walsheimProRegular";
 	min-width: 90px;
 	text-align: center;
 	display: flex;
@@ -318,7 +329,7 @@
 	flex-direction: column;
 	align-items: center;
 	gap: 44px;
-	margin-top: -100px;
+	/* margin-top: -100px; */
 }
 
 .droneCardCatalog {
