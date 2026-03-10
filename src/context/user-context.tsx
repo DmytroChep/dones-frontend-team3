@@ -20,6 +20,7 @@ interface IUserContext {
 	signIn: (userData: IUserLogin) => Promise<string>;
 	logout: () => void;
 	getUserRelations: () => Promise<IUerWithRelations>;
+	me: () => Promise<IUser>
 }
 
 interface IUserContextProviderProps {
@@ -138,7 +139,7 @@ export function UserContextProvider(props: IUserContextProviderProps) {
 
 	return (
 		<UserContext.Provider
-			value={{ token, user, signIn, signUp, logout, getUserRelations }}
+			value={{ token, user, signIn, signUp, logout, getUserRelations, me }}
 		>
 			{children}
 		</UserContext.Provider>

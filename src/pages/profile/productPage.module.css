@@ -276,7 +276,14 @@
 	color: #fff;
 }
 
-/* ---- Add address button ---- */
+.orders{
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	flex: 1;
+}
+
+
 .addAddressBtn {
 	margin-top: 8px;
 	padding: 10px 24px;

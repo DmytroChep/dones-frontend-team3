@@ -1,0 +1,434 @@
+.card {
+	border-bottom: 1px solid #e5e7eb;
+	background: #ffffff;
+	padding: 24px 0;
+	width: 100%;
+	font-family: inherit;
+	box-sizing: border-box;
+}
+
+.card * {
+	box-sizing: border-box;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+	user-select: none;
+	gap: 24px;
+}
+
+.headerLeft {
+	display: flex;
+	align-items: flex-start;
+	gap: 16px;
+	flex: 1;
+}
+
+.statusIndicator {
+	margin-top: 6px;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	flex-shrink: 0;
+}
+
+.statusPending {
+	background-color: #d1d5db; /* Светло-серый, если не завершено */
+}
+
+.statusDone {
+	background-color: #22c55e; /* Зеленый, когда завершено */
+}
+
+.headerCols {
+	display: flex;
+	gap: 48px;
+	flex: 1;
+}
+
+.headerCol {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.headerLabel {
+	font-size: 13px;
+	color: #9ca3af;
+}
+
+.headerValue {
+	font-size: 15px;
+	font-weight: 500;
+	color: #111827;
+}
+
+.headerRight {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+}
+
+.thumbs {
+	display: flex;
+	gap: 8px;
+}
+
+.thumb {
+	width: 40px;
+	height: 40px;
+	object-fit: contain;
+	border-radius: 4px;
+}
+
+.chevron {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #6b7280;
+	transition: transform 0.2s ease;
+}
+
+.body {
+	margin-top: 24px;
+	padding-top: 24px;
+}
+
+.trackingRow {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 14px;
+	margin-bottom: 32px;
+}
+
+.trackingLabel {
+	color: #6b7280;
+}
+
+.trackingValue {
+	color: #111827;
+	font-weight: 500;
+}
+
+.copyBtn {
+	background: none;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #111827;
+	padding: 4px;
+	margin-left: 4px;
+}
+
+/* Прогресс-бар */
+.progressBar {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 48px;
+	padding: 0 16px;
+}
+
+.progressTrack {
+	position: absolute;
+	top: 14px;
+	left: 32px;
+	right: 32px;
+	height: 4px;
+	background-color: #e5e7eb;
+	z-index: 1;
+	border-radius: 2px;
+}
+
+.progressFill {
+	position: absolute;
+	top: 14px;
+	left: 32px;
+	height: 4px;
+	background-color: #111827;
+	z-index: 2;
+	transition: width 0.3s ease;
+	border-radius: 2px;
+}
+
+.step {
+	position: relative;
+	z-index: 3;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+	width: 100px;
+}
+
+.stepDot {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	background-color: #f3f4f6;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 4px solid #ffffff;
+	box-sizing: border-box;
+}
+
+.stepDotActive {
+	color: #ffffff;
+	border-color: #ffffff;
+	box-shadow: 0 0 0 1px #111827;
+}
+
+.stepDotCompleted {
+	background-color: #111827;
+	border-color: #ffffff;
+}
+
+.stepDotCompletedInner {
+	width: 8px;
+	height: 8px;
+	background-color: #ffffff;
+	border-radius: 50%;
+}
+
+.stepLabel {
+	font-size: 13px;
+	color: #9ca3af;
+	text-align: center;
+}
+
+.stepLabelActive {
+	color: #111827;
+}
+
+.sectionTitle {
+	font-size: 15px;
+	color: #6b7280;
+	margin-bottom: 24px;
+	font-weight: 400;
+}
+
+.infoGrid {
+	display: grid;
+	grid-template-columns: 280px 1fr;
+	gap: 48px;
+}
+
+.infoLeft {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+    border-right: 1px solid #e5e7eb;
+}
+
+.infoGroup {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.infoGroupTitle {
+	font-size: 13px;
+	color: #9ca3af;
+	margin-bottom: 4px;
+}
+
+.infoGroupText {
+	font-size: 14px;
+	color: #111827;
+	line-height: 1.4;
+}
+
+.infoGroupTextMedium {
+	font-size: 14px;
+	color: #111827;
+	font-weight: 500;
+	line-height: 1.4;
+}
+
+.infoRight {
+	display: flex;
+	flex-direction: column;
+}
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 32px;
+}
+
+.table th {
+	text-align: center;
+	font-size: 13px;
+	font-weight: 400;
+	color: #9ca3af;
+	padding-bottom: 12px;
+	border-bottom: 1px solid #f3f4f6;
+}
+
+.table th:first-child,
+.table th:nth-child(2) {
+	text-align: left;
+}
+
+.table td {
+	padding: 16px 0;
+	vertical-align: middle;
+	text-align: center;
+	border-bottom: 1px solid #f3f4f6;
+}
+
+.table td:first-child,
+.table td:nth-child(2) {
+	text-align: left;
+}
+
+.productImgWrapper {
+	width: 48px;
+	height: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.productImgLarge {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+}
+
+.productTitle {
+	font-size: 14px;
+	color: #111827;
+	max-width: 200px;
+	line-height: 1.4;
+}
+
+.priceBlock {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4px;
+}
+
+.priceOld {
+	font-size: 13px;
+	color: #9ca3af;
+	text-decoration: line-through;
+}
+
+.priceNew {
+	font-size: 14px;
+	color: #ef4444;
+}
+
+.priceRegular {
+	font-size: 14px;
+	color: #111827;
+}
+
+.qtyValue {
+	font-size: 14px;
+	color: #111827;
+}
+
+.sumValue {
+	font-size: 14px;
+	color: #111827;
+	font-weight: 500;
+}
+
+.summaryWrapper {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.summary {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.summaryRow {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    font-size: 14px;
+}
+
+.truckIcon{
+    width: 85%;
+    height: auto;
+}
+
+.summaryLabel {
+	color: #6b7280;
+}
+
+.summaryValue {
+	color: #111827;
+}
+
+.summaryRowBold {
+	font-size: 15px;
+	margin-top: 8px;
+	padding-top: 12px;
+	border-top: 1px solid #f3f4f6;
+}
+
+.summaryValueBold {
+	font-weight: 600;
+}
+
+.actions {
+	margin-top: 24px;
+}
+
+.cancelBtn {
+	padding: 12px 24px;
+	border: 1px solid #111827;
+	background: #ffffff;
+	color: #111827;
+	border-radius: 24px;
+	font-size: 13px;
+	font-weight: 600;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.cancelBtn:hover {
+	background: #f9fafb;
+}
+
+@media (max-width: 768px) {
+	.infoGrid {
+		grid-template-columns: 1fr;
+	}
+	.headerCols {
+		flex-direction: column;
+		gap: 12px;
+	}
+	.header {
+		align-items: flex-start;
+	}
+	.summaryWrapper {
+		justify-content: flex-start;
+	}
+	.summary {
+		width: 100%;
+	}
+	.table th,
+	.table td {
+		padding: 8px;
+	}
+	.step {
+		width: 60px;
+	}
+}

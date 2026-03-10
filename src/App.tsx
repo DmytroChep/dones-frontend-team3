@@ -8,6 +8,6 @@ export function App() {
 			<UserContextProvider>
 				<AppRoutes />
 			</UserContextProvider>
-		</ CartContextProvider>
-);
+		</CartContextProvider>
+	);
 }

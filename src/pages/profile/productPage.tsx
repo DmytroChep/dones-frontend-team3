@@ -5,9 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import type { IUpdateuser } from "../../assets/types/hooks/update-user-types";
 import { useUpdateUserData } from "../../hooks/use-update-user-data";
-import { IAdress } from "../../assets/types/backend-types";
+import { IAdress, IOrder } from "../../assets/types/backend-types";
 import { useUpdateAdress } from "../../hooks/use-update-address";
 import { useCreateAdress } from "../../hooks/use-create-address";
+import { OrderCard } from "../../components/orderCard/OrderCard";
 
 const CITIES = ["Вінниця", "Одеса", "Харків", "Дніпро", "Київ", "Львів"];
 
@@ -17,6 +18,7 @@ export function Profile() {
 	const userAdresses = contextData?.getUserRelations;
 	const logout = contextData?.logout;
 	const navigate = useNavigate();
+	const userOrders = contextData?.getUserRelations;
 
 	const [choosedOption, setChoosedOption] = useState<
 		"userData" | "orders" | "deliveries"
@@ -36,6 +38,8 @@ export function Profile() {
 	});
 
 	const [addresses, setAddresses] = useState<IAdress[]>([]);
+	const [orders, setAddorder] = useState<IOrder[]>([]);
+
 	const [selectedAddressId, setSelectedAddressId] = useState<number | null>(
 		null,
 	);
@@ -47,24 +51,39 @@ export function Profile() {
 	const hasFetched = useRef(false);
 
 	useEffect(() => {
-		if (!userAdresses || hasFetched.current) return;
+		if (!userAdresses || !userOrders || hasFetched.current) return;
+
 		hasFetched.current = true;
-		const fetchAddresses = async () => {
-			const data = await userAdresses();
-			if (data?.userAdress && data.userAdress.length > 0) {
-				setAddresses(data.userAdress);
-				setSelectedAddressId(data.userAdress[0].id);
+
+		const fetchData = async () => {
+			try {
+				const [addressesData, ordersData] = await Promise.all([
+					userAdresses(),
+					userOrders(),
+				]);
+
+				if (addressesData?.userAdress?.length > 0) {
+					setAddresses(addressesData.userAdress);
+					setSelectedAddressId(addressesData.userAdress[0].id);
+				}
+
+				if (ordersData?.order?.length > 0) {
+					setAddorder(ordersData.order);
+				}
+			} catch (error) {
+				console.error("Помилка при завантаженні даних:", error);
 			}
 		};
-		fetchAddresses();
-	}, [userAdresses]);
+
+		fetchData();
+	}, [userAdresses, userOrders]);
 
 	useEffect(() => {
 		window.scrollTo({ top: 0, behavior: "smooth" });
 	}, []);
 
 	const updateAdress = useUpdateAdress();
-	const createAdress = useCreateAdress()
+	const createAdress = useCreateAdress();
 	if (!contextData || !userDataHookData) return null;
 
 	const { update } = userDataHookData;
@@ -136,7 +155,10 @@ export function Profile() {
 				next.delete(id);
 				return next;
 			});
-			const {id, ...finalData }= { ...updated, postDepartament: "Відділення №1" };
+			const { id: _id, ...finalData } = {
+				...updated,
+				postDepartament: "Відділення №1",
+			};
 			createAdressFunc?.(finalData);
 			return;
 		}
@@ -267,7 +289,19 @@ export function Profile() {
 
 			<div
 				className={choosedOption === "orders" ? styles.orders : styles.hidden}
-			/>
+			>
+				<p className={styles.userDataTitle}>Мої замовлення</p>
+
+				{orders.length === 0 ? (
+					<p className={styles.emptyText}>У вас поки немає замовлень</p>
+				) : (
+					<div className={styles.ordersList}>
+						{orders.map((order) => (
+							<OrderCard onRemove={(id) => setAddorder(prev => prev.filter(o => o.id !== id))} key={order.id} order={order} />
+						))}
+					</div>
+				)}
+			</div>
 
 			<div
 				className={

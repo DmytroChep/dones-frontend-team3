@@ -26,7 +26,7 @@ import { ReactComponent as Warning } from "../assets/icons/warning.svg";
 import { ReactComponent as Cross } from "../assets/icons/cross.svg";
 import {ReactComponent as novaPost} from "../assets/icons/novaPostLogo.svg"
 import {ReactComponent as paymentLogos} from "../assets/icons/paymentLogos.svg"
-
+import {ReactComponent as truck} from "../assets/icons/truck.svg"
 
 export const ICONS = {
 	blackCart: BlackCart,
@@ -56,5 +56,6 @@ export const ICONS = {
 	arrowRightWhite: arrowRightWhite,
 	cross: Cross,
 	nocaPost: novaPost,
-	paymentLogos: paymentLogos
+	paymentLogos: paymentLogos,
+	truck: truck
 };

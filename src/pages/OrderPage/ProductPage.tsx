@@ -9,6 +9,17 @@ import { ICONS } from "../../shared";
 import { useForm } from "react-hook-form";
 import { IAdress, ICartProduct, IUser } from "../../assets/types/backend-types";
 import { useCreateOrder } from "../../hooks/use-create-order";
+import { NovaPoshtaCity } from "../../assets/types/hooks/useNovaPost-types";
+import { useNovaPoshtaLockers } from "../../hooks/use-get-poshtomats";
+
+const CITIES: NovaPoshtaCity[] = [
+	"Вінниця",
+	"Одеса",
+	"Харків",
+	"Дніпро",
+	"Київ",
+	"Львів",
+];
 
 interface IOrderInputs {
 	lastName: string;
@@ -35,10 +46,235 @@ type PaymentType =
 	| "ApplePay"
 	| "GooglePay";
 
+function PoshtomatFields() {
+	const [city, setCity] = useState<NovaPoshtaCity>("Дніпро");
+	const [selectedLocker, setSelectedLocker] = useState("");
+	const { lockers, loading, error } = useNovaPoshtaLockers({
+		city,
+		deliveryType: "postomat",
+	});
+
+	return (
+		<div className={styles.optionMain} onClick={(e) => e.stopPropagation()}>
+			<div className={styles.field}>
+				<label htmlFor="poshtomat-city">Місто</label>
+				<input
+					id="poshtomat-city"
+					value={city}
+					onChange={(e) => setCity(e.target.value as NovaPoshtaCity)}
+					className={styles.fieldInput}
+				/>
+			</div>
+			<div className={styles.quickCities}>
+				{CITIES.map((c) => (
+					<span key={c} className={styles.cityLink} onClick={() => setCity(c)}>
+						{c}
+					</span>
+				))}
+			</div>
+			<div className={styles.field}>
+				<label htmlFor="poshtomat-locker">Поштомат</label>
+				{loading ? (
+					<p className={styles.fieldInput}>Завантаження...</p>
+				) : error ? (
+					<p className={styles.errorText}>Помилка завантаження поштоматів</p>
+				) : (
+					<select
+						id="poshtomat-locker"
+						value={selectedLocker}
+						onChange={(e) => setSelectedLocker(e.target.value)}
+						className={styles.fieldInput}
+					>
+						<option value="">Оберіть поштомат</option>
+						{lockers.map((locker) => (
+							<option key={locker.id} value={locker.name}>
+								{locker.name}
+							</option>
+						))}
+					</select>
+				)}
+			</div>
+		</div>
+	);
+}
+
+function DepartmentFields() {
+	const [city, setCity] = useState<NovaPoshtaCity>("Дніпро");
+	const [selectedBranch, setSelectedBranch] = useState("");
+	const { lockers, loading, error } = useNovaPoshtaLockers({
+		city,
+		deliveryType: "department",
+	});
+
+	useEffect(() => {
+		if (lockers.length > 0 && !selectedBranch) {
+			setSelectedBranch(lockers[0].name);
+		}
+	}, [lockers]);
+
+	return (
+		<div className={styles.optionMain} onClick={(e) => e.stopPropagation()}>
+			<div className={styles.field}>
+				<label htmlFor="dept-city">Місто</label>
+				<input
+					id="dept-city"
+					value={city}
+					onChange={(e) => setCity(e.target.value as NovaPoshtaCity)}
+					className={styles.fieldInput}
+				/>
+			</div>
+			<div className={styles.quickCities}>
+				{CITIES.map((c) => (
+					<span key={c} className={styles.cityLink} onClick={() => setCity(c)}>
+						{c}
+					</span>
+				))}
+			</div>
+			<div className={styles.field}>
+				<label htmlFor="dept-branch">Відділення</label>
+				{loading ? (
+					<p className={styles.fieldInput}>Завантаження...</p>
+				) : error ? (
+					<p className={styles.errorText}>Помилка завантаження відділень</p>
+				) : (
+					<select
+						id="dept-branch"
+						value={selectedBranch}
+						onChange={(e) => setSelectedBranch(e.target.value)}
+						className={styles.fieldInput}
+					>
+						<option value="">Оберіть відділення</option>
+						{lockers.map((locker) => (
+							<option key={locker.id} value={locker.name}>
+								{locker.name}
+							</option>
+						))}
+					</select>
+				)}
+			</div>
+		</div>
+	);
+}
+
+function KyivExpressFields({ userAddresses }: { userAddresses: IAdress[] }) {
+	const [selectedAddress, setSelectedAddress] = useState(
+		userAddresses.length > 0
+			? `${userAddresses[0].street}, ${userAddresses[0].home}`
+			: "",
+	);
+	const [street, setStreet] = useState("");
+	const [house, setHouse] = useState("");
+	const [apartment, setApartment] = useState("");
+
+	return (
+		<div className={styles.optionMain} onClick={(e) => e.stopPropagation()}>
+			{userAddresses.length > 0 && (
+				<div className={styles.field}>
+					<label htmlFor="kyiv-saved">Збережені адреси</label>
+					<select
+						id="kyiv-saved"
+						value={selectedAddress}
+						onChange={(e) => setSelectedAddress(e.target.value)}
+						className={styles.fieldInput}
+					>
+						<option value="">Оберіть адресу</option>
+						{userAddresses.map((addr) => {
+							const val = `${addr.street}, ${addr.home}`;
+							return (
+								<option key={addr.id} value={val}>
+									{val}
+								</option>
+							);
+						})}
+					</select>
+				</div>
+			)}
+			<div className={styles.field}>
+				<label htmlFor="kyiv-street">Вулиця</label>
+				<input
+					id="kyiv-street"
+					value={street}
+					onChange={(e) => setStreet(e.target.value)}
+					placeholder="Назва вулиці"
+					className={styles.fieldInput}
+				/>
+			</div>
+			<div className={styles.field}>
+				<label htmlFor="kyiv-house">Будинок</label>
+				<input
+					id="kyiv-house"
+					value={house}
+					onChange={(e) => setHouse(e.target.value)}
+					placeholder="№ будинку"
+					className={styles.fieldInput}
+				/>
+			</div>
+			<div className={styles.field}>
+				<label htmlFor="kyiv-apartment">Квартира</label>
+				<input
+					id="kyiv-apartment"
+					value={apartment}
+					onChange={(e) => setApartment(e.target.value)}
+					placeholder="№ квартири"
+					className={styles.fieldInput}
+				/>
+			</div>
+		</div>
+	);
+}
+
+function CourierFields() {
+	const [city, setCity] = useState("Дніпро");
+	const [street, setStreet] = useState("");
+	const [house, setHouse] = useState("");
+
+	return (
+		<div className={styles.optionMain} onClick={(e) => e.stopPropagation()}>
+			<div className={styles.field}>
+				<label htmlFor="courier-city">Місто</label>
+				<input
+					id="courier-city"
+					value={city}
+					onChange={(e) => setCity(e.target.value)}
+					className={styles.fieldInput}
+				/>
+			</div>
+			<div className={styles.quickCities}>
+				{CITIES.map((c) => (
+					<span key={c} className={styles.cityLink} onClick={() => setCity(c)}>
+						{c}
+					</span>
+				))}
+			</div>
+			<div className={styles.field}>
+				<label htmlFor="courier-street">Вулиця</label>
+				<input
+					id="courier-street"
+					value={street}
+					onChange={(e) => setStreet(e.target.value)}
+					placeholder="Назва вулиці"
+					className={styles.fieldInput}
+				/>
+			</div>
+			<div className={styles.field}>
+				<label htmlFor="courier-house">Будинок</label>
+				<input
+					id="courier-house"
+					value={house}
+					onChange={(e) => setHouse(e.target.value)}
+					placeholder="№ будинку"
+					className={styles.fieldInput}
+				/>
+			</div>
+		</div>
+	);
+}
+
 export function OrderPage() {
 	const cartModalContextData = useContext(CartContext);
 	const userContextData = useContext(UserContext);
 	const [isOpenRedact, setIsOpenRedact] = useState<boolean>(false);
+	const [submitError, setSubmitError] = useState<string | null>(null);
 	const navigate = useNavigate();
 
 	const { createOrder } = useCreateOrder();
@@ -49,12 +285,15 @@ export function OrderPage() {
 	const [deliveryOption, setDeliveryOption] =
 		useState<DeliveryType>("Poshtomat");
 	const [paymentOption, setPaymentOption] = useState<PaymentType>("CardOnline");
-	const [selectedCity, setSelectedCity] = useState("Дніпро");
-	const [selectedBranch, setSelectedBranch] = useState("");
 
 	const isPayNowActive = paymentOption !== "UponReceipt";
 
-	const { register, handleSubmit, reset } = useForm<IOrderInputs>({
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: { errors, isSubmitting },
+	} = useForm<IOrderInputs>({
 		defaultValues: {
 			email: user?.email || "",
 			name: user?.name || "",
@@ -89,84 +328,49 @@ export function OrderPage() {
 			if (!getUserWithRels) return;
 			const data = await getUserWithRels();
 			setUserAddresses(data.userAdress);
-			if (data.userAdress.length > 0) {
-				const first = data.userAdress[0];
-				setSelectedBranch(
-					`${first.postDepartament}: ${first.street}, ${first.home}`,
-				);
-			}
 		}
 		fetchAddresses();
 	}, [getUserWithRels]);
 
 	async function onSubmit(data: IOrderInputs) {
-		if (!user || !products) return;
+		try {
+			setSubmitError(null);
 
-		const deliveryAddress = `${selectedCity}, ${selectedBranch}`.trim();
+			if (!user) {
+				setSubmitError("Користувач не авторизований");
+				return;
+			}
 
-		const orderRequest: IOrderRequest = {
-			products: products,
-			deliveryAddress,
-			user: {
-				...user,
-				name: data.name,
-				surname: data.lastName,
-				middleName: data.middleName,
-				phoneNumber: data.phoneNumber,
-				email: data.email,
-			},
-			trackingNumber: "",
-			orderStatus: "Pending",
-		};
+			const finalProducts = products || [];
 
-		console.log(orderRequest);
-		createOrder(orderRequest);
+			if (finalProducts.length === 0) {
+				setSubmitError("Кошик порожній");
+				return;
+			}
+
+			const orderRequest: IOrderRequest = {
+				products: finalProducts,
+				deliveryAddress: deliveryOption,
+				user: {
+					...user,
+					name: data.name,
+					surname: data.lastName,
+					middleName: data.middleName,
+					phoneNumber: data.phoneNumber,
+					email: data.email,
+				},
+				trackingNumber: "",
+				orderStatus: "Pending",
+			};
+
+			await createOrder(orderRequest);
+			removeAllProducts?.();
+			navigate("/success/");
+		} catch (error) {
+			console.error("Order error:", error);
+			setSubmitError("Помилка при оформленні замовлення. Спробуйте ще раз.");
+		}
 	}
-
-	const cities = ["Вінниця", "Одеса", "Харків", "Дніпро", "Київ", "Львів"];
-
-	const renderDeliveryFields = () => (
-		<div className={styles.optionMain} onClick={(e) => e.stopPropagation()}>
-			<div className={styles.field}>
-				<label htmlFor="city">Місто</label>
-				<input
-					id="city"
-					value={selectedCity}
-					onChange={(e) => setSelectedCity(e.target.value)}
-					className={styles.fieldInput}
-				/>
-			</div>
-			<div className={styles.quickCities}>
-				{cities.map((city) => (
-					<span
-						key={city}
-						className={styles.cityLink}
-						onClick={() => setSelectedCity(city)}
-					>
-						{city}
-					</span>
-				))}
-			</div>
-			<div className={styles.field}>
-				<label htmlFor="branch">Відділення</label>
-				<select
-					id="branch"
-					value={selectedBranch}
-					onChange={(e) => setSelectedBranch(e.target.value)}
-					className={styles.fieldInput}
-				>
-					{userAddresses.map((element) => {
-						const val = `${element.postDepartament}: ${element.street}, ${element.home}`;
-						return (
-							<option key={element.id} value={val}>
-								{val}
-							</option>
-						);
-					})}
-				</select>
-			</div>
-		</div>
-	);
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className={styles.mainDiv}>
@@ -179,21 +383,27 @@ export function OrderPage() {
 					<div className={styles.field}>
 						<label htmlFor="lastName">Прізвище</label>
 						<input
-							{...register("lastName", { required: true })}
+							{...register("lastName", { required: "Введіть прізвище" })}
 							id="lastName"
 							placeholder="Ваше Прізвище"
 							className={styles.fieldInput}
 						/>
+						{errors.lastName && (
+							<p className={styles.errorText}>{errors.lastName.message}</p>
+						)}
 					</div>
 
 					<div className={styles.field}>
 						<label htmlFor="name">Ім'я</label>
 						<input
-							{...register("name", { required: true })}
+							{...register("name", { required: "Введіть ім'я" })}
 							id="name"
 							placeholder="Ваше Ім'я"
 							className={styles.fieldInput}
 						/>
+						{errors.name && (
+							<p className={styles.errorText}>{errors.name.message}</p>
+						)}
 					</div>
 
 					<div className={styles.field}>
@@ -209,21 +419,35 @@ export function OrderPage() {
 					<div className={styles.field}>
 						<label htmlFor="phoneNumber">Телефон</label>
 						<input
-							{...register("phoneNumber", { required: true })}
+							{...register("phoneNumber", {
+								required: "Введіть номер телефону",
+							})}
 							id="phoneNumber"
 							placeholder="+ 38 0"
 							className={styles.fieldInput}
 						/>
+						{errors.phoneNumber && (
+							<p className={styles.errorText}>{errors.phoneNumber.message}</p>
+						)}
 					</div>
 
 					<div className={styles.field}>
 						<label htmlFor="email">E-mail</label>
 						<input
-							{...register("email", { required: true, pattern: /^\S+@\S+$/i })}
+							{...register("email", {
+								required: "Введіть email",
+								pattern: {
+									value: /^\S+@\S+$/i,
+									message: "Невірний формат email",
+								},
+							})}
 							id="email"
 							placeholder="Ваш E-mail"
 							className={styles.fieldInput}
 						/>
+						{errors.email && (
+							<p className={styles.errorText}>{errors.email.message}</p>
+						)}
 					</div>
 
 					<div className={styles.field}>
@@ -252,7 +476,7 @@ export function OrderPage() {
 									<p className={styles.optionTitle}>Нова Пошта до поштомату</p>
 									<ICONS.nocaPost className={styles.novaPoshtaLogo} />
 								</div>
-								{deliveryOption === "Poshtomat" && renderDeliveryFields()}
+								{deliveryOption === "Poshtomat" && <PoshtomatFields />}
 							</div>
 
 							<div
@@ -268,7 +492,7 @@ export function OrderPage() {
 									<p className={styles.optionTitle}>Нова Пошта до відділення</p>
 									<ICONS.nocaPost className={styles.novaPoshtaLogo} />
 								</div>
-								{deliveryOption === "Department" && renderDeliveryFields()}
+								{deliveryOption === "Department" && <DepartmentFields />}
 							</div>
 
 							<div
@@ -285,7 +509,9 @@ export function OrderPage() {
 										Експрес-доставка по Києву
 									</p>
 								</div>
-								{deliveryOption === "KyivExpress" && renderDeliveryFields()}
+								{deliveryOption === "KyivExpress" && (
+									<KyivExpressFields userAddresses={userAddresses} />
+								)}
 							</div>
 
 							<div
@@ -301,7 +527,7 @@ export function OrderPage() {
 									<p className={styles.optionTitle}>Нова Пошта кур'єром</p>
 									<ICONS.nocaPost className={styles.novaPoshtaLogo} />
 								</div>
-								{deliveryOption === "Courier" && renderDeliveryFields()}
+								{deliveryOption === "Courier" && <CourierFields />}
 							</div>
 						</div>
 					</div>
@@ -486,6 +712,11 @@ export function OrderPage() {
 							</div>
 						</div>
 					)}
+
+					{submitError && (
+						<p style={{ color: "red", padding: "8px 0" }}>{submitError}</p>
+					)}
+
 					<div className={styles.buttonDiv}>
 						{products?.length === 0 ? (
 							<button className={stylesDefaultHeader.button} type="button">
@@ -497,15 +728,9 @@ export function OrderPage() {
 								className={stylesDefaultHeader.darkButton}
 								textClassName={stylesDefaultHeader.whiteText}
 								type="submit"
-								navigateTo="/success/"
-								onClick={() => {
-									if (removeAllProducts){
-										console.log("dqwmpgmqwpoqwg")
-										removeAllProducts()
-									}
-								}}
+								disabled={isSubmitting}
 							>
-								ПІДТВЕРДИТИ ЗАМОВЛЕННЯ
+								{isSubmitting ? "ОБРОБКА..." : "ПІДТВЕРДИТИ ЗАМОВЛЕННЯ"}
 							</Button>
 						)}
 					</div>
