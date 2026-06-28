@@ -1,4 +1,3 @@
-
 .button,
 .buttonCart,
 .droneCardCatalog,
@@ -16,31 +15,31 @@
 	display: flex;
 	align-items: center;
 	width: 100%;
-	height: 651px;
+	height: 45.2vw;
 	background-color: #cdd5dd;
 	flex-direction: column;
 	z-index: 1;
-	padding-top: 50px;
-	gap: 20px;
+	padding-top: 3.47vw;
+	gap: 1.39vw;
 	box-sizing: border-box;
 	position: relative;
 	overflow: hidden;
 }
 
 .titleAndDescBlock {
-	width: 720px;
-	max-width: 95%; 
-	gap: 24px;
+	width: 50vw;
+	max-width: 95%;
+	gap: 1.67vw;
 	display: flex;
 	flex-direction: column;
 	z-index: 2;
 	position: relative;
-	align-items: center; 
+	align-items: center;
 }
 
 .title {
-	font-size: clamp(32px, 8vw, 60px); 
-	width: 843px;
+	font-size: 4.17vw;
+	width: 58.5vw;
 	letter-spacing: 0.03em;
 	color: white;
 	font-family: "walsheimProRegular";
@@ -49,10 +48,10 @@
 }
 
 .description {
-	width: 843px;
+	width: 58.5vw;
 	color: #3d4155;
 	letter-spacing: 0.03em;
-	font-size: 16px;
+	font-size: 1.1vw;
 	text-align: center;
 	margin: 0;
 }
@@ -66,17 +65,17 @@
 	pointer-events: none;
 }
 
-.priceText{
+.priceText {
 	text-decoration: line-through;
 }
-.discount{
-	color: red !important; 
-}
 
+.discount {
+	color: red !important;
+}
 
 .oval {
 	width: 145vw;
-	height: 1000px;
+	height: 69.4vw;
 	background-color: white;
 	border-radius: 50%;
 	position: absolute;
@@ -86,18 +85,14 @@
 }
 
 .droneImage {
-	/* width: 50vw; */
-	max-width: 550px; 
-	/* margin-top: -50px; */
+	max-width: 38.2vw;
 	height: 95%;
 	z-index: 10;
 	position: relative;
 }
 
-.monocularImage{
-	/* width: 50vw; */
-	max-width: 550px; 
-	/* margin-top: -100px; */
+.monocularImage {
+	max-width: 38.2vw;
 	height: 95%;
 	z-index: 10;
 	position: relative;
@@ -105,51 +100,72 @@
 
 .buyBlock {
 	background-color: white;
-	border-radius: 20px;
-	padding: 24px;
-	gap: 24px;
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	border-radius: 1.39vw;
+	padding: 1.67vw;
+	gap: 1.67vw;
+	box-shadow: 0 0.69vw 2.08vw rgba(0, 0, 0, 0.1);
 	display: flex;
 	flex-direction: column;
 	position: fixed;
-	right: 40px;
-	bottom: 99px;
+	right: 2.78vw;
+	bottom: 6.875vw;
 	z-index: 10;
 }
 
 .buyBlock:hover {
-	transform: translateY(-5px); 
+	transform: translateY(-0.35vw);
 }
 
 .droneInfoSmall {
 	display: flex;
-	gap: 8px;
+	gap: 0.55vw;
 	align-items: center;
 }
 
 .droneImageSmall {
-	width: 50px;
+	width: 3.47vw;
 }
 
 .priceAndTitle {
-	width: 146px;
+	width: 10.14vw;
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
+	gap: 1.1vw;
 }
 
 .priceAndTitle p {
 	color: #0c122a;
-	font-size: 14px;
-	margin: 0; 
+	font-size: 0.97vw;
+	margin: 0;
+}
+
+.smallTitle {
+	color: #0c122a;
+	font-size: 0.97vw;
+	margin: 0;
+	line-height: 1.3;
+}
+
+.price {
+	display: flex;
+	gap: 0.55vw;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.withoutDiscount {
+	font-weight: bold;
+	color: #0c122a;
+	font-size: 0.97vw;
+	margin: 0;
 }
 
 .button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 188px; 
-	height: 52px;
+	width: 13.05vw;
+	height: 3.61vw;
 	background-color: #0c122a;
 	color: white;
 	border-radius: 1234px;
@@ -162,19 +178,19 @@
 }
 
 .text {
-	font-size: 14px;
+	font-size: 0.97vw;
 	color: white;
 }
 
 .buttonsBlock {
 	display: flex;
-	gap: 16px;
+	gap: 1.1vw;
 	align-items: center;
 }
 
 .buttonCart {
-	width: 44px;
-	height: 44px;
+	width: 3.05vw;
+	height: 3.05vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -185,19 +201,18 @@
 }
 
 .icon {
-	width: 16px;
+	width: 1.1vw;
 }
-
 
 .mainData {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 150px 40px 100px;	
+	padding: 10.42vw 2.78vw 6.94vw;
 	width: 100%;
-	min-height: 500px;
+	min-height: 34.7vw;
 	background-color: white;
-	gap: 60px;
+	gap: 4.17vw;
 	box-sizing: border-box;
 }
 
@@ -205,13 +220,13 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 70px;
+	gap: 4.86vw;
 	width: 100%;
 }
 
 .imageBlock1 {
 	width: 100%;
-	max-width: 1014px; 
+	max-width: 70.4vw;
 	height: auto;
 }
 
@@ -219,31 +234,33 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 24px;
+	gap: 1.67vw;
 }
 
 .adoutUsTextHeader {
-	font-size: clamp(28px, 5vw, 44px);
+	font-size: 3.05vw;
 	color: #0c122a;
 	text-align: center;
-	width: 720px;
+	width: 50vw;
+	margin: 0;
 }
 
 .adoutUsTextMain {
 	text-align: center;
 	width: 70%;
-	max-width: 800px;
-	font-size: 16px;
+	max-width: 55.5vw;
+	font-size: 1.1vw;
+	margin: 0;
 }
 
 .secondAndThirdBlock {
 	display: grid;
 	align-items: center;
 	grid-template-columns: 1fr 1fr;
-	gap: 24px;
+	gap: 1.67vw;
 	width: 100%;
-	max-width: 1100px;
-	padding-bottom: 160px;
+	max-width: 76.4vw;
+	padding-bottom: 11.1vw;
 }
 
 .imageBlock2 {
@@ -254,20 +271,26 @@
 .smallBlocksText {
 	display: flex;
 	flex-direction: column;
-	gap: 45px;
+	gap: 3.12vw;
 }
 
 .smallBlocksTextHeader {
-	font-size: clamp(24px, 4vw, 44px);
+	font-size: 3.05vw;
+	margin: 0;
 }
 
+.smallBlocksTextMain {
+	font-size: 1.1vw;
+	line-height: 1.6;
+	margin: 0;
+}
 
 .characteristics {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	gap: 44px;
+	gap: 3.05vw;
 	width: 100%;
 }
 
@@ -275,43 +298,44 @@
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
-	max-width: 1014px;
-	/* padding: 0 40px 0 40px;  */
+	max-width: 70.4vw;
 }
 
 .characteristicsSubBlock {
 	display: flex;
 	flex-direction: column;
-	gap: 24px;
+	gap: 1.67vw;
 	justify-content: center;
 	align-items: center;
 }
 
 .subBlockTitle {
-	font-size: 16px;
+	font-size: 1.1vw;
 	text-align: center;
+	margin: 0;
 }
 
 .subBlockText {
 	color: #6d717f;
-	letter-spacing: 3%;
+	letter-spacing: 0.03em;
 	font-family: "walsheimProRegular";
-	min-width: 90px;
+	min-width: 6.25vw;
 	text-align: center;
 	display: flex;
-	gap: 10px;
-	font-size: clamp(24px, 5vw, 44px);
+	gap: 0.69vw;
+	font-size: 3.05vw;
 	align-items: end;
+	margin: 0;
 }
 
 .gygabite {
 	color: #6d717f;
-	letter-spacing: 3%;
+	letter-spacing: 0.03em;
 	font-family: "walsheimProBold";
 	text-align: center;
-	font-size: 22px;
+	font-size: 1.53vw;
+	margin: 0;
 }
-
 
 .catalogImage {
 	width: 100%;
@@ -319,76 +343,187 @@
 
 .topText {
 	color: #cdd5dd;
-	font-size: 44px;
+	font-size: 3.05vw;
 	font-family: "walsheimProBold";
-	letter-spacing: -1%;
+	letter-spacing: -0.01em;
+	margin: 0;
 }
+
 .catalog {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 44px;
-	/* margin-top: -100px; */
+	gap: 3.05vw;
 }
 
 .droneCardCatalog {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 14px;
+	padding: 0.97vw;
 	box-sizing: border-box;
-	width: 322px;
-	gap: 26px;
+	width: 22.36vw;
+	gap: 1.8vw;
 }
 
 .droneCardCatalog:hover {
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); 
+	box-shadow: 0 0.35vw 1.04vw rgba(0, 0, 0, 0.05);
 }
 
 .droneCardsBlock {
 	display: flex;
-	gap: 20px;
+	gap: 1.39vw;
 	flex-wrap: wrap;
 	justify-content: center;
 }
 
-.buttonText {
-	color: white;
+.textBlock {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.55vw;
 }
 
+.droneTitle {
+	font-size: 1.1vw;
+	margin: 0;
+	color: #1a1a1a;
+	line-height: 1.3;
+	flex: 1;
+}
 
-@media (max-width: 1024px) {
+.buttonText {
+	color: white;
+	font-size: 0.97vw;
+}
+
+@media (max-width: 71.1vw) {
 	.buyBlock {
 		position: relative;
 		right: auto;
 		bottom: auto;
-		margin-top: 20px;
-		align-self: center; 
+		margin-top: 4vw;
+		align-self: center;
+		border-radius: 3vw;
+		padding: 3vw;
+		gap: 3vw;
 	}
 
 	.secondAndThirdBlock {
-		grid-template-columns: 1fr; 
+		grid-template-columns: 1fr;
 		text-align: center;
+		padding-bottom: 0;
 	}
 
 	.characteristicsBlock {
-		flex-wrap: wrap; 
+		flex-wrap: wrap;
 		justify-content: center;
-		gap: 40px;
+		gap: 6vw;
+	}
+
+	.title {
+		font-size: 6vw;
+		width: 90vw;
+	}
+
+	.description {
+		font-size: 3.5vw;
+		width: 90vw;
+	}
+
+	.adoutUsTextHeader {
+		font-size: 5vw;
+		width: 90vw;
+	}
+
+	.adoutUsTextMain,
+	.smallBlocksTextMain {
+		font-size: 3.5vw;
+		width: 90%;
+	}
+
+	.smallBlocksTextHeader {
+		font-size: 5vw;
+	}
+
+	.subBlockText {
+		font-size: 6vw;
+	}
+
+	.subBlockTitle {
+		font-size: 3vw;
+	}
+
+	.gygabite {
+		font-size: 3vw;
+	}
+
+	.topText {
+		font-size: 6vw;
+	}
+
+	.droneCardCatalog {
+		width: 80vw;
+	}
+
+	.droneTitle {
+		font-size: 4vw;
+	}
+
+	.withoutDiscount {
+		font-size: 3.5vw;
+	}
+
+	.button {
+		width: 35vw;
+		height: 10vw;
+	}
+
+	.buttonCart {
+		width: 10vw;
+		height: 10vw;
+	}
+
+	.icon {
+		width: 4vw;
+	}
+
+	.text,
+	.buttonText {
+		font-size: 3vw;
+	}
+
+	.droneImageSmall {
+		width: 10vw;
+	}
+
+	.priceAndTitle {
+		width: 30vw;
+	}
+
+	.smallTitle,
+	.priceAndTitle p,
+	.withoutDiscount {
+		font-size: 3vw;
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 53.3vw) {
 	.topBlock {
 		height: auto;
-		padding-bottom: 50px;
+		padding-bottom: 8vw;
 	}
-	.droneImage {
-		width: 80vw;
+
+	.droneImage,
+	.monocularImage {
+		max-width: 80vw;
+		height: auto;
 	}
+
 	.mainData {
-		gap: 80px;
-		padding: 100px 20px 50px;
+		gap: 12vw;
+		padding: 14vw 3vw 8vw;
 	}
 }

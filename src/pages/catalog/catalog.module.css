@@ -1,237 +1,263 @@
 .catalog {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	min-height: 100vh;
-	align-items: center;
-	
-	padding: clamp(20px, 5vw, 40px) clamp(15px, 3vw, 39px);
-	box-sizing: border-box;
-	background-color: #fcfcfc; 
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    padding: 2.8vw 2.7vw;
+    box-sizing: border-box;
+    background-color: #fcfcfc;
 }
 
 .catalogDiv {
-	display: flex;
-	flex-direction: column;
-	align-items: end;
-	width: 100%;
-	gap: 44px;
-	max-width: 1440px; 
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 100%;
+    gap: 3.05vw;
+    max-width: 100%;
 }
 
 .catalogTitle {
-	color: #cdd5dd;
-	
-	font-size: clamp(32px, 6vw, 44px);
-	font-family: "walsheimProBold";
-	letter-spacing: -1%;
-	margin-bottom: 30px;
+    color: #cdd5dd;
+    font-size: 3.05vw;
+    font-family: "walsheimProBold";
+    letter-spacing: -0.01em;
+    margin-bottom: 2.08vw;
 }
 
-
 .filters {
-	display: flex;
-	gap: clamp(10px, 2vw, 20px);
-	padding: 20px 0;
-	flex-wrap: wrap;
-	width: 100%;
-	justify-content: start;
+    display: flex;
+    gap: 1.4vw;
+    padding: 1.4vw 0;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: start;
 }
 
 .filter,
 .choosedFilter {
-	width: clamp(50px, 8vw, 60px);
-	height: clamp(50px, 8vw, 60px);
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-	border: 1px solid rgba(0, 0, 0, 0.05);
+    width: 4.17vw;
+    height: 4.17vw;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .filter {
-	background-color: #f5f7f9;
-	color: #555;
+    background-color: #f5f7f9;
+    color: #555;
 }
 
 .filter:hover {
-	background-color: #e2e8f0;
-	transform: translateY(-2px);
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background-color: #e2e8f0;
+    transform: translateY(-0.14vw);
+    box-shadow: 0 0.28vw 0.83vw rgba(0, 0, 0, 0.05);
 }
 
 .choosedFilter {
-	background-color: #666d6e;
-	color: white;
-	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-	transform: scale(1.05);
+    background-color: #666d6e;
+    color: white;
+    box-shadow: 0 0.55vw 1.04vw rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
 }
 
-
 .products {
-	display: grid;
-	
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-	gap: clamp(16px, 3vw, 24px);
-	width: 100%;
-	justify-content: center;
-	margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20.8vw, 1fr));
+    gap: 1.67vw;
+    width: 100%;
+    justify-content: center;
+    margin-top: 1.4vw;
 }
 
 .droneCardCatalog {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 20px;
-	box-sizing: border-box;
-	
-	width: 100%;
-	max-width: 360px;
-	margin: 0 auto;
-	gap: 20px;
-	background: white;
-	border-radius: 20px;
-	border: 1px solid #f0f0f0;
-	transition: all 0.4s ease;
-	cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.4vw;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 25vw;
+    margin: 0 auto;
+    gap: 1.4vw;
+    background: white;
+    border-radius: 1.4vw;
+    border: 1px solid #f0f0f0;
+    transition: all 0.4s ease;
+    cursor: pointer;
 }
 
 .droneCardCatalog:hover {
-	transform: translateY(-8px);
-	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    transform: translateY(-0.55vw);
+    box-shadow: 0 1.4vw 2.78vw rgba(0, 0, 0, 0.08);
 }
 
 .catalogImage {
-	width: 100%;
-	aspect-ratio: 1 / 1; 
-	object-fit: contain;
-	transition: transform 0.5s ease;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    transition: transform 0.5s ease;
 }
 
 .droneCardCatalog:hover .catalogImage {
-	transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .textBlock {
-	display: flex;
-	width: 100%;
-	align-items: center;
-	justify-content: space-between;
-}
-
-.buyButton{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 44px;
-	height: 44px;
-	border: 1px solid black;
-	border-radius: 1234px;
-}
-
-.titleAndPrice {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	min-height: 86px;
-	max-width: 75%;
-}
-
-.priceText{
-	text-decoration: line-through;
-}
-.discount{
-	color: red;
-}
-
-.droneTitle {
-	font-size: clamp(18px, 2vw, 24px);
-	margin: 0;
-	color: #1a1a1a;
-}
-.buyIcon{
-	width: 16px; 
-	height: 16px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .buyButton {
-   opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.05vw;
+    height: 3.05vw;
+    border: 1px solid black;
+    border-radius: 1234px;
+}
+
+.titleAndPrice {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 5.97vw;
+    max-width: 75%;
+}
+
+.priceText {
+    text-decoration: line-through;
+}
+
+.discount {
+    color: red;
+}
+
+.droneTitle {
+    font-size: 1.67vw;
+    margin: 0;
+    color: #1a1a1a;
+}
+
+.buyIcon {
+    width: 1.1vw;
+    height: 1.1vw;
+}
+
+.buyButton {
+    opacity: 0;
 }
 
 .droneCardCatalog:hover .buyButton {
-   opacity: 1;
+    opacity: 1;
 }
 
 .price {
-	display: flex;
-	gap: 16px;
-	align-items: center;
+    display: flex;
+    gap: 1.1vw;
+    align-items: center;
 }
 
 .withoutDiscount {
-	font-weight: bold;
-	color: #2d3436;
-	font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-weight: bold;
+    color: #2d3436;
+    font-size: 1.1vw;
 }
-
 
 .droneFilter {
-	width: 100%;
-	height: 100%;
-}
-.lenseFilter {
-	width: 100%;
-	height: 75%;
+    width: 100%;
+    height: 100%;
 }
 
+.lenseFilter {
+    width: 100%;
+    height: 75%;
+}
 
 .hidden {
-	display: none;
-	opacity: 0;
+    display: none;
+    opacity: 0;
 }
 
 .pagination {
-	display: flex;
-	gap: 6px;
+    display: flex;
+    gap: 0.42vw;
 }
 
 .arrowBtn {
-	height: 40px;
-	width: 40px;
-	border: 0;
-	border-radius: 1234px;
+    height: 2.78vw;
+    width: 2.78vw;
+    border: 0;
+    border-radius: 1234px;
 }
 
 .activePage {
-	height: 40px;
-	width: 40px;
-	border: 0;
-	border-radius: 1234px;
+    height: 2.78vw;
+    width: 2.78vw;
+    border: 0;
+    border-radius: 1234px;
 }
 
 button {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .pageBtn {
-	height: 40px;
-	width: 40px;
-	border: 0;
-	border-radius: 1234px;
-	background-color: #f4f4f4;
+    height: 2.78vw;
+    width: 2.78vw;
+    border: 0;
+    border-radius: 1234px;
+    background-color: #f4f4f4;
 }
 
-
-@media (max-width: 480px) {
-	.catalog {
-		padding: 20px 15px;
-	}
-	.products {
-		grid-template-columns: 1fr; 
-	}
-	.filters {
-		justify-content: center;
-	}
+@media (max-width: 33.3vw) {
+    .catalog {
+        padding: 5vw 4vw;
+    }
+    .products {
+        grid-template-columns: 1fr;
+    }
+    .filters {
+        justify-content: center;
+    }
+    .droneCardCatalog {
+        max-width: 100%;
+    }
+    .droneTitle {
+        font-size: 5vw;
+    }
+    .withoutDiscount {
+        font-size: 4vw;
+    }
+    .filter,
+    .choosedFilter {
+        width: 11vw;
+        height: 11vw;
+    }
+    .buyButton {
+        width: 9vw;
+        height: 9vw;
+        opacity: 1;
+    }
+    .buyIcon {
+        width: 4vw;
+        height: 4vw;
+    }
+    .titleAndPrice {
+        min-height: 16vw;
+    }
+    .arrowBtn,
+    .activePage,
+    .pageBtn {
+        height: 8vw;
+        width: 8vw;
+    }
 }

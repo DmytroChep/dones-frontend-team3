@@ -2,12 +2,11 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	
-	padding-top: clamp(80px, 10vw, 120px);
-	gap: clamp(80px, 15vw, 160px);
-	padding-left: clamp(15px, 5vw, 40px);
-	padding-right: clamp(15px, 5vw, 40px);
-	max-width: 1440px;
+	padding-top: 8vw;
+	gap: 11vw;
+	padding-left: 2.8vw;
+	padding-right: 2.8vw;
+	max-width: 100%;
 	margin: 0 auto;
 	box-sizing: border-box;
 }
@@ -16,15 +15,15 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: clamp(40px, 8vw, 70px);
+	gap: 5vw;
 	width: 100%;
 }
 
 .imageBlock1 {
 	width: 100%;
-	max-width: 1014px; 
+	max-width: 70%;
 	height: auto;
-	border-radius: 24px;
+	border-radius: 1.7vw;
 	object-fit: cover;
 }
 
@@ -32,12 +31,12 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 24px;
+	gap: 1.7vw;
 	width: 100%;
 }
 
 .adoutUsTextHeader {
-	font-size: clamp(32px, 6vw, 44px);
+	font-size: 3vw;
 	color: #cdd5dd;
 	font-weight: 900;
 	font-family: "walsheimProBold";
@@ -46,68 +45,102 @@
 
 .adoutUsTextMain {
 	text-align: center;
-	width: clamp(100%, 80%, 70%); 
-	font-size: clamp(14px, 2vw, 16px);
+	width: 70%;
+	font-size: 1.1vw;
 	line-height: 1.6;
 	margin: 0;
 }
-
 
 .secondAndThirdBlock {
 	display: grid;
 	align-items: center;
 	grid-template-columns: 1fr 1fr;
-	gap: clamp(30px, 5vw, 80px); 
+	gap: 5.5vw;
 	width: 100%;
 }
 
 .imageBlock2 {
 	width: 100%;
 	height: auto;
-	border-radius: 20px;
+	border-radius: 1.4vw;
 	object-fit: cover;
 }
 
 .smallBlocksText {
 	display: flex;
 	flex-direction: column;
-	gap: clamp(20px, 4vw, 45px);
+	gap: 3vw;
 }
 
 .smallBlocksTextHeader {
-	font-size: clamp(28px, 5vw, 44px);
+	font-size: 3vw;
 	font-family: "walsheimPro";
 	line-height: 1.1;
 	margin: 0;
 }
 
 .smallBlocksTextMain {
-	font-size: clamp(14px, 2vw, 16px);
+	font-size: 1.1vw;
 	line-height: 1.6;
 	margin: 0;
 }
 
-
-
-@media (max-width: 900px) {
-	.secondAndThirdBlock {
-		grid-template-columns: 1fr; 
-		gap: 40px;
+@media (max-width: 62.5vw) {
+	.about {
+		padding-top: 14vw;
+		gap: 14vw;
+		padding-left: 4vw;
+		padding-right: 4vw;
 	}
 
-	
-	.secondAndThirdBlock:nth-of-type(3) img {
-		order: 2;
+	.firstBlock {
+		gap: 8vw;
 	}
-	.secondAndThirdBlock:nth-of-type(3) .smallBlocksText {
-		order: 1;
+
+	.imageBlock1 {
+		max-width: 100%;
+		border-radius: 3vw;
+	}
+
+	.aboutUsText {
+		gap: 3vw;
+	}
+
+	.adoutUsTextHeader {
+		font-size: 6vw;
 	}
 
 	.adoutUsTextMain {
 		width: 100%;
+		font-size: 3.5vw;
 	}
 
-	.about {
-		padding-top: 100px; 
+	.secondAndThirdBlock {
+		grid-template-columns: 1fr;
+		gap: 6vw;
+	}
+
+	.secondAndThirdBlock:nth-of-type(3) img {
+		order: 2;
+	}
+
+	.secondAndThirdBlock:nth-of-type(3) .smallBlocksText {
+		order: 1;
+	}
+
+	.imageBlock2 {
+		border-radius: 3vw;
+	}
+
+	.smallBlocksTextHeader {
+		font-size: 6vw;
+	}
+
+	.smallBlocksTextMain {
+		font-size: 3.5vw;
+	}
+
+	.smallBlocksText {
+		gap: 4vw;
 	}
 }

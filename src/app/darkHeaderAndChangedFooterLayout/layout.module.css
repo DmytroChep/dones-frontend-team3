@@ -14,7 +14,6 @@
 	font-family: "walsheimPro";
 	font-weight: 100;
 	color: #0c122a;
-	transition: all 1s;
 }
 
 .parentElement {
@@ -27,12 +26,10 @@
 	background-color: #cdd5dd;
 }
 
-.altFooter{
+.altFooter {
 	width: 100%;
 }
 .spacer {
-	height: 50px;
+	height: 4.63vh;
 	background-color: white;
 }
-
-	

@@ -1,37 +1,44 @@
-.main{
-    display: flex;
-    width: 100%;
-    background-color: #cdd5dd;
-    justify-content: center;
-    align-items: center;
+.main {
+	display: flex;
+	width: 100%;
+	min-height: 100vh;
+	background-color: #cdd5dd;
+	justify-content: center;
+	align-items: center;
 }
 
-.successOrderDiv{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 24px;
+.successOrderDiv {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 1.67vw;
+	padding: 4vw;
 }
 
-.SuccessText{
-    font-family: "walsheimProRegular";
-    font-size: 60px;
-    color: white;
+.SuccessText {
+	font-family: "walsheimProRegular";
+	font-size: 4.17vw;
+	color: white;
+	margin: 0;
 }
 
-.descriptionSuccess{
-    text-align: center;
+.descriptionSuccess {
+	text-align: center;
+	font-size: 1.1vw;
+	line-height: 1.6;
+	color: #3d4155;
+	margin: 0;
 }
 
-.buttonSuccessText{
-    font-size: 14px;
-    color: white;
-    letter-spacing: 9%;
-    font-family: "walsheimProRegular";
-    padding: 18px 40px;
+.buttonSuccessText {
+	font-size: 0.97vw;
+	color: white;
+	letter-spacing: 0.09em;
+	font-family: "walsheimProRegular";
+	padding: 1.25vw 2.78vw;
 }
 
-.buttonSuccess{
-    background-color: #0C122A;
-    border-radius: 1234px;
+.buttonSuccess {
+	background-color: #0c122a;
+	border-radius: 1234px;
 }

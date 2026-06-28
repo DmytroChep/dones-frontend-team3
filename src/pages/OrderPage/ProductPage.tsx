@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../shared/button";
 import styles from "./productPage.module.css";
-import stylesDefaultHeader from "../../app/HeaderOrder/header.module.css";
 import { useContext, useState, useEffect } from "react";
 import { CartContext } from "../../context/cart-context";
 import { UserContext } from "../../context/user-context";
@@ -372,6 +371,43 @@ export function OrderPage() {
 		}
 	}
 
+	const CartSummary = () => (
+		<div className={styles.cost}>
+			<div className={styles.generalCostDiv}>
+				<p className={styles.generalCostText}>Загальна сума</p>
+				<p className={styles.generalCost}>
+					{products?.reduce((sum, el) => sum + el.price * el.quantity, 0)} ₴
+				</p>
+			</div>
+			<div className={styles.generalCostDiv}>
+				<p className={styles.savedText}>Заощадженно</p>
+				<p className={styles.saved}>
+					-
+					{products?.reduce(
+						(sum, el) =>
+							sum + (el.discount ? el.price - el.discount : 0) * el.quantity,
+						0,
+					)}{" "}
+					₴
+				</p>
+			</div>
+			<div className={styles.generalCostDiv}>
+				<p className={styles.savedText}>Доставка</p>
+				<p className={styles.saved}>За тарифом перевізника</p>
+			</div>
+			<div className={styles.generalCostDiv}>
+				<p className={styles.withDiscountText}>Зі знижкою</p>
+				<p className={styles.withDiscount}>
+					{products?.reduce(
+						(sum, el) => sum + (el.discount || el.price) * el.quantity,
+						0,
+					)}{" "}
+					₴
+				</p>
+			</div>
+		</div>
+	);
+
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className={styles.mainDiv}>
 			<div className={styles.makeOrder}>
@@ -463,72 +499,50 @@ export function OrderPage() {
 					<div className={styles.deliverySection}>
 						<p className={styles.deliveryTitle}>Доставка</p>
 						<div className={styles.deliveryOptions}>
-							<div
-								className={`${styles.deliveryOption} ${deliveryOption === "Poshtomat" ? styles.activeOption : ""}`}
-								onClick={() => setDeliveryOption("Poshtomat")}
-							>
-								<div className={styles.optionHeader}>
-									<div className={styles.radioButton}>
-										{deliveryOption === "Poshtomat" && (
-											<div className={styles.round} />
+							{(
+								[
+									"Poshtomat",
+									"Department",
+									"KyivExpress",
+									"Courier",
+								] as DeliveryType[]
+							).map((type) => (
+								<div
+									key={type}
+									className={`${styles.deliveryOption} ${deliveryOption === type ? styles.activeOption : ""}`}
+									onClick={() => setDeliveryOption(type)}
+								>
+									<div className={styles.optionHeader}>
+										<div className={styles.radioButton}>
+											{deliveryOption === type && (
+												<div className={styles.round} />
+											)}
+										</div>
+										<p className={styles.optionTitle}>
+											{type === "Poshtomat" && "Нова Пошта до поштомату"}
+											{type === "Department" && "Нова Пошта до відділення"}
+											{type === "KyivExpress" && "Експрес-доставка по Києву"}
+											{type === "Courier" && "Нова Пошта кур'єром"}
+										</p>
+										{type !== "KyivExpress" && (
+											<ICONS.nocaPost className={styles.novaPoshtaLogo} />
 										)}
 									</div>
-									<p className={styles.optionTitle}>Нова Пошта до поштомату</p>
-									<ICONS.nocaPost className={styles.novaPoshtaLogo} />
-								</div>
-								{deliveryOption === "Poshtomat" && <PoshtomatFields />}
-							</div>
-
-							<div
-								className={`${styles.deliveryOption} ${deliveryOption === "Department" ? styles.activeOption : ""}`}
-								onClick={() => setDeliveryOption("Department")}
-							>
-								<div className={styles.optionHeader}>
-									<div className={styles.radioButton}>
-										{deliveryOption === "Department" && (
-											<div className={styles.round} />
+									{deliveryOption === "Poshtomat" && type === "Poshtomat" && (
+										<PoshtomatFields />
+									)}
+									{deliveryOption === "Department" && type === "Department" && (
+										<DepartmentFields />
+									)}
+									{deliveryOption === "KyivExpress" &&
+										type === "KyivExpress" && (
+											<KyivExpressFields userAddresses={userAddresses} />
 										)}
-									</div>
-									<p className={styles.optionTitle}>Нова Пошта до відділення</p>
-									<ICONS.nocaPost className={styles.novaPoshtaLogo} />
+									{deliveryOption === "Courier" && type === "Courier" && (
+										<CourierFields />
+									)}
 								</div>
-								{deliveryOption === "Department" && <DepartmentFields />}
-							</div>
-
-							<div
-								className={`${styles.deliveryOption} ${deliveryOption === "KyivExpress" ? styles.activeOption : ""}`}
-								onClick={() => setDeliveryOption("KyivExpress")}
-							>
-								<div className={styles.optionHeader}>
-									<div className={styles.radioButton}>
-										{deliveryOption === "KyivExpress" && (
-											<div className={styles.round} />
-										)}
-									</div>
-									<p className={styles.optionTitle}>
-										Експрес-доставка по Києву
-									</p>
-								</div>
-								{deliveryOption === "KyivExpress" && (
-									<KyivExpressFields userAddresses={userAddresses} />
-								)}
-							</div>
-
-							<div
-								className={`${styles.deliveryOption} ${deliveryOption === "Courier" ? styles.activeOption : ""}`}
-								onClick={() => setDeliveryOption("Courier")}
-							>
-								<div className={styles.optionHeader}>
-									<div className={styles.radioButton}>
-										{deliveryOption === "Courier" && (
-											<div className={styles.round} />
-										)}
-									</div>
-									<p className={styles.optionTitle}>Нова Пошта кур'єром</p>
-									<ICONS.nocaPost className={styles.novaPoshtaLogo} />
-								</div>
-								{deliveryOption === "Courier" && <CourierFields />}
-							</div>
+							))}
 						</div>
 					</div>
 
@@ -605,281 +619,108 @@ export function OrderPage() {
 				</div>
 			</div>
 
-			{!isOpenRedact ? (
-				<div className={styles.cartModal}>
-					<div className={styles.headerModalCart}>
-						<p className={stylesDefaultHeader.modalTitle}>Замовлення</p>
-						<ICONS.edit
-							className={styles.edit}
-							onClick={() => setIsOpenRedact(!isOpenRedact)}
-						/>
-					</div>
-					<div className={styles.mainCartModal}>
-						{products && products.length > 0 ? (
-							<div className={styles.mainCartModalDiv}>
-								{products.map((element) => (
-									<div className={styles.productCart} key={element.id}>
-										<img
-											src={element.img}
-											className={stylesDefaultHeader.droneCartImage}
-											alt={element.title}
-										/>
-										<div className={styles.otherCartProdcutInfo}>
-											<div className={stylesDefaultHeader.titleAndPrice}>
-												<p className={stylesDefaultHeader.title}>
-													{element.title}
-												</p>
-												<div className={stylesDefaultHeader.price}>
-													{element.discount ? (
-														<>
-															<p className={stylesDefaultHeader.priceText}>
-																{element.price} $
-															</p>
-															<p className={stylesDefaultHeader.discount}>
-																{element.discount} $
-															</p>
-														</>
-													) : (
-														<p className={stylesDefaultHeader.withoutDiscount}>
-															{element.price} $
-														</p>
-													)}
-												</div>
-											</div>
-											<div className={stylesDefaultHeader.quantity}>
-												<div className={stylesDefaultHeader.changeQuantity}>
-													<p>{element.quantity}</p>
-												</div>
-											</div>
-										</div>
-									</div>
-								))}
-							</div>
-						) : (
-							<div className={stylesDefaultHeader.cartNullDiv}>
-								<p className={stylesDefaultHeader.cartNullText}>
-									Ваш кошик порожній.
-									<br />
-									Почніть вибирати товари, щоб вони з'явилися тут
-								</p>
-							</div>
-						)}
-					</div>
-					{products && products.length > 0 && (
-						<div className={stylesDefaultHeader.cost}>
-							<div className={stylesDefaultHeader.generalCostDiv}>
-								<p className={stylesDefaultHeader.generalCostText}>
-									Загальна сума
-								</p>
-								<p className={stylesDefaultHeader.generalCost}>
-									{products.reduce(
-										(sum, el) => sum + el.price * el.quantity,
-										0,
-									)}{" "}
-									₴
-								</p>
-							</div>
-							<div className={stylesDefaultHeader.generalCostDiv}>
-								<p className={stylesDefaultHeader.savedText}>Заощадженно</p>
-								<p className={stylesDefaultHeader.saved}>
-									-
-									{products.reduce(
-										(sum, el) =>
-											sum +
-											(el.discount ? el.price - el.discount : 0) * el.quantity,
-										0,
-									)}{" "}
-									₴
-								</p>
-							</div>
-							<div className={stylesDefaultHeader.generalCostDiv}>
-								<p className={stylesDefaultHeader.savedText}>Доставка</p>
-								<p className={stylesDefaultHeader.saved}>
-									За тарифом перевізника
-								</p>
-							</div>
-							<div className={stylesDefaultHeader.generalCostDiv}>
-								<p className={stylesDefaultHeader.withDiscountText}>
-									Зі знижкою
-								</p>
-								<p className={stylesDefaultHeader.withDiscount}>
-									{products.reduce(
-										(sum, el) => sum + (el.discount || el.price) * el.quantity,
-										0,
-									)}{" "}
-									₴
-								</p>
-							</div>
-						</div>
-					)}
-
-					{submitError && (
-						<p style={{ color: "red", padding: "8px 0" }}>{submitError}</p>
-					)}
-
-					<div className={styles.buttonDiv}>
-						{products?.length === 0 ? (
-							<button className={stylesDefaultHeader.button} type="button">
-								ПРОДОВЖИТИ ПОКУПКИ
-							</button>
-						) : (
-							<Button
-								arrowColor="white"
-								className={stylesDefaultHeader.darkButton}
-								textClassName={stylesDefaultHeader.whiteText}
-								type="submit"
-								disabled={isSubmitting}
-							>
-								{isSubmitting ? "ОБРОБКА..." : "ПІДТВЕРДИТИ ЗАМОВЛЕННЯ"}
-							</Button>
-						)}
-					</div>
+			<div className={styles.cartModal}>
+				<div className={styles.headerModalCart}>
+					<p className={styles.modalTitle}>Замовлення</p>
+					<ICONS.edit
+						className={styles.edit}
+						onClick={() => setIsOpenRedact(!isOpenRedact)}
+					/>
 				</div>
-			) : (
-				<div className={stylesDefaultHeader.cartModal}>
-					<div className={styles.headerModalCart}>
-						<p className={stylesDefaultHeader.modalTitle}>Замовлення</p>
-						<ICONS.edit
-							className={styles.edit}
-							onClick={() => setIsOpenRedact(!isOpenRedact)}
-						/>
-					</div>
-					<div className={stylesDefaultHeader.mainCartModal}>
-						{products && products.length > 0 ? (
-							<div className={stylesDefaultHeader.mainCartModalDiv}>
-								{products.map((element) => (
-									<div
-										className={stylesDefaultHeader.productCart}
-										key={element.id}
-									>
-										<img
-											src={element.img}
-											className={stylesDefaultHeader.droneCartImage}
-										/>
-										<div className={stylesDefaultHeader.otherCartProdcutInfo}>
-											<div className={stylesDefaultHeader.titleAndPrice}>
-												<p className={stylesDefaultHeader.title}>
-													{element.title}
-												</p>
+
+				<div className={styles.mainCartModal}>
+					{products && products.length > 0 ? (
+						<div className={styles.mainCartModalDiv}>
+							{products.map((element) => (
+								<div className={styles.productCart} key={element.id}>
+									<img
+										src={element.img}
+										className={styles.droneCartImage}
+										alt={element.title}
+									/>
+									<div className={styles.otherCartProdcutInfo}>
+										<div className={styles.titleAndPrice}>
+											<p className={styles.cartProductTitle}>{element.title}</p>
+											<div className={styles.price}>
 												{element.discount ? (
-													<div className={stylesDefaultHeader.price}>
-														<p className={stylesDefaultHeader.priceText}>
+													<>
+														<p className={styles.priceText}>
 															{element.price} $
 														</p>
-														<p className={stylesDefaultHeader.discount}>
+														<p className={styles.discount}>
 															{element.discount} $
 														</p>
-													</div>
+													</>
 												) : (
-													<div className={stylesDefaultHeader.price}>
-														<p className={stylesDefaultHeader.withoutDiscount}>
-															{element.price} $
-														</p>
-													</div>
+													<p className={styles.withoutDiscount}>
+														{element.price} $
+													</p>
 												)}
 											</div>
-											<div className={stylesDefaultHeader.quantity}>
-												<div className={stylesDefaultHeader.changeQuantity}>
+										</div>
+
+										{isOpenRedact ? (
+											<div className={styles.quantity}>
+												<div className={styles.changeQuantity}>
 													<button
-														className={stylesDefaultHeader.changeQuantityButton}
+														className={styles.changeQuantityButton}
 														type="button"
-														onClick={
-															decProductQuantity
-																? () => decProductQuantity(element.id)
-																: () => {}
-														}
+														onClick={() => decProductQuantity?.(element.id)}
 													>
 														-
 													</button>
 													<p>{element.quantity}</p>
 													<button
-														className={stylesDefaultHeader.changeQuantityButton}
+														className={styles.changeQuantityButton}
 														type="button"
-														onClick={
-															incProductQuantity
-																? () => incProductQuantity(element.id)
-																: () => {}
-														}
+														onClick={() => incProductQuantity?.(element.id)}
 													>
 														+
 													</button>
 												</div>
 											</div>
+										) : (
+											<div className={styles.quantity}>
+												<div className={styles.changeQuantity}>
+													<p>{element.quantity}</p>
+												</div>
+											</div>
+										)}
+
+										{isOpenRedact && (
 											<ICONS.trash
-												className={stylesDefaultHeader.trashIcon}
-												onClick={
-													removeProductFromCart
-														? () => removeProductFromCart(element.id)
-														: () => {}
-												}
+												className={styles.trashIcon}
+												onClick={() => removeProductFromCart?.(element.id)}
 											/>
-										</div>
+										)}
 									</div>
-								))}
-							</div>
-						) : (
-							<div className={stylesDefaultHeader.cartNullDiv}>
-								<p className={stylesDefaultHeader.cartNullText}>
-									Ваш кошик порожній.
-									<br />
-									Почніть вибирати товари, щоб вони з'явилися тут
-								</p>
-							</div>
-						)}
-					</div>
-					{products && products.length > 0 ? (
-						<div className={stylesDefaultHeader.cost}>
-							<div className={stylesDefaultHeader.generalCostDiv}>
-								<p className={stylesDefaultHeader.generalCostText}>
-									Загальна сума
-								</p>
-								<p className={stylesDefaultHeader.generalCost}>
-									{products.reduce(
-										(sum, el) => sum + el.price * el.quantity,
-										0,
-									)}{" "}
-									₴
-								</p>
-							</div>
-							<div className={stylesDefaultHeader.generalCostDiv}>
-								<p className={stylesDefaultHeader.savedText}>Заощадженно</p>
-								<p className={stylesDefaultHeader.saved}>
-									-
-									{products.reduce(
-										(sum, el) =>
-											sum +
-											(el.discount ? el.price - el.discount : 0) * el.quantity,
-										0,
-									)}{" "}
-									₴
-								</p>
-							</div>
-							<div className={stylesDefaultHeader.generalCostDiv}>
-								<p className={stylesDefaultHeader.withDiscountText}>
-									Зі знижкою
-								</p>
-								<p className={stylesDefaultHeader.withDiscount}>
-									{products.reduce(
-										(sum, el) => sum + (el.discount || el.price) * el.quantity,
-										0,
-									)}{" "}
-									₴
-								</p>
-							</div>
+								</div>
+							))}
 						</div>
 					) : (
-						<p />
+						<div className={styles.cartNullDiv}>
+							<p className={styles.cartNullText}>
+								Ваш кошик порожній.
+								<br />
+								Почніть вибирати товари, щоб вони з'явилися тут
+							</p>
+						</div>
 					)}
-					{products?.length === 0 ? (
-						<div className={stylesDefaultHeader.buttonDiv}>
-							<button className={stylesDefaultHeader.button} type="button">
-								ЗБЕРЕГТИ
-							</button>
-						</div>
-					) : (
-						<div className={stylesDefaultHeader.buttonDiv}>
+				</div>
+
+				{products && products.length > 0 && <CartSummary />}
+
+				{submitError && (
+					<p style={{ color: "red", padding: "0.55vw 1.67vw" }}>
+						{submitError}
+					</p>
+				)}
+
+				<div className={styles.buttonDiv}>
+					{isOpenRedact ? (
+						<>
 							<button
-								className={stylesDefaultHeader.button}
+								className={styles.outlineButton}
 								type="button"
 								onClick={() => setIsOpenRedact(false)}
 							>
@@ -888,16 +729,30 @@ export function OrderPage() {
 							<div onClick={() => setIsOpenRedact(false)}>
 								<Button
 									arrowColor="white"
-									className={stylesDefaultHeader.darkButton}
-									textClassName={stylesDefaultHeader.whiteText}
+									className={styles.darkButton}
+									textClassName={styles.whiteText}
 								>
 									ЗБЕРЕГТИ
 								</Button>
 							</div>
-						</div>
+						</>
+					) : products?.length === 0 ? (
+						<button className={styles.outlineButton} type="button">
+							ПРОДОВЖИТИ ПОКУПКИ
+						</button>
+					) : (
+						<Button
+							arrowColor="white"
+							className={styles.darkButton}
+							textClassName={styles.whiteText}
+							type="submit"
+							disabled={isSubmitting}
+						>
+							{isSubmitting ? "ОБРОБКА..." : "ПІДТВЕРДИТИ ЗАМОВЛЕННЯ"}
+						</Button>
 					)}
 				</div>
-			)}
+			</div>
 		</form>
 	);
 }

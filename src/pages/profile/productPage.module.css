@@ -2,32 +2,37 @@
 	display: flex;
 	justify-content: start;
 	width: 100%;
-	padding: 81px 80px 0 80px;
-	gap: 200px;
+	padding: 5.625vw 5.55vw 0 5.55vw;
+	gap: 13.89vw;
 }
 
 .profileLinks {
 	display: flex;
 	flex-direction: column;
-	gap: 44px;
+	gap: 3.05vw;
 }
 
 .linksTitle {
-	font-size: 30px;
+	font-size: 2.08vw;
+	margin: 0;
 }
 
 .link {
-	font-size: 14px;
+	font-size: 0.97vw;
 	color: #9ea0aa;
 	cursor: pointer;
+	margin: 0;
 }
 
 .hr {
 	color: #9ea0aa;
+	width: 100%;
 }
+
 .choosedOption {
 	color: black;
-	font-size: 14px;
+	font-size: 0.97vw;
+	margin: 0;
 }
 
 .hidden {
@@ -38,75 +43,99 @@
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	gap: 0.55vw;
+}
+
+.fieldTitle {
+	font-size: 0.97vw;
+	margin: 0;
+	color: #4a4d55;
+}
+
+.input {
+	width: 100%;
 }
 
 .fieldInput {
-	height: 40px;
+	height: 2.78vw;
 	width: 100%;
 	border: 1px solid #ced0d4;
-	border-radius: 4px;
-	padding-left: 16px;
+	border-radius: 0.28vw;
+	padding-left: 1.1vw;
+	font-size: 0.97vw;
+	box-sizing: border-box;
+	outline: none;
+	transition: border-color 0.2s ease;
+}
+
+.fieldInput:focus {
+	border-color: #1a1a1a;
 }
 
 .userDataTitle {
-	font-size: 24px;
+	font-size: 1.67vw;
+	margin: 0;
 }
 
 .userData {
-	min-width: 668px;
+	min-width: 46.4vw;
 	display: flex;
 	flex-direction: column;
-	gap: 24px;
+	gap: 1.67vw;
 }
 
 .fieldsContactData {
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
+	gap: 1.1vw;
 }
 
 .button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 158px;
-	height: 41px;
+	width: 10.97vw;
+	height: 2.85vw;
 	border: 1px solid #9ea0aa;
 	color: #9ea0aa;
 	background-color: transparent;
 	border-radius: 1234px;
-	letter-spacing: 9%;
+	letter-spacing: 0.09em;
+	font-size: 0.83vw;
 	cursor: pointer;
+	transition: all 0.2s ease;
 }
 
-/* deliveries.module.css */
-
-.deliveries {
-	flex: 1;
-	padding: 0 20px;
-}
-
-.sectionTitle {
-	font-size: 16px;
-	font-weight: 400;
-	letter-spacing: 0.05em;
-	margin-bottom: 20px;
+.button:hover {
+	border-color: #1a1a1a;
 	color: #1a1a1a;
 }
 
-/* ---- Address list ---- */
+/* ---- Deliveries ---- */
+
+.deliveries {
+	flex: 1;
+	padding: 0 1.39vw;
+}
+
+.sectionTitle {
+	font-size: 1.1vw;
+	font-weight: 400;
+	letter-spacing: 0.05em;
+	margin-bottom: 1.39vw;
+	color: #1a1a1a;
+}
+
 .addressList {
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
-	margin-bottom: 16px;
+	gap: 0.83vw;
+	margin-bottom: 1.1vw;
 }
 
-/* ---- Single card ---- */
 .addressCard {
 	border: 1px solid #d9d9d9;
-	border-radius: 4px;
+	border-radius: 0.28vw;
 	overflow: hidden;
 	transition: border-color 0.2s ease;
 }
@@ -115,12 +144,11 @@
 	border-color: #1a1a1a;
 }
 
-/* ---- Card header (always visible) ---- */
 .cardHeader {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 14px 16px;
+	padding: 0.97vw 1.1vw;
 	cursor: pointer;
 	user-select: none;
 }
@@ -128,12 +156,11 @@
 .radioLabel {
 	display: flex;
 	align-items: center;
-	gap: 10px;
+	gap: 0.69vw;
 	cursor: pointer;
 	flex: 1;
 }
 
-/* Hide native radio */
 .radioInput {
 	position: absolute;
 	opacity: 0;
@@ -141,14 +168,13 @@
 	height: 0;
 }
 
-/* Custom radio circle */
 .radioCustom {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	width: 16px;
-	height: 16px;
-	min-width: 16px;
+	width: 1.1vw;
+	height: 1.1vw;
+	min-width: 1.1vw;
 	border-radius: 50%;
 	border: 1.5px solid #999;
 	background: #fff;
@@ -158,11 +184,11 @@
 .radioInput:checked + .radioCustom {
 	border-color: #1a1a1a;
 	background: #1a1a1a;
-	box-shadow: inset 0 0 0 3px #fff;
+	box-shadow: inset 0 0 0 0.21vw #fff;
 }
 
 .addressSummary {
-	font-size: 13px;
+	font-size: 0.9vw;
 	color: #1a1a1a;
 	line-height: 1.4;
 }
@@ -171,9 +197,9 @@
 	background: none;
 	border: none;
 	cursor: pointer;
-	padding: 4px;
+	padding: 0.28vw;
 	color: #888;
-	font-size: 14px;
+	font-size: 0.97vw;
 	line-height: 1;
 	transition: color 0.2s ease;
 	flex-shrink: 0;
@@ -183,25 +209,22 @@
 	color: #1a1a1a;
 }
 
-/* ---- Expanded card body ---- */
 .cardBody {
-	padding: 0 16px 20px;
+	padding: 0 1.1vw 1.39vw;
 	border-top: 1px solid #e8e8e8;
 	display: flex;
 	flex-direction: column;
-	gap: 14px;
-	margin-top: 0;
+	gap: 0.97vw;
 }
 
-/* ---- Form fields inside card ---- */
 .formField {
 	display: flex;
 	flex-direction: column;
-	gap: 6px;
+	gap: 0.42vw;
 }
 
 .formLabel {
-	font-size: 12px;
+	font-size: 0.83vw;
 	color: #555;
 	letter-spacing: 0.02em;
 }
@@ -209,9 +232,9 @@
 .formInput {
 	width: 100%;
 	border: 1px solid #d9d9d9;
-	border-radius: 3px;
-	padding: 10px 12px;
-	font-size: 14px;
+	border-radius: 0.21vw;
+	padding: 0.69vw 0.83vw;
+	font-size: 0.97vw;
 	color: #1a1a1a;
 	background: #fff;
 	outline: none;
@@ -227,20 +250,19 @@
 	color: #bbb;
 }
 
-/* ---- City suggestions ---- */
 .citySuggestions {
 	display: flex;
-	gap: 8px;
+	gap: 0.55vw;
 	flex-wrap: wrap;
-	margin-top: 2px;
+	margin-top: 0.14vw;
 }
 
 .citySuggestion {
-	font-size: 12px;
+	font-size: 0.83vw;
 	color: #888;
 	cursor: pointer;
 	text-decoration: underline;
-	text-underline-offset: 2px;
+	text-underline-offset: 0.14vw;
 	transition: color 0.15s ease;
 }
 
@@ -253,16 +275,15 @@
 	font-weight: 500;
 }
 
-/* ---- Save button inside card ---- */
 .saveBtn {
 	align-self: flex-start;
-	margin-top: 6px;
-	padding: 10px 24px;
+	margin-top: 0.42vw;
+	padding: 0.69vw 1.67vw;
 	border: 1.5px solid #1a1a1a;
-	border-radius: 20px;
+	border-radius: 1.39vw;
 	background: #fff;
 	color: #1a1a1a;
-	font-size: 12px;
+	font-size: 0.83vw;
 	font-weight: 500;
 	letter-spacing: 0.08em;
 	cursor: pointer;
@@ -276,22 +297,35 @@
 	color: #fff;
 }
 
-.orders{
+/* ---- Orders ---- */
+
+.orders {
 	display: flex;
 	flex-direction: column;
-	gap: 24px;
+	gap: 1.67vw;
 	flex: 1;
 }
 
+.ordersList {
+	display: flex;
+	flex-direction: column;
+	gap: 0.83vw;
+}
+
+.emptyText {
+	font-size: 1.1vw;
+	color: #9ea0aa;
+	margin: 0;
+}
 
 .addAddressBtn {
-	margin-top: 8px;
-	padding: 10px 24px;
+	margin-top: 0.55vw;
+	padding: 0.69vw 1.67vw;
 	border: 1.5px solid #b0b0b0;
-	border-radius: 20px;
+	border-radius: 1.39vw;
 	background: #fff;
 	color: #888;
-	font-size: 12px;
+	font-size: 0.83vw;
 	font-weight: 400;
 	letter-spacing: 0.08em;
 	cursor: pointer;
@@ -303,4 +337,81 @@
 .addAddressBtn:hover {
 	border-color: #1a1a1a;
 	color: #1a1a1a;
+}
+
+@media (max-width: 71.1vw) {
+	.main {
+		flex-direction: column;
+		padding: 12vw 5vw 5vw;
+		gap: 8vw;
+	}
+
+	.profileLinks {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 3vw;
+	}
+
+	.linksTitle {
+		width: 100%;
+		font-size: 5vw;
+	}
+
+	.link,
+	.choosedOption {
+		font-size: 3vw;
+	}
+
+	.hr {
+		display: none;
+	}
+
+	.userDataTitle,
+	.sectionTitle {
+		font-size: 4vw;
+	}
+
+	.userData {
+		min-width: unset;
+		width: 100%;
+	}
+
+	.fieldTitle,
+	.formLabel {
+		font-size: 3vw;
+	}
+
+	.fieldInput,
+	.formInput {
+		height: 10vw;
+		font-size: 3.5vw;
+		padding-left: 3vw;
+	}
+
+	.button,
+	.saveBtn,
+	.addAddressBtn {
+		font-size: 2.5vw;
+		padding: 2vw 4vw;
+		width: auto;
+		height: auto;
+	}
+
+	.addressSummary {
+		font-size: 3vw;
+	}
+
+	.radioCustom {
+		width: 3.5vw;
+		height: 3.5vw;
+		min-width: 3.5vw;
+	}
+
+	.citySuggestion {
+		font-size: 3vw;
+	}
+
+	.emptyText {
+		font-size: 3.5vw;
+	}
 }

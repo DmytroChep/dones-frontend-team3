@@ -1,17 +1,17 @@
 .form {
 	display: flex;
 	flex-direction: column;
-	gap: 44px;
+	gap: 2.29vw;
 	width: 100%;
 	align-items: center;
-	padding: 16px 24px 16px 24px;
+	padding: 0.83vw 1.25vw 0.83vw 1.25vw;
 	box-sizing: border-box;
 }
 
 .fields {
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
+	gap: 0.83vw;
 	width: 100%;
 	align-items: center;
 	box-sizing: border-box;
@@ -21,23 +21,23 @@
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	gap: 0.42vw;
 }
 
 .fieldInput {
-	height: 40px;
+	height: 2.08vh;
 	width: 100%;
-	border: 1px solid #ced0d4;
-	border-radius: 4px;
-	padding-left: 16px;
+	border: 0.05vw solid #ced0d4;
+	border-radius: 0.21vw;
+	padding-left: 0.83vw;
 }
 
 .inputError {
-	height: 40px;
+	height: 2.08vh;
 	width: 100%;
-	border: 1px solid #b62d11;
-	border-radius: 4px;
-	padding-left: 16px;
+	border: 0.05vw solid #b62d11;
+	border-radius: 0.21vw;
+	padding-left: 0.83vw;
 }
 
 .isAlreadyReg {
@@ -49,14 +49,14 @@
 
 .buttons {
 	display: flex;
-	gap: 10px;
+	gap: 0.52vw;
 	width: 100%;
 }
 
 .buttonsAndWarning {
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
+	gap: 0.83vw;
 }
 
 .warning {
@@ -68,9 +68,9 @@
 }
 
 .cancel {
-	height: 41px;
-	border: 1px solid #0c122a;
-	border-radius: 1234px;
+	height: 2.14vh;
+	border: 0.05vw solid #0c122a;
+	border-radius: 64.27vw;
 	background-color: white;
 	display: flex;
 	justify-content: center;
@@ -79,38 +79,38 @@
 }
 
 .cancel {
-	height: 41px;
-	border: 1px solid #0c122a;
-	border-radius: 1234px;
+	height: 2.14vh;
+	border: 0.05vw solid #0c122a;
+	border-radius: 64.27vw;
 	background-color: white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	color: #0c122a;
-	font-size: 16px;
-	padding: 12.5px 16px 12.5px 16px;
+	font-size: 0.83vw;
+	padding: 0.65vw 0.83vw 0.65vw 0.83vw;
 	cursor: pointer;
 }
 
 .submit {
-	height: 41px;
-	border: 1px solid #0c122a;
-	border-radius: 1234px;
+	height: 2.14vh;
+	border: 0.05vw solid #0c122a;
+	border-radius: 64.27vw;
 	color: white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	background-color: #0c122a;
-	font-size: 16px;
-	padding: 12.5px 16px 12.5px 16px;
+	font-size: 0.83vw;
+	padding: 0.65vw 0.83vw 0.65vw 0.83vw;
 	cursor: pointer;
 }
 
 .iconInvisible {
 	cursor: pointer;
 	position: absolute;
-	right: 15px;
-	top: 10px;
+	right: 0.78vw;
+	top: 0.52vh;
 }
 
 .input {

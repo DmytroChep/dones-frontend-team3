@@ -14,7 +14,6 @@
 	font-family: "walsheimPro";
 	font-weight: 100;
 	color: #0c122a;
-	transition: all 1s;
 }
 
 .parentElement {
@@ -27,6 +26,6 @@
 
 .spacer {
 	width: 100%;
-	height: 100px;
+	height: 9.26vh;
 	background-color: white;
 }

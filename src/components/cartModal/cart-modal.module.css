@@ -1,15 +1,14 @@
 .modal {
 	position: absolute;
-	right: -55px;
-	top: 55px;
+	right: -3.8vw;
+	top: 3.8vw;
 	display: flex;
 	align-items: center;
-    flex-direction: column;
-	width: 638px;
+	flex-direction: column;
+	width: 44.3vw;
 	z-index: 12345;
-	transition: all 1s;
 	background-color: white;
-	border-radius: 16px;
+	border-radius: 1.1vw;
 	box-sizing: border-box;
-    gap: 16px;
+	gap: 1.1vw;
 }

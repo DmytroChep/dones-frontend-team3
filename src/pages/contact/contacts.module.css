@@ -1,116 +1,114 @@
-.main{
-    width: 100%;
-    padding-top: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 57px;
+.main {
+	width: 100%;
+	padding-top: 1.67vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 3.96vw;
 }
 
-.title{
-    color: #CDD5DD;
-    font-size: 44px;
-    letter-spacing: 3%;
-    font-family: "walsheimProBold";
+.title {
+	color: #cdd5dd;
+	font-size: 3.05vw;
+	letter-spacing: 0.03em;
+	font-family: "walsheimProBold";
 }
 
-.data{
-    display: flex;
-    gap: 25px;
-
+.data {
+	display: flex;
+	gap: 1.74vw;
 }
 
-.ourContacts{
-    display: flex;
-    flex-direction: column;
-    gap: 44px;
-    width: 668px;
-}   
-
-.titleOurContacts{
-    font-size: 24px;
-    
+.ourContacts {
+	display: flex;
+	flex-direction: column;
+	gap: 3.05vw;
+	width: 46.4vw;
 }
 
-.contactInfo{
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    color: #6D717F;
+.titleOurContacts {
+	font-size: 1.67vw;
 }
 
-.icon{
-    width: 24px;
-    height: 24px;
+.contactInfo {
+	display: flex;
+	flex-direction: column;
+	gap: 1.67vw;
+	color: #6d717f;
 }
 
-.contactField{
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #6D717F;
+.icon {
+	width: 1.67vw;
+	height: 1.67vw;
 }
 
-.weInSocNets{
-    font-size: 20px;
-    color: #0C122A;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    width: 168px;
-    align-items: center;
+.contactField {
+	font-size: 1.39vw;
+	display: flex;
+	align-items: center;
+	gap: 0.69vw;
+	color: #6d717f;
 }
 
-.socIcons{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+.weInSocNets {
+	font-size: 1.39vw;
+	color: #0c122a;
+	display: flex;
+	flex-direction: column;
+	gap: 1.67vw;
+	width: 11.67vw;
+	align-items: center;
 }
 
-.contactsWithUs{
-    display: flex;
-    flex-direction: column;
-    gap: 44px;
-    width: 668px;
+.socIcons {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
 }
 
-.field{
+.contactsWithUs {
+	display: flex;
+	flex-direction: column;
+	gap: 3.05vw;
+	width: 46.4vw;
+}
+
+.field {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	gap: 0.55vw;
 }
 
-.fieldInput{
-	height: 40px;
+.fieldInput {
+	height: 2.78vw;
 	width: 100%;
-	border: 1px solid #CED0D4;
-	border-radius: 4px;
-	padding-left: 16px;
+	border: 1px solid #ced0d4;
+	border-radius: 0.28vw;
+	padding-left: 1.1vw;
 }
 
-.inputs{
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+.inputs {
+	display: flex;
+	flex-direction: column;
+	gap: 1.1vw;
 }
 
-.send{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #0C122A;
-    border-radius: 1234px;
-    border: 0;
-    width: 170px;
-    height: 52px;
-    color: white;
-    font-size: 14px;
-    font-family: "walsheimPro";
+.send {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #0c122a;
+	border-radius: 1234px;
+	border: 0;
+	width: 11.8vw;
+	height: 3.61vw;
+	color: white;
+	font-size: 0.97vw;
+	font-family: "walsheimPro";
 }
 
-.textArea{
-    padding-top: 10px;
-    transition: all 0s ;
+.textArea {
+	padding-top: 0.69vw;
+	transition: all 0s;
 }

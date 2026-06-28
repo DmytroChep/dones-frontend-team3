@@ -1,7 +1,7 @@
 .card {
 	border-bottom: 1px solid #e5e7eb;
 	background: #ffffff;
-	padding: 24px 0;
+	padding: 1.7vw 0;
 	width: 100%;
 	font-family: inherit;
 	box-sizing: border-box;
@@ -17,51 +17,51 @@
 	justify-content: space-between;
 	cursor: pointer;
 	user-select: none;
-	gap: 24px;
+	gap: 1.7vw;
 }
 
 .headerLeft {
 	display: flex;
 	align-items: flex-start;
-	gap: 16px;
+	gap: 1.1vw;
 	flex: 1;
 }
 
 .statusIndicator {
-	margin-top: 6px;
-	width: 12px;
-	height: 12px;
+	margin-top: 0.4vw;
+	width: 0.85vw;
+	height: 0.85vw;
 	border-radius: 50%;
 	flex-shrink: 0;
 }
 
 .statusPending {
-	background-color: #d1d5db; /* Светло-серый, если не завершено */
+	background-color: #d1d5db;
 }
 
 .statusDone {
-	background-color: #22c55e; /* Зеленый, когда завершено */
+	background-color: #22c55e;
 }
 
 .headerCols {
 	display: flex;
-	gap: 48px;
+	gap: 3.3vw;
 	flex: 1;
 }
 
 .headerCol {
 	display: flex;
 	flex-direction: column;
-	gap: 4px;
+	gap: 0.28vw;
 }
 
 .headerLabel {
-	font-size: 13px;
+	font-size: 0.9vw;
 	color: #9ca3af;
 }
 
 .headerValue {
-	font-size: 15px;
+	font-size: 1.05vw;
 	font-weight: 500;
 	color: #111827;
 }
@@ -69,19 +69,19 @@
 .headerRight {
 	display: flex;
 	align-items: center;
-	gap: 24px;
+	gap: 1.7vw;
 }
 
 .thumbs {
 	display: flex;
-	gap: 8px;
+	gap: 0.55vw;
 }
 
 .thumb {
-	width: 40px;
-	height: 40px;
+	width: 2.8vw;
+	height: 2.8vw;
 	object-fit: contain;
-	border-radius: 4px;
+	border-radius: 0.28vw;
 }
 
 .chevron {
@@ -93,16 +93,16 @@
 }
 
 .body {
-	margin-top: 24px;
-	padding-top: 24px;
+	margin-top: 1.7vw;
+	padding-top: 1.7vw;
 }
 
 .trackingRow {
 	display: flex;
 	align-items: center;
-	gap: 8px;
-	font-size: 14px;
-	margin-bottom: 32px;
+	gap: 0.55vw;
+	font-size: 0.97vw;
+	margin-bottom: 2.2vw;
 }
 
 .trackingLabel {
@@ -122,8 +122,8 @@
 	align-items: center;
 	justify-content: center;
 	color: #111827;
-	padding: 4px;
-	margin-left: 4px;
+	padding: 0.28vw;
+	margin-left: 0.28vw;
 }
 
 /* Прогресс-бар */
@@ -131,30 +131,30 @@
 	position: relative;
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 48px;
-	padding: 0 16px;
+	margin-bottom: 3.3vw;
+	padding: 0 1.1vw;
 }
 
 .progressTrack {
 	position: absolute;
-	top: 14px;
-	left: 32px;
-	right: 32px;
-	height: 4px;
+	top: 0.97vw;
+	left: 2.2vw;
+	right: 2.2vw;
+	height: 0.28vw;
 	background-color: #e5e7eb;
 	z-index: 1;
-	border-radius: 2px;
+	border-radius: 0.14vw;
 }
 
 .progressFill {
 	position: absolute;
-	top: 14px;
-	left: 32px;
-	height: 4px;
+	top: 0.97vw;
+	left: 2.2vw;
+	height: 0.28vw;
 	background-color: #111827;
 	z-index: 2;
 	transition: width 0.3s ease;
-	border-radius: 2px;
+	border-radius: 0.14vw;
 }
 
 .step {
@@ -163,26 +163,26 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 12px;
-	width: 100px;
+	gap: 0.85vw;
+	width: 6.9vw;
 }
 
 .stepDot {
-	width: 32px;
-	height: 32px;
+	width: 2.2vw;
+	height: 2.2vw;
 	border-radius: 50%;
 	background-color: #f3f4f6;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border: 4px solid #ffffff;
+	border: 0.28vw solid #ffffff;
 	box-sizing: border-box;
 }
 
 .stepDotActive {
 	color: #ffffff;
 	border-color: #ffffff;
-	box-shadow: 0 0 0 1px #111827;
+	box-shadow: 0 0 0 0.07vw #111827;
 }
 
 .stepDotCompleted {
@@ -191,14 +191,14 @@
 }
 
 .stepDotCompletedInner {
-	width: 8px;
-	height: 8px;
+	width: 0.55vw;
+	height: 0.55vw;
 	background-color: #ffffff;
 	border-radius: 50%;
 }
 
 .stepLabel {
-	font-size: 13px;
+	font-size: 0.9vw;
 	color: #9ca3af;
 	text-align: center;
 }
@@ -208,45 +208,45 @@
 }
 
 .sectionTitle {
-	font-size: 15px;
+	font-size: 1.05vw;
 	color: #6b7280;
-	margin-bottom: 24px;
+	margin-bottom: 1.7vw;
 	font-weight: 400;
 }
 
 .infoGrid {
 	display: grid;
-	grid-template-columns: 280px 1fr;
-	gap: 48px;
+	grid-template-columns: 19.5vw 1fr;
+	gap: 3.3vw;
 }
 
 .infoLeft {
 	display: flex;
 	flex-direction: column;
-	gap: 32px;
-    border-right: 1px solid #e5e7eb;
+	gap: 2.2vw;
+	border-right: 1px solid #e5e7eb;
 }
 
 .infoGroup {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	gap: 0.55vw;
 }
 
 .infoGroupTitle {
-	font-size: 13px;
+	font-size: 0.9vw;
 	color: #9ca3af;
-	margin-bottom: 4px;
+	margin-bottom: 0.28vw;
 }
 
 .infoGroupText {
-	font-size: 14px;
+	font-size: 0.97vw;
 	color: #111827;
 	line-height: 1.4;
 }
 
 .infoGroupTextMedium {
-	font-size: 14px;
+	font-size: 0.97vw;
 	color: #111827;
 	font-weight: 500;
 	line-height: 1.4;
@@ -260,15 +260,15 @@
 .table {
 	width: 100%;
 	border-collapse: collapse;
-	margin-bottom: 32px;
+	margin-bottom: 2.2vw;
 }
 
 .table th {
 	text-align: center;
-	font-size: 13px;
+	font-size: 0.9vw;
 	font-weight: 400;
 	color: #9ca3af;
-	padding-bottom: 12px;
+	padding-bottom: 0.85vw;
 	border-bottom: 1px solid #f3f4f6;
 }
 
@@ -278,7 +278,7 @@
 }
 
 .table td {
-	padding: 16px 0;
+	padding: 1.1vw 0;
 	vertical-align: middle;
 	text-align: center;
 	border-bottom: 1px solid #f3f4f6;
@@ -290,8 +290,8 @@
 }
 
 .productImgWrapper {
-	width: 48px;
-	height: 48px;
+	width: 3.3vw;
+	height: 3.3vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -304,9 +304,9 @@
 }
 
 .productTitle {
-	font-size: 14px;
+	font-size: 0.97vw;
 	color: #111827;
-	max-width: 200px;
+	max-width: 13.9vw;
 	line-height: 1.4;
 }
 
@@ -314,32 +314,32 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 4px;
+	gap: 0.28vw;
 }
 
 .priceOld {
-	font-size: 13px;
+	font-size: 0.9vw;
 	color: #9ca3af;
 	text-decoration: line-through;
 }
 
 .priceNew {
-	font-size: 14px;
+	font-size: 0.97vw;
 	color: #ef4444;
 }
 
 .priceRegular {
-	font-size: 14px;
+	font-size: 0.97vw;
 	color: #111827;
 }
 
 .qtyValue {
-	font-size: 14px;
+	font-size: 0.97vw;
 	color: #111827;
 }
 
 .sumValue {
-	font-size: 14px;
+	font-size: 0.97vw;
 	color: #111827;
 	font-weight: 500;
 }
@@ -353,18 +353,18 @@
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
+	gap: 0.85vw;
 }
 
 .summaryRow {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    font-size: 14px;
+	display: grid;
+	grid-template-columns: 8.3vw 1fr;
+	font-size: 0.97vw;
 }
 
-.truckIcon{
-    width: 85%;
-    height: auto;
+.truckIcon {
+	width: 85%;
+	height: auto;
 }
 
 .summaryLabel {
@@ -376,9 +376,9 @@
 }
 
 .summaryRowBold {
-	font-size: 15px;
-	margin-top: 8px;
-	padding-top: 12px;
+	font-size: 1.05vw;
+	margin-top: 0.55vw;
+	padding-top: 0.85vw;
 	border-top: 1px solid #f3f4f6;
 }
 
@@ -387,16 +387,16 @@
 }
 
 .actions {
-	margin-top: 24px;
+	margin-top: 1.7vw;
 }
 
 .cancelBtn {
-	padding: 12px 24px;
+	padding: 0.85vw 1.7vw;
 	border: 1px solid #111827;
 	background: #ffffff;
 	color: #111827;
-	border-radius: 24px;
-	font-size: 13px;
+	border-radius: 1.7vw;
+	font-size: 0.9vw;
 	font-weight: 600;
 	text-transform: uppercase;
 	cursor: pointer;
@@ -407,13 +407,13 @@
 	background: #f9fafb;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 53.3vw) {
 	.infoGrid {
 		grid-template-columns: 1fr;
 	}
 	.headerCols {
 		flex-direction: column;
-		gap: 12px;
+		gap: 3vw;
 	}
 	.header {
 		align-items: flex-start;
@@ -426,9 +426,46 @@
 	}
 	.table th,
 	.table td {
-		padding: 8px;
+		padding: 2vw;
 	}
 	.step {
-		width: 60px;
+		width: 12vw;
+	}
+	.headerLabel,
+	.headerValue,
+	.stepLabel,
+	.infoGroupTitle,
+	.infoGroupText,
+	.infoGroupTextMedium,
+	.productTitle,
+	.trackingRow,
+	.sectionTitle,
+	.priceOld,
+	.priceNew,
+	.priceRegular,
+	.qtyValue,
+	.sumValue,
+	.summaryRow,
+	.cancelBtn {
+		font-size: 3vw;
+	}
+	.statusIndicator {
+		width: 2vw;
+		height: 2vw;
+	}
+	.thumb {
+		width: 8vw;
+		height: 8vw;
+	}
+	.stepDot {
+		width: 5vw;
+		height: 5vw;
+	}
+	.productImgWrapper {
+		width: 8vw;
+		height: 8vw;
+	}
+	.summaryRow {
+		grid-template-columns: 20vw 1fr;
 	}
 }

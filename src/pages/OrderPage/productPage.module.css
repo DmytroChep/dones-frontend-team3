@@ -2,8 +2,8 @@
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	gap: 30px;
-	padding: 40px;
+	gap: 2.08vw;
+	padding: 2.78vw;
 	box-sizing: border-box;
 	align-items: flex-start;
 }
@@ -12,14 +12,14 @@
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	gap: 44px;
+	gap: 3.05vw;
 }
 
 .cartModal {
 	flex: 1;
 	transition: 0 all;
 	border: 1px solid #ced0d4;
-	border-radius: 16px;
+	border-radius: 1.1vw;
 	display: flex;
 	flex-direction: column;
 	background-color: white;
@@ -30,7 +30,7 @@
 }
 
 .title {
-	font-size: 30px;
+	font-size: 2.08vw;
 	width: 100%;
 	margin: 0;
 }
@@ -40,7 +40,7 @@
 	width: 100%;
 	align-items: center;
 	justify-content: space-between;
-	padding: 24px;
+	padding: 1.67vw;
 	box-sizing: border-box;
 }
 
@@ -54,8 +54,8 @@
 .productCart {
 	display: flex;
 	align-items: center;
-	gap: 26px;
-	padding: 18px 24px;
+	gap: 1.8vw;
+	padding: 1.25vw 1.67vw;
 	border-bottom: 1px solid #9ea0aa;
 	box-sizing: border-box;
 }
@@ -71,7 +71,7 @@
 	width: 100%;
 	display: flex;
 	align-items: center;
-	padding: 16px 24px;
+	padding: 1.1vw 1.67vw;
 	justify-content: flex-end;
 	border-top: 1px solid #9ea0aa;
 	box-sizing: border-box;
@@ -80,60 +80,60 @@
 .form {
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
+	gap: 1.1vw;
 }
 
 .field {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	gap: 0.55vw;
 }
 
 .fieldInput {
-	height: 48px;
+	height: 3.33vw;
 	width: 100%;
 	background-color: white;
 	border: 1px solid #ced0d4;
-	border-radius: 8px;
-	padding-left: 16px;
+	border-radius: 0.55vw;
+	padding-left: 1.1vw;
 	box-sizing: border-box;
-	font-size: 16px;
+	font-size: 1.1vw;
 }
 
 .textarea {
-	padding: 14px;
-	height: 99px;
+	padding: 0.97vw;
+	height: 6.875vw;
 	width: 100%;
 	border: 1px solid #ced0d4;
-	border-radius: 8px;
+	border-radius: 0.55vw;
 	box-sizing: border-box;
 	resize: none;
-	font-size: 16px;
+	font-size: 1.1vw;
 }
 
 .edit {
 	cursor: pointer;
-	width: 24px;
-	height: 24px;
+	width: 1.67vw;
+	height: 1.67vw;
 }
 
 .deliveryTitle {
-	font-size: 24px;
+	font-size: 1.67vw;
 	font-weight: 600;
-	margin-bottom: 20px;
+	margin-bottom: 1.39vw;
 }
 
 .deliveryOptions {
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
+	gap: 0.83vw;
 }
 
 .deliveryOption {
 	border: 1px solid #ced0d4;
-	border-radius: 12px;
-	padding: 16px;
+	border-radius: 0.83vw;
+	padding: 1.1vw;
 	cursor: pointer;
 	transition: 0.2s;
 }
@@ -145,17 +145,18 @@
 .optionHeader {
 	display: flex;
 	align-items: center;
-	gap: 20px;
+	gap: 1.39vw;
 }
 
 .radioButton {
-	width: 20px;
-	height: 20px;
+	width: 1.39vw;
+	height: 1.39vw;
 	border: 2px solid #ced0d4;
 	border-radius: 50%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	cursor: pointer;
 }
 
 .activeOption .radioButton {
@@ -163,107 +164,102 @@
 }
 
 .round {
-	width: 10px;
-	height: 10px;
+	width: 0.69vw;
+	height: 0.69vw;
 	background-color: #2b2b2b;
 	border-radius: 50%;
 }
 
 .optionTitle {
-	font-size: 16px;
+	font-size: 1.1vw;
 	font-weight: 500;
 }
 
 .novaPoshtaLogo {
-	height: 20px;
+	height: 1.39vw;
 }
 
 .optionMain {
-	margin-top: 20px;
+	margin-top: 1.39vw;
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
-	padding-left: 32px;
+	gap: 1.1vw;
+	padding-left: 2.22vw;
 }
 
 .quickCities {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 12px;
+	gap: 0.83vw;
 }
 
 .fromTitle {
-	font-size: 24px;
+	font-size: 1.67vw;
 }
 
 .cityLink {
-	font-size: 14px;
+	font-size: 0.97vw;
 	text-decoration: underline;
 	color: #4a4d55;
 	cursor: pointer;
 }
 
 .paymentSection {
-	margin-top: 40px;
+	margin-top: 2.78vw;
 	border-top: 1px solid #e0e0e0;
-	padding-top: 24px;
-	/* background-color: darkblue; */
+	padding-top: 1.67vw;
 	display: flex;
 	flex-direction: column;
-	gap: 24px;
+	gap: 1.67vw;
 }
 
 .paymentOptionContainer {
 	display: flex;
 	width: 100%;
-	padding: 7px 16px 7px 16px;
+	padding: 0.49vw 1.1vw;
 }
 
 .paymentTitle {
-	font-size: 24px;
+	font-size: 1.67vw;
 	font-weight: 500;
-	margin-bottom: 24px;
+	margin-bottom: 1.67vw;
 }
 
 .paymentOptions {
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
+	gap: 1.1vw;
 }
 
 .payNowHeader {
 	display: flex;
 	width: 100%;
-	padding: 7px 16px 7px 16px;
+	padding: 0.49vw 1.1vw;
 }
 
 .subOption {
 	display: flex;
 	width: 100%;
-	padding: 7px 16px 7px 16px;
-	gap: 20px;
+	padding: 0.49vw 1.1vw;
+	gap: 1.39vw;
 }
 
 .payNowSubOptions {
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
+	gap: 1.1vw;
 }
 
 .payNowWrapper {
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
-}
-
-.radioButton {
-	cursor: pointer;
+	gap: 1.1vw;
 }
 
 .paymentOption {
 	display: flex;
 	align-items: center;
-	padding: 16px 0;
+	padding: 1.1vw 0;
 	border-bottom: 1px solid #f0f0f0;
 	cursor: pointer;
 }
@@ -273,30 +269,30 @@
 }
 
 .paymentOptionText {
-	font-size: 16px;
-	margin-left: 12px;
+	font-size: 1.1vw;
+	margin-left: 0.83vw;
 }
 
 .paymentLogos {
 	display: flex;
 	align-items: center;
-	gap: 15px;
-	margin-left: 20px;
+	gap: 1.04vw;
+	margin-left: 1.39vw;
 }
 
 .paymentLogos img {
-	height: 20px;
+	height: 1.39vw;
 	object-fit: contain;
 }
 
 .returnButton {
-	margin-top: 40px;
+	margin-top: 2.78vw;
 	background: none;
 	border: 1px solid #000;
-	border-radius: 20px;
-	padding: 12.5px 16px 12.5px 16px;
-	max-width: 144px;
-	font-size: 14px;
+	border-radius: 1.39vw;
+	padding: 0.87vw 1.1vw;
+	max-width: 10vw;
+	font-size: 0.97vw;
 	cursor: pointer;
 	transition: all 0.3s ease;
 }
@@ -305,30 +301,390 @@
 	background-color: #f5f5f5;
 }
 
-.radioButton {
-	width: 20px;
-	height: 20px;
-	border: 1px solid #000;
-	border-radius: 50%;
+.errorText {
+	font-size: 0.83vw;
+	color: red;
+	margin: 0;
+}
+
+/* Добавить в конец productPage.module.css */
+
+.deliverySection {
+	display: flex;
+	flex-direction: column;
+}
+
+.mainCartModalDiv {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.selectedSub {
+	background-color: #f9f9f9;
+	border-radius: 0.55vw;
+}
+
+label {
+	font-size: 0.97vw;
+	color: #4a4d55;
+}
+
+@media (max-width: 71.1vw) {
+	label {
+		font-size: 3.5vw;
+	}
+
+	.selectedSub {
+		border-radius: 1.5vw;
+	}
+
+	.textarea {
+		height: 20vw;
+	}
+
+	.errorText {
+		font-size: 2.5vw;
+	}
+
+	.paymentOptionContainer,
+	.payNowHeader,
+	.subOption {
+		padding: 1.5vw 2vw;
+	}
+}
+.quantity {
+	display: flex;
+	align-items: center;
+}
+
+.withoutDiscount {
+	color: #0c122a;
+	font-weight: 500;
+	margin: 0;
+	font-size: 0.83vw;
+}
+
+.generalCostText {
+	color: #0c122a;
+	margin: 0;
+	font-size: 0.83vw;
+}
+
+.generalCost {
+	text-decoration: line-through;
+	color: #9ea0aa;
+	margin: 0;
+	font-size: 0.83vw;
+}
+
+.savedText {
+	color: #9ea0aa;
+	margin: 0;
+	font-size: 0.83vw;
+}
+
+.saved {
+	color: #9ea0aa;
+	margin: 0;
+	font-size: 0.83vw;
+}
+
+.withDiscountText {
+	color: #0c122a;
+	font-weight: 600;
+	margin: 0;
+	font-size: 0.83vw;
+}
+
+.withDiscount {
+	color: #b62d11;
+	font-weight: 600;
+	margin: 0;
+	font-size: 1.04vw;
+}
+
+.cost {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 0.52vw;
+	padding: 0.83vw 1.25vw;
+	box-sizing: border-box;
+}
+
+.generalCostDiv {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+}
+.modalTitle {
+	font-size: 1.25vw;
+	font-family: "walsheimProRegular";
+	margin: 0;
+}
+
+.droneCartImage {
+	width: 5.63vw;
+	background-color: #f4f4f4;
+	border-radius: 0.31vw;
+	object-fit: contain;
+}
+
+.cartProductTitle {
+	font-size: 1.04vw;
+	font-family: "walsheimProRegular";
+	margin: 0;
+	line-height: 1.3;
+	width: 12.5vw;
+}
+
+.titleAndPrice {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+	flex: 1;
+}
+
+.price {
+	display: flex;
+	gap: 0.55vw;
+	align-items: center;
+}
+
+.priceText {
+	text-decoration: line-through;
+	color: #9ea0aa;
+	margin: 0;
+	font-size: 0.83vw;
+}
+
+.discount {
+	color: #b62d11;
+	margin: 0;
+	font-size: 0.83vw;
+}
+
+.quantity {
+	display: flex;
+	align-items: center;
+}
+
+.changeQuantity {
+	display: flex;
+	gap: 0.83vw;
+	align-items: center;
+}
+
+.changeQuantity p {
+	margin: 0;
+	font-size: 0.97vw;
+	min-width: 0.83vw;
+	text-align: center;
+}
+
+.changeQuantityButton {
+	width: 1.88vw;
+	height: 1.88vw;
+	background-color: transparent;
+	border: 1.5px solid #9ea0aa;
+	border-radius: 1234px;
+	font-size: 1.04vw;
+	cursor: pointer;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	transition: border-color 0.2s;
 }
 
-.round {
-	width: 12px;
-	height: 12px;
-	background-color: #000;
-	border-radius: 50%;
+.changeQuantityButton:hover {
+	border-color: #0c122a;
 }
 
-@media (max-width: 1024px) {
+.trashIcon {
+	width: 1.25vw;
+	height: 1.25vw;
+	cursor: pointer;
+	flex-shrink: 0;
+	transition: opacity 0.2s;
+}
+
+.trashIcon:hover {
+	opacity: 0.6;
+}
+
+.cartNullDiv {
+	width: 100%;
+	min-height: 10vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1.67vw;
+}
+
+.cartNullText {
+	text-align: center;
+	color: #9ea0aa;
+	font-size: 1.04vw;
+	margin: 0;
+}
+
+.outlineButton {
+	border-radius: 1234px;
+	padding: 0.65vw 0.83vw;
+	border: 1.5px solid #0c122a;
+	color: #0c122a;
+	font-size: 0.73vw;
+	letter-spacing: 0.09em;
+	background-color: transparent;
+	cursor: pointer;
+	white-space: nowrap;
+	transition: all 0.2s ease;
+}
+
+.outlineButton:hover {
+	background-color: #f5f5f5;
+}
+
+.darkButton {
+	border-radius: 1234px;
+	padding: 0.65vw 0.83vw;
+	border: 0.08vw solid #0c122a;
+	background-color: #0c122a;
+	font-size: 0.73vw;
+	letter-spacing: 0.09em;
+	gap: 0.73vw;
+	white-space: nowrap;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+.whiteText {
+	color: white;
+}
+
+.withoutDiscount {
+	color: #0c122a;
+	font-weight: 500;
+	margin: 0;
+	font-size: 0.83vw;
+}
+
+.generalCostText {
+	color: #0c122a;
+	margin: 0;
+	font-size: 0.83vw;
+}
+
+.generalCost {
+	text-decoration: line-through;
+	color: #9ea0aa;
+	margin: 0;
+	font-size: 0.83vw;
+}
+
+.savedText {
+	color: #9ea0aa;
+	margin: 0;
+	font-size: 0.83vw;
+}
+
+.saved {
+	color: #9ea0aa;
+	margin: 0;
+	font-size: 0.83vw;
+}
+
+.withDiscountText {
+	color: #0c122a;
+	font-weight: 600;
+	margin: 0;
+	font-size: 0.83vw;
+}
+
+.withDiscount {
+	color: #b62d11;
+	font-weight: 600;
+	margin: 0;
+	font-size: 1.04vw;
+}
+
+.cost {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 0.52vw;
+	padding: 0.83vw 1.25vw;
+	box-sizing: border-box;
+}
+
+.generalCostDiv {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+}
+@media (max-width: 71.1vw) {
 	.mainDiv {
 		flex-direction: column-reverse;
 		align-items: center;
 	}
+
 	.makeOrder,
 	.cartModal {
 		width: 100%;
+	}
+
+	.title {
+		font-size: 5vw;
+	}
+
+	.fromTitle,
+	.deliveryTitle,
+	.paymentTitle {
+		font-size: 4vw;
+	}
+
+	.fieldInput,
+	.textarea {
+		font-size: 3.5vw;
+	}
+
+	.fieldInput {
+		height: 10vw;
+	}
+
+	.optionTitle,
+	.paymentOptionText,
+	.cityLink {
+		font-size: 3vw;
+	}
+
+	.radioButton {
+		width: 4vw;
+		height: 4vw;
+	}
+
+	.round {
+		width: 2vw;
+		height: 2vw;
+	}
+
+	.novaPoshtaLogo {
+		height: 4vw;
+	}
+
+	.edit {
+		width: 5vw;
+		height: 5vw;
+	}
+
+	.returnButton {
+		max-width: 30vw;
+		font-size: 3vw;
+		padding: 2vw 3vw;
 	}
 }

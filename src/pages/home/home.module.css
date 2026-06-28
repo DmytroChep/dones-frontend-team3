@@ -3,16 +3,15 @@
 	flex-direction: column;
 	width: 100%;
 	align-items: center;
-	overflow-x: hidden; 
+	overflow-x: hidden;
 }
-
 
 .topBlock {
 	display: flex;
 	align-items: center;
 	width: 100%;
-	height: 851px;
-	padding-top: 50px; 
+	height: 59.1vw;
+	padding-top: 3.47vw;
 	background-color: #cdd5dd;
 	flex-direction: column;
 	position: relative;
@@ -20,21 +19,22 @@
 }
 
 .pageTitle {
-	font-size: clamp(32px, 6vw, 61px); 
+	font-size: 4.24vw;
 	color: white;
 	font-family: "walsheimProBold";
-	z-index: 2; 
+	z-index: 2;
 	margin: 0;
 	text-align: center;
 	position: relative;
-	padding: 0 20px;
+	padding: 0 1.39vw;
+	line-height: 1.2;
 }
 
 .drone {
-	width: 811px;
+	width: 56.3vw;
 	max-width: 90%;
 	position: absolute;
-	top: 45%; 
+	top: 45%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	z-index: 3;
@@ -42,7 +42,7 @@
 
 .oval {
 	width: 145vw;
-	height: 1000px;
+	height: 69.4vw;
 	background-color: white;
 	border-radius: 50%;
 	position: absolute;
@@ -53,11 +53,11 @@
 
 .footer {
 	display: flex;
-	align-items: flex-end; 
+	align-items: flex-end;
 	flex-direction: column;
 	width: 90%;
 	margin-top: auto;
-	padding-bottom: 80px;
+	padding-bottom: 5.55vw;
 	z-index: 10;
 	box-sizing: border-box;
 }
@@ -65,11 +65,16 @@
 .footerBlock {
 	display: flex;
 	flex-direction: column;
-	gap: 31px;
-	align-items: flex-start; 
+	gap: 2.15vw;
+	align-items: flex-start;
 	margin-top: -20%;
 }
 
+.footerText {
+	font-size: 1.1vw;
+	margin: 0;
+	line-height: 1.6;
+}
 
 .otherBlock {
 	z-index: 2;
@@ -77,60 +82,82 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 180px;
+	gap: 12.5vw;
 	background-color: white;
-	padding-bottom: 100px;
+	padding-bottom: 6.94vw;
 	box-sizing: border-box;
 }
-
 
 .about {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
-	max-width: 532px;
-	gap: 24px;
+	max-width: 36.9vw;
+	gap: 1.67vw;
 	text-align: center;
-	padding: 0 25px;
+	padding: 0 1.74vw;
 	box-sizing: border-box;
-}
-.buttonText {
-	color: white;
-}
-
-.readMoreTextWhite {
-	color: white;
-}
-
-.fromText {
-	color: white;
 }
 
 .topText {
 	color: #cdd5dd;
-	font-size: clamp(30px, 5vw, 44px);
+	font-size: 3.05vw;
 	font-family: "walsheimProBold";
 	margin: 0;
 }
 
+.middleText {
+	font-size: 1vw;
+	color: #676974;
+	line-height: 1.7;
+	margin: 0;
+	text-align: center;
+}
+
+.readMoreText {
+	color: black;
+	font-size: 0.9vw;
+}
+
+.readMoreTextWhite {
+	color: white;
+	font-size: 0.9vw;
+}
+
+.buttonText {
+	color: white;
+	font-size: 0.9vw;
+}
+
+.fromText {
+	color: white;
+	font-size: 1vw;
+	margin: 0;
+}
+
+.whiteArrow {
+	filter: brightness(0) invert(1);
+}
+
+/* ——— НОВЕ НА САЙТІ ——— */
 
 .new {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 0 40px; 
+	padding: 0 2.78vw;
 	box-sizing: border-box;
 }
 
 .drones {
 	display: flex;
 	justify-content: center;
-	gap: 40px; 
-	row-gap: 120px; 
+	gap: 2.78vw;
+	row-gap: 8.33vw;
 	flex-wrap: wrap;
-	padding-top: 135px;
+	padding-top: 9.375vw;
 	width: 100%;
 }
 
@@ -139,14 +166,14 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-end;
-	width: 437px;
-	height: 437px;
-	border-radius: 10px;
+	width: 30.35vw;
+	height: 30.35vw;
+	border-radius: 0.69vw;
 	position: relative;
 }
 
 .droneImage {
-	width: 265px;
+	width: 18.4vw;
 	height: auto;
 	position: absolute;
 	top: 0;
@@ -169,12 +196,13 @@
 	opacity: 0;
 	transition: opacity 1s ease;
 	z-index: 0;
-	border-radius: 10px;
+	border-radius: 0.69vw;
 }
 
 .droneCard:hover::after {
 	opacity: 1;
 }
+
 .droneCard:hover .droneImage {
 	transform: translate(-50%, -60%);
 }
@@ -182,38 +210,45 @@
 .bottomDiv {
 	display: flex;
 	width: 100%;
-	height: 233px;
+	height: 16.18vw;
 	flex-direction: column;
 	align-items: end;
-	padding: 34px 24px 24px 24px;
-	border-radius: 10px;
+	padding: 2.36vw 1.67vw 1.67vw 1.67vw;
+	border-radius: 0.69vw;
 	justify-content: space-between;
 	z-index: 2;
 	box-sizing: border-box;
 }
+
 .text {
 	display: flex;
 	flex-direction: column;
+	gap: 0.4vw;
 }
 
 .blue {
 	background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(79, 148, 164));
 }
+
 .black {
 	background-image: linear-gradient(rgba(255, 255, 255, 0), black);
 }
+
 .yellow {
 	background-image: linear-gradient(rgba(255, 255, 255, 0), #f5be4f);
 }
 
 .mainTitle {
-	font-size: 44px;
+	font-size: 3.05vw;
 	color: white;
 	margin: 0;
+	line-height: 1.1;
+	word-break: break-word;
 }
+
 .subTitle {
 	color: white;
-	font-size: 16px;
+	font-size: 1.1vw;
 	margin: 0;
 }
 
@@ -228,27 +263,21 @@
 	color: white;
 }
 
-.buttonText {
-	color: white;
-}
-.readMoreTextWhite {
-	color: white;
-}
-
+/* ——— КАТАЛОГ ——— */
 
 .catalog {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 60px;
-	padding: 0 40px;
+	gap: 4.17vw;
+	padding: 0 2.78vw;
 	box-sizing: border-box;
 }
 
 .droneCardsBlock {
 	display: flex;
-	gap: 30px;
+	gap: 2.08vw;
 	flex-wrap: wrap;
 	justify-content: center;
 	width: 100%;
@@ -257,12 +286,12 @@
 .droneCardCatalog {
 	display: flex;
 	flex-direction: column;
-	align-items: flex-end; 
-	padding: 14px;
+	align-items: flex-start;
+	padding: 0.97vw;
 	box-sizing: border-box;
-	width: 322px;
+	width: 22.36vw;
 	max-width: 100%;
-	gap: 26px;
+	gap: 1.8vw;
 }
 
 .catalogImage {
@@ -271,14 +300,59 @@
 	object-fit: contain;
 }
 
+.textBlock {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.69vw;
+}
+
+.droneTitle {
+	font-size: 1.25vw;
+	margin: 0;
+	color: #1a1a1a;
+	line-height: 1.3;
+	word-break: break-word;
+	flex: 1;
+}
+
+.price {
+	display: flex;
+	gap: 0.83vw;
+	align-items: center;
+	flex-shrink: 0;
+}
+
+.priceText {
+	text-decoration: line-through;
+	font-size: 1vw;
+	color: #9ca3af;
+	margin: 0;
+}
+
+.discount {
+	color: red;
+	font-size: 1vw;
+	margin: 0;
+}
+
+.withoutDiscount {
+	font-weight: bold;
+	color: #2d3436;
+	font-size: 1.1vw;
+	margin: 0;
+}
+
+/* ——— КНОПКИ ——— */
 
 .button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 188px;
-	height: 52px;
-	background-color: #0c122a; 
+	width: 13.05vw;
+	height: 3.61vw;
+	background-color: #0c122a;
 	color: white;
 	border-radius: 1234px;
 	cursor: pointer;
@@ -288,12 +362,12 @@
 .readMore {
 	background-color: white;
 	border-radius: 1234px;
-	border: 1.5px solid black;
+	border: 0.1vw solid black;
 	color: black;
 	display: flex;
-	gap: 16px;
-	width: 243px;
-	height: 60px;
+	gap: 1.1vw;
+	width: 16.87vw;
+	height: 4.17vw;
 	align-items: center;
 	justify-content: center;
 }
@@ -301,11 +375,110 @@
 .readMoreWhite {
 	background-color: transparent;
 	border-radius: 1234px;
-	border: 1.5px solid white;
+	border: 0.1vw solid white;
 	display: flex;
-	gap: 14px;
-	width: 122px;
-	height: 40px;
+	gap: 0.97vw;
+	width: 8.47vw;
+	height: 2.78vw;
 	align-items: center;
 	justify-content: center;
+}
+
+/* ——— МЕДИА ——— */
+
+@media (max-width: 53.3vw) {
+	.topBlock {
+		height: auto;
+		min-height: 100vw;
+		padding-bottom: 10vw;
+	}
+
+	.pageTitle {
+		font-size: 6vw;
+	}
+
+	.drone {
+		width: 80vw;
+		position: relative;
+		top: auto;
+		left: auto;
+		transform: none;
+		margin: 8vw auto 0;
+	}
+
+	.oval {
+		height: 40vw;
+	}
+
+	.footer {
+		display: none;
+	}
+
+	.footerText {
+		font-size: 3.5vw;
+	}
+
+	.topText {
+		font-size: 6vw;
+	}
+
+	.middleText {
+		font-size: 3.5vw;
+	}
+
+	.droneCard {
+		width: 80vw;
+		height: 80vw;
+	}
+
+	.droneImage {
+		width: 50vw;
+	}
+
+	.mainTitle {
+		font-size: 6vw;
+	}
+
+	.subTitle {
+		font-size: 3vw;
+	}
+
+	.fromText {
+		font-size: 3vw;
+	}
+
+	.bottomDiv {
+		height: 40vw;
+	}
+
+	.droneCardCatalog {
+		width: 80vw;
+	}
+
+	.droneTitle {
+		font-size: 4vw;
+	}
+
+	.withoutDiscount,
+	.priceText,
+	.discount {
+		font-size: 3.5vw;
+	}
+
+	.button,
+	.readMore {
+		width: 40vw;
+		height: 10vw;
+	}
+
+	.readMoreWhite {
+		width: 22vw;
+		height: 8vw;
+	}
+
+	.buttonText,
+	.readMoreText,
+	.readMoreTextWhite {
+		font-size: 3vw;
+	}
 }
